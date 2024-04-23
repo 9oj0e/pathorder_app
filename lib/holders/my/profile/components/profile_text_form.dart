@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/holders/my/profile/components/profile_text_form_field.dart';
+import 'package:pathorder_app/holders/my/profile/components/profile_text_form_field_phone.dart';
 
-import 'package:pathorder_app/holders/profile/components/profile_text_form_field.dart';
-import 'package:pathorder_app/holders/profile/components/profile_text_form_field_phone.dart';
 
 class ProfileTextForm extends StatelessWidget {
   final _formKey = GlobalKey<FormState>(); // 1. 글로벌 key

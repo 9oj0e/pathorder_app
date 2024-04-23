@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/holders/profile/profile_page.dart';
+
+import '../profile/profile_page.dart';
 
 class MyPageHeader extends StatelessWidget {
   const MyPageHeader({super.key});
