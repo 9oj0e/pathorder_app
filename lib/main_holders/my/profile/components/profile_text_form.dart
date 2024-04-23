@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/holders/my/profile/components/profile_text_form_field.dart';
-import 'package:pathorder_app/holders/my/profile/components/profile_text_form_field_phone.dart';
+import 'package:pathorder_app/main_holders/my/profile/components/profile_text_form_field.dart';
+import 'package:pathorder_app/main_holders/my/profile/components/profile_text_form_field_phone.dart';
+
 
 
 class ProfileTextForm extends StatelessWidget {
