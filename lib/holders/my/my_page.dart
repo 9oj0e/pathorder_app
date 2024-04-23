@@ -24,15 +24,9 @@ class MyPage extends StatelessWidget {
         children: [
           MyPageHeader(),
           SizedBox(height: 8.0),
-          MyPageBody(
-            iconMenuList: iconMenu1,
-            mainTitle: '마이 페이지',
-          ),
+          MyPageBody(iconMenuList: iconMenu1, mainTitle: '마이 페이지'),
           SizedBox(height: 8.0),
-          MyPageBody(
-            iconMenuList: iconMenu2,
-            mainTitle: '기타',
-          ),
+          MyPageBody(iconMenuList: iconMenu2, mainTitle: '기타'),
         ],
       ),
     );
