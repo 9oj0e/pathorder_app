@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'holders/main_holder.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -17,7 +19,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'pass_order',
       debugShowCheckedModeBanner: false,
-      // home: MainHolder(),
+      home: MainHolder(),
       // theme: theme(),
     );
   }
