@@ -38,18 +38,29 @@ class CardPageBody extends StatelessWidget {
               '따라서, 카드 정보가 구체적으로 나타나지 않는 점 양해 부탁드립니다.',
               style: TextStyle(fontSize: 10, color: Colors.grey),
             ),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text('카드 추가'),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateColor.resolveWith((states) {
-                  if (states.contains(MaterialState.pressed)) {
-                    // 버튼이 눌렸을 때의 색상
-                    return Colors.orangeAccent;
-                  }
-                  // 버튼이 눌리지 않았을 때의 색상
-                  return Color(0xFFFF7414);
-                }),
+            Spacer(),
+            // 카드 추가 버튼
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Text('카드 추가', style: TextStyle(color: Colors.white)),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateColor.resolveWith((states) {
+                    if (states.contains(MaterialState.pressed)) {
+                      // 버튼이 눌렸을 때의 색상
+                      return Colors.orangeAccent;
+                    }
+                    // 버튼이 눌리지 않았을 때의 색상
+                    return Color(0xFFFF7414);
+                  }),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.circular(10.0), // 버튼의 BorderRadius
+                    ),
+                  ),
+                ),
               ),
             )
           ],
