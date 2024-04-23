@@ -31,20 +31,38 @@ class _SearchTextFieldExampleState extends State<SearchTextFieldExample> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       backgroundColor: Colors.white,
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(text),
-            SearchTextField(
-              fieldValue: (String value) {
-                setState(() {
-                  text = value;
-                });
-              },
+      child: Stack(
+        children: [
+          Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(text),
+                SearchTextField(
+                  fieldValue: (String value) {
+                    setState(() {
+                      text = value;
+                    });
+                  },
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+          Positioned(
+              right: 0,
+              top: 15,
+              bottom: 0,
+              child: IconButton(
+                icon: Icon(Icons.keyboard_arrow_down),
+                color: Colors.grey,
+                onPressed: () {
+                  // TODO: 나의 위치
+                },
+              )
+          )
+        ],
+
+
       ),
     );
   }
@@ -62,11 +80,9 @@ class SearchTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoSearchTextField(
       onChanged: (String value) {
-        fieldValue('The text has changed to: $value');
         print('The text has changed to: $value');
       },
       onSubmitted: (String value) {
-        fieldValue('Submitted text: $value');
         print('Submitted text: $value');
       },
     );

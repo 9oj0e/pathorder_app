@@ -24,7 +24,7 @@ class NearbyMe extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
               width: 0.3,
-              color: Colors.grey,
+              color: Colors.white,
             ),
           ),
           width: 163,
