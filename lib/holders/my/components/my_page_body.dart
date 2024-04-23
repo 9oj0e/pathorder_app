@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../models/icon_menu.dart';
+import '../card/card_page.dart';
 
 class MyPageBody extends StatelessWidget {
   final List<IconMenu> iconMenuList;
@@ -33,6 +34,9 @@ class MyPageBody extends StatelessWidget {
                 (index) => _buildRowIconItem(
                   iconMenuList[index].title,
                   iconMenuList[index].iconData,
+                  index,
+                  mainTitle,
+                  context,
                 ),
               ),
             ),
@@ -42,11 +46,30 @@ class MyPageBody extends StatelessWidget {
     );
   }
 
-  Widget _buildRowIconItem(String title, IconData iconData) {
+  Widget _buildRowIconItem(String title, IconData iconData, int index,
+      String mainTitle, BuildContext context) {
     return Container(
       height: 50,
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          if (mainTitle == '마이 페이지') {
+            if (index == 0) {
+              print('내 리뷰 페이지 이동');
+            }
+            if (index == 1) {
+              print('내 포인트 페이지 이동');
+            }
+            if (index == 2) {
+              print('내 카드 페이지 이동');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CardPage(),
+                ),
+              );
+            }
+          }
+        },
         child: Row(
           children: [
             Icon(iconData, size: 17),
