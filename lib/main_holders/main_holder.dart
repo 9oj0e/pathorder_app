@@ -30,6 +30,7 @@ class _MainHolderState extends State<MainHolder> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
+        selectedItemColor: Colors.deepOrangeAccent,
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
