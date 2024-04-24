@@ -7,14 +7,9 @@ import 'menu_name_price.dart';
 import 'menu_option_category.dart';
 import 'menu_option_select.dart';
 
-class MenuOption extends StatefulWidget {
+class MenuOption extends StatelessWidget {
   const MenuOption({super.key});
 
-  @override
-  State<MenuOption> createState() => _MenuOptionState();
-}
-
-class _MenuOptionState extends State<MenuOption> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
