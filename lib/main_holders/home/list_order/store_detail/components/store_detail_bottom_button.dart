@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/menu_holders/menu_holder.dart';
 
 class StoreDetailBottomButton extends StatelessWidget {
   const StoreDetailBottomButton({
@@ -18,7 +19,12 @@ class StoreDetailBottomButton extends StatelessWidget {
           height: 80,
           child: ElevatedButton(
             onPressed: () {
-              // TODO: 주문하기 구현
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MenuHolder(),
+                ),
+              );
             },
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(
