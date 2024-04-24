@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'components/menu_option.dart';
+import 'components/menu_option_main.dart';
 
 class MenuOptionPage extends StatelessWidget {
   const MenuOptionPage({super.key});
@@ -8,7 +8,7 @@ class MenuOptionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: MenuOption(),
+      body: MenuOptionMain(),
     );
   }
 }

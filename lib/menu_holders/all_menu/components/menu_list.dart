@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/menu_holders/menu_option/components/menu_option.dart';
+import 'package:pathorder_app/menu_holders/menu_option/components/menu_option_main.dart';
 
 class MenuList extends StatelessWidget {
   final menuNameKor;
@@ -60,7 +60,7 @@ class MenuList extends StatelessWidget {
         print("메뉴");
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => MenuOption()),
+          MaterialPageRoute(builder: (context) => MenuOptionMain()),
         );
       },
     );
