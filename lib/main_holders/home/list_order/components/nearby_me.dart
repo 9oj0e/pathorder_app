@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/menu_holders/all_menu/all_menu_page.dart';
 import 'package:pathorder_app/menu_holders/menu_holder.dart';
 
 class NearbyMe extends StatelessWidget {
