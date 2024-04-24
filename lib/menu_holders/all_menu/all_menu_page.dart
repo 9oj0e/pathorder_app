@@ -17,7 +17,7 @@ class AllMenuPage extends StatelessWidget {
             preferredSize: Size.fromHeight(30.0), // 아래쪽 위젯의 선호 높이를 지정
             child: Container(alignment: Alignment.center, child: SearchMenu())),
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Column(
           children: [
             MenuList(
