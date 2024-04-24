@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/menu_holders/menu_option/components/menu_option.dart';
+
+import '../menu_option/components/menu_option.dart';
 
 class MenuList extends StatelessWidget {
   final menuNameKor;
@@ -7,7 +8,11 @@ class MenuList extends StatelessWidget {
   final price;
   final imgUrl;
 
-  const MenuList({required this.menuNameKor, required this.menuNameEng, required this.price, required this.imgUrl});
+  const MenuList(
+      {required this.menuNameKor,
+      required this.menuNameEng,
+      required this.price,
+      required this.imgUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +30,8 @@ class MenuList extends StatelessWidget {
                   children: [
                     Text(
                       menuNameKor,
-                      style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 5),
                     Text(
@@ -35,7 +41,8 @@ class MenuList extends StatelessWidget {
                     SizedBox(height: 8),
                     Text(
                       "${price}원",
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                     ),
                   ],
                 ),

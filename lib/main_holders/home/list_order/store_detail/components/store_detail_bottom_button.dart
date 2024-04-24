@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/menu_holders/menu_holder.dart';
+import 'package:pathorder_app/main_holders/home/all_menu/all_menu_page.dart';
 
 class StoreDetailBottomButton extends StatelessWidget {
   const StoreDetailBottomButton({
@@ -22,7 +22,7 @@ class StoreDetailBottomButton extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => MenuHolder(),
+                  builder: (context) => AllMenuPage(),
                 ),
               );
             },
