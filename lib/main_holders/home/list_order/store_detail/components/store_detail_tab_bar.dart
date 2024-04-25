@@ -7,13 +7,11 @@ class StoreDetailTabBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: TabBar(
-        tabs: [
-          Tab(text: '정보'),
-          Tab(text: '리뷰'),
-        ],
-      ),
+    return TabBar(
+      tabs: [
+        Tab(text: '정보'),
+        Tab(text: '리뷰'),
+      ],
     );
   }
 }
