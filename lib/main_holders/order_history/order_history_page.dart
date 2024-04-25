@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'components/order_date_select.dart';
 
 void main() {
@@ -131,25 +132,22 @@ class OrderHistoryPage extends StatelessWidget {
                   children: [
                     Text(
                       '28일 20:15 가져갈게요',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey
-                      ),
+                      style: TextStyle(fontSize: 14, color: Colors.grey),
                     ),
-                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Row(
                       children: [
                         Text(
                           "하이오커피 서면점",
                           style: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold
-                          ),
+                              fontSize: 22, fontWeight: FontWeight.bold),
                         ),
-                        SizedBox(width: 5,),
-                        Icon(
-                          CupertinoIcons.right_chevron
-                        )
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Icon(CupertinoIcons.right_chevron)
                       ],
                     ),
                     Divider(
@@ -158,28 +156,76 @@ class OrderHistoryPage extends StatelessWidget {
                       height: 30,
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
                           "메뉴",
                           style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.deepOrangeAccent
+                              fontSize: 17, color: Colors.deepOrangeAccent),
+                        ),
+                        SizedBox(
+                          width: 55,
+                        ),
+                        Expanded(
+                          child: Text(
+                            "블루베리라떼",
+                            style: TextStyle(
+                                fontSize: 19, fontWeight: FontWeight.bold),
                           ),
                         ),
-                        Text(
-                            "아메리카노",
-                          style: TextStyle(
-                              fontSize: 16
-                          ),
-                        ),
-                        Text(
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Text(
                             "더보기",
-                          style: TextStyle(
-                            fontSize: 16
-                        ),
+                            style: TextStyle(color: Colors.grey),
+                          ),
                         ),
                       ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          "결제 금액",
+                          style: TextStyle(
+                              fontSize: 17, color: Colors.deepOrangeAccent),
+                        ),
+                        SizedBox(
+                          width: 18.8,
+                        ),
+                        Text(
+                          "3,500원 |",
+                          style: TextStyle(
+                              fontSize: 19, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          " 카카오페이 결제",
+                          style: TextStyle(fontSize: 13),
+                        ),
+                      ],
+                    ),
+                    Divider(
+                      thickness: 2.5, // 두께 조절
+                      color: Colors.grey[200], // 색상 조절
+                      height: 30,
+                    ),
+                    Container(
+                      width: double.infinity,
+                      height: 55,
+                      decoration: BoxDecoration(
+                          color: Colors.deepOrangeAccent,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Center(
+                          child: Text(
+                        "주문내역 보기",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 23),
+                      )),
                     )
                   ],
                 ),
