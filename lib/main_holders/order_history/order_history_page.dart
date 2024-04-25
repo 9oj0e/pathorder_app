@@ -1,9 +1,12 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-
+import 'package:flutter/material.dart';
 import 'components/order_date_select.dart';
 
-
+void main() {
+  runApp(const MaterialApp(
+    home: OrderHistoryPage(),
+  ));
+}
 
 class OrderHistoryPage extends StatelessWidget {
   const OrderHistoryPage({Key? key}) : super(key: key);
@@ -11,7 +14,7 @@ class OrderHistoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xD7EAEAEA),
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Center(
@@ -29,24 +32,161 @@ class OrderHistoryPage extends StatelessWidget {
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "주문내역",
-              style: TextStyle(
-                fontSize: 35,
-                fontWeight: FontWeight.bold,
+      body: Column(
+        children: [
+          Container(
+            color: Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "주문내역",
+                    style: TextStyle(
+                      fontSize: 50,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  OrderDateSelect(), // 날짜 선택
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "적립 포인트",
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Stack(
+                    children: [
+                      Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border:
+                              Border.all(color: Color(0xD7EAEAEA), width: 40),
+                        ),
+                      ),
+                      Positioned(
+                        child: Padding(
+                          padding: const EdgeInsets.all(25.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                '큐티와이님의 포인트',
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.w500),
+                              ),
+                              Stack(children: [
+                                Container(
+                                  height: 30,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(15),
+                                    border: Border.all(
+                                        width: 73,
+                                        color: Colors.deepOrangeAccent),
+                                  ),
+                                ),
+                                Positioned.fill(
+                                  child: Center(
+                                    child: Text(
+                                      "1000P 사용 가능",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 16),
+                                    ),
+                                  ),
+                                )
+                              ])
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 2),
-              child: CupertinoPickerExample(),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Container(
+              height: 300,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(25.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '28일 20:15 가져갈게요',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.grey
+                      ),
+                    ),
+                    SizedBox(height: 10,),
+                    Row(
+                      children: [
+                        Text(
+                          "하이오커피 서면점",
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold
+                          ),
+                        ),
+                        SizedBox(width: 5,),
+                        Icon(
+                          CupertinoIcons.right_chevron
+                        )
+                      ],
+                    ),
+                    Divider(
+                      thickness: 2.5, // 두께 조절
+                      color: Colors.grey[200], // 색상 조절
+                      height: 30,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "메뉴",
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.deepOrangeAccent
+                          ),
+                        ),
+                        Text(
+                            "아메리카노",
+                          style: TextStyle(
+                              fontSize: 16
+                          ),
+                        ),
+                        Text(
+                            "더보기",
+                          style: TextStyle(
+                            fontSize: 16
+                        ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
             ),
-          ],
-        ),
+          )
+        ],
       ),
     );
   }
