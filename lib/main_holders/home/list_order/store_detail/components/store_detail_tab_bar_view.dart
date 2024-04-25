@@ -99,7 +99,7 @@ class StoreDetailTabBarView extends StatelessWidget {
             ),
             Container(
               child: Center(
-                child: Text('후기'),
+                child: Text('리뷰'),
               ),
             ),
           ],

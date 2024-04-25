@@ -13,7 +13,7 @@ class StoreDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     return DefaultTabController(
-      length: 3, // TabBar에 표시할 탭 수
+      length: 2, // TabBar에 표시할 탭 수
       child: Scaffold(
         body: Stack(
           children: [

@@ -121,6 +121,7 @@ class MenuOptionPage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
+        // TODO : components
         height: 90,
         color: Colors.white,
         child: Container(
