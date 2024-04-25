@@ -10,9 +10,8 @@ class StoreDetailTabBar extends StatelessWidget {
     return SliverToBoxAdapter(
       child: TabBar(
         tabs: [
-          Tab(text: '메뉴'),
-          Tab(text: '후기'),
-          Tab(text: '매장 정보'),
+          Tab(text: '정보'),
+          Tab(text: '리뷰'),
         ],
       ),
     );

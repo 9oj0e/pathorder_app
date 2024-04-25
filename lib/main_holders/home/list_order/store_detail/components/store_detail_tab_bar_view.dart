@@ -13,16 +13,6 @@ class StoreDetailTabBarView extends StatelessWidget {
         child: TabBarView(
           children: [
             Container(
-              child: Center(
-                child: Text('메뉴 정보'),
-              ),
-            ),
-            Container(
-              child: Center(
-                child: Text('후기'),
-              ),
-            ),
-            Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -105,6 +95,11 @@ class StoreDetailTabBarView extends StatelessWidget {
                   ),
                   // TODO: 지도 적용해야함
                 ],
+              ),
+            ),
+            Container(
+              child: Center(
+                child: Text('후기'),
               ),
             ),
           ],
