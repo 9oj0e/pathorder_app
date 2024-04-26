@@ -8,11 +8,7 @@ class MenuList extends StatelessWidget {
   final price;
   final imgUrl;
 
-  const MenuList(
-      {required this.menuNameKor,
-      required this.menuNameEng,
-      required this.price,
-      required this.imgUrl});
+  const MenuList({required this.menuNameKor, required this.menuNameEng, required this.price, required this.imgUrl});
 
   @override
   Widget build(BuildContext context) {

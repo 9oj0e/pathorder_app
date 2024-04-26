@@ -11,6 +11,7 @@ class ListOrderPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: CustomScrollView(
         slivers: [
           BannerIcons(),
@@ -21,8 +22,6 @@ class ListOrderPage extends StatelessWidget {
       ),
     );
   }
-
-
 }
 
 
