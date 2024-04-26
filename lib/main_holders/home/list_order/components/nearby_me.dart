@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/menu_holders/menu_holder.dart';
+import 'package:pathorder_app/main_holders/home/list_order/store_detail/store_detail_page.dart';
 
 class NearbyMe extends StatelessWidget {
   final String cafeName;
@@ -91,7 +91,7 @@ class NearbyMe extends StatelessWidget {
         print("클릭");
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => MenuHolder()),
+          MaterialPageRoute(builder: (context) => StoreDetailPage()),
         );
       },
     );

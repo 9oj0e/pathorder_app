@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/holders/home/list_order/near_me_store/near_me_store_page.dart';
+
+import '../near_me_store/near_me_store_page.dart';
 
 class NearbyText extends StatelessWidget {
   const NearbyText({

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/main_holders/home/all_menu/payment_/payment_page.dart';
 
 import 'components/menu_list.dart';
 import 'components/search_menu.dart';
@@ -90,12 +91,17 @@ class AllMenuPage extends StatelessWidget {
             splashColor: Colors.black,
             borderRadius: BorderRadius.circular(10.0),
             onTap: () {
-              // TODO: 주문하기 버튼을 눌렀을 때 수행할 작업
-              print('주문하기 버튼이 눌렸습니다.');
+              // TODO: 장바구니 보기 버튼을 눌렀을 때 수행할 작업
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PaymentPage(),
+                ),
+              );
             },
             child: Center(
               child: Text(
-                "주문하기",
+                "장바구니 보기",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,

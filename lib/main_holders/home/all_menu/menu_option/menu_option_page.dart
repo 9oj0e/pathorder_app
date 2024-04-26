@@ -1,14 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
-import 'counting_button.dart';
-import 'menu_name_price.dart';
-import 'menu_option_category.dart';
-import 'menu_option_select.dart';
+import 'components/counting_button.dart';
+import 'components/menu_name_price.dart';
+import 'components/menu_option_category.dart';
+import 'components/menu_option_select.dart';
 
-class MenuOptionMain extends StatelessWidget {
-  const MenuOptionMain({super.key});
+class MenuOptionPage extends StatelessWidget {
+  const MenuOptionPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +37,10 @@ class MenuOptionMain extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        MenuNamePrice(menuName: "더치 아메리카노", price: "1500원",),
+                        MenuNamePrice(
+                          menuName: "더치 아메리카노",
+                          price: "1500원",
+                        ),
                         SizedBox(height: 15),
                         CountingButton(), // 수량 버튼
                         SizedBox(height: 15),
@@ -51,8 +52,14 @@ class MenuOptionMain extends StatelessWidget {
                               children: [
                                 MenuOptionCategory(optionCategory: "필수옵션"),
                                 SizedBox(height: 13),
-                                MenuOptionSelect(optionName: "HOT", price: "0원",),
-                                MenuOptionSelect(optionName: "ICE", price: "0원",),
+                                MenuOptionSelect(
+                                  optionName: "HOT",
+                                  price: "0원",
+                                ),
+                                MenuOptionSelect(
+                                  optionName: "ICE",
+                                  price: "0원",
+                                ),
                               ],
                             ),
                           ),
@@ -70,7 +77,9 @@ class MenuOptionMain extends StatelessWidget {
                               children: [
                                 MenuOptionCategory(optionCategory: "선택옵션"),
                                 SizedBox(height: 13),
-                                MenuOptionSelect(optionName: "디카페인 변경", price: "+500원",
+                                MenuOptionSelect(
+                                  optionName: "디카페인 변경",
+                                  price: "+500원",
                                 ),
                               ],
                             ),
@@ -89,8 +98,10 @@ class MenuOptionMain extends StatelessWidget {
                               children: [
                                 MenuOptionCategory(optionCategory: "추가옵션"),
                                 SizedBox(height: 13),
-                                MenuOptionSelect(optionName: "1샷 추가", price: "+500원"),
-                                MenuOptionSelect(optionName: "2샷 추가", price: "+1000원"),
+                                MenuOptionSelect(
+                                    optionName: "1샷 추가", price: "+500원"),
+                                MenuOptionSelect(
+                                    optionName: "2샷 추가", price: "+1000원"),
                               ],
                             ),
                           ),
@@ -110,6 +121,7 @@ class MenuOptionMain extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
+        // TODO : components
         height: 90,
         color: Colors.white,
         child: Container(
@@ -121,7 +133,8 @@ class MenuOptionMain extends StatelessWidget {
             splashColor: Colors.black,
             borderRadius: BorderRadius.circular(10.0),
             onTap: () {
-              // TODO: 주문하기 버튼을 눌렀을 때 수행할 작업
+              Navigator.pop(context);
+              // TODO: 담기버튼 눌리면 장바구니에 담겨야함
               print('담기 버튼이 눌렸습니다.');
             },
             child: Center(

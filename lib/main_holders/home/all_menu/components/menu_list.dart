@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/menu_holders/menu_option/components/menu_option_main.dart';
+import 'package:pathorder_app/main_holders/home/all_menu/menu_option/menu_option_page.dart';
+
 
 class MenuList extends StatelessWidget {
   final menuNameKor;
@@ -25,7 +26,8 @@ class MenuList extends StatelessWidget {
                   children: [
                     Text(
                       menuNameKor,
-                      style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 5),
                     Text(
@@ -35,7 +37,8 @@ class MenuList extends StatelessWidget {
                     SizedBox(height: 8),
                     Text(
                       "${price}원",
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                     ),
                   ],
                 ),
@@ -60,7 +63,7 @@ class MenuList extends StatelessWidget {
         print("메뉴");
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => MenuOptionMain()),
+          MaterialPageRoute(builder: (context) => MenuOptionPage()),
         );
       },
     );
