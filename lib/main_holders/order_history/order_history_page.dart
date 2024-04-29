@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'components/order_date_select.dart';
+import 'order_detail/order_detail_page.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -175,9 +176,19 @@ class OrderHistoryPage extends StatelessWidget {
                         ),
                         Align(
                           alignment: Alignment.centerRight,
-                          child: Text(
-                            "더보기",
-                            style: TextStyle(color: Colors.grey),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => OrderDetailPage(),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              "더보기",
+                              style: TextStyle(color: Colors.grey),
+                            ),
                           ),
                         ),
                       ],
