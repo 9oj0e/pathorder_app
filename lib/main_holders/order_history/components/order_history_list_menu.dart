@@ -2,9 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class OrderHistoryListMenu extends StatelessWidget {
-  const OrderHistoryListMenu({
-    super.key,
-  });
+
+  final orderMenu;
+
+  const OrderHistoryListMenu({required this.orderMenu});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class OrderHistoryListMenu extends StatelessWidget {
         ),
         Expanded(
           child: Text(
-            "블루베리라떼",
+            orderMenu,
             style: TextStyle(
                 fontSize: 19, fontWeight: FontWeight.bold),
           ),

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
-class OderHistoryHeader extends StatelessWidget {
-  const OderHistoryHeader({
+class OrderHistoryHeader extends StatelessWidget {
+  const OrderHistoryHeader({
     super.key,
   });
 

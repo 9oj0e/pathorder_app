@@ -9,14 +9,25 @@ import 'order_history_list_menu.dart';
 import 'order_history_list_pay.dart';
 
 class OrderHistoryList extends StatelessWidget {
+  final datetime;
+  final cafeName;
+  final orderMenu;
+  final price;
+  final paymentMethod;
+
   const OrderHistoryList({
-    super.key,
+
+    required this.datetime,
+    required this.cafeName,
+    required this.orderMenu,
+    required this.price,
+    required this.paymentMethod,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: EdgeInsets.all(20.0),
       child: Container(
         height: 300,
         width: double.infinity,
@@ -24,22 +35,20 @@ class OrderHistoryList extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           color: Colors.white,
         ),
-        child: const Padding(
+        child: Padding(
           padding: EdgeInsets.all(25.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              OrderHistoryListDate(),
-
+              OrderHistoryListDate(datetime: datetime),
               SizedBox(height: 10,),
-
-              OderHistoryListCafe(),
+              OderHistoryListCafe(cafeName: cafeName),
               OrderHistoryListDivider(),
-              OrderHistoryListMenu(),
+              OrderHistoryListMenu(orderMenu: orderMenu),
               SizedBox(height: 10,),
-              OrderHistoryListPay(),
+              OrderHistoryListPay(price: price, paymentMethod: paymentMethod),
               OrderHistoryListDivider(),
-              OrderHistoryListButton()
+              OrderHistoryListButton(),
             ],
           ),
         ),

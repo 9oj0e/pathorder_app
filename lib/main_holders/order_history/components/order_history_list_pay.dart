@@ -2,9 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class OrderHistoryListPay extends StatelessWidget {
-  const OrderHistoryListPay({
-    super.key,
-  });
+  final price;
+  final paymentMethod;
+
+  const OrderHistoryListPay({required this.price, required this.paymentMethod});
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +21,17 @@ class OrderHistoryListPay extends StatelessWidget {
           width: 18.8,
         ),
         Text(
-          "3,500원 |",
+          "${price}원",
           style: TextStyle(
               fontSize: 19, fontWeight: FontWeight.bold),
         ),
         Text(
-          " 카카오페이 결제",
+          " | ",
+          style: TextStyle(
+              fontSize: 19, fontWeight: FontWeight.bold),
+        ),
+        Text(
+          "${paymentMethod} 결제",
           style: TextStyle(fontSize: 13),
         ),
       ],
