@@ -10,26 +10,28 @@ class OrderDetailInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        SizedBox(height: 10),
         DataTable(
           dividerThickness: 0.0,
+          headingRowHeight: 40,
           columns: [
             DataColumn(
               label: Text(
                 '메뉴명',
-                style: TextStyle(color: Colors.deepOrangeAccent),
+                style: TextStyle(fontSize: 16, color: Colors.deepOrangeAccent),
               ),
             ),
             DataColumn(
               label: Text(
                 '수량',
-                style: TextStyle(color: Colors.deepOrangeAccent),
+                style: TextStyle(fontSize: 16, color: Colors.deepOrangeAccent),
               ),
               numeric: true,
             ),
             DataColumn(
               label: Text(
                 '금액',
-                style: TextStyle(color: Colors.deepOrangeAccent),
+                style: TextStyle(fontSize: 16, color: Colors.deepOrangeAccent),
               ),
               numeric: true,
             ),

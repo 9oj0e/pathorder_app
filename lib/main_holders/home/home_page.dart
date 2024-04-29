@@ -34,9 +34,7 @@ class HomePage extends StatelessWidget {
             Center(
               child: ListOrderPage(),
             ),
-            Center(
-              child: MapOrderPage(),
-            ),
+            MapOrderPage(),
           ],
         ),
       ),
