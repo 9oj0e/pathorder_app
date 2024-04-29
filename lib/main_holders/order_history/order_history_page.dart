@@ -43,6 +43,7 @@ class OrderHistoryPage extends StatelessWidget {
           OrderHistoryList(datetime: "27일 20:15", cafeName: "카페 이떼 서면점", orderMenu: "아샷추, 아메리카노", price: 7000, paymentMethod: "네이버페이",), // 주문내역 리스트
           OrderHistoryList(datetime: "10일 15:03", cafeName: "오리진 커피 서면점", orderMenu: "초코쿠키, 아메리카노", price: 5500, paymentMethod: "패스머니",), // 주문내역 리스트
           OrderHistoryList(datetime: "03일 18:57", cafeName: "컴포즈 서면점", orderMenu: "감자빵, 아메리카노", price: 6800, paymentMethod: "토스머니",), // 주문내역 리스트
+          OrderHistoryList(datetime: "03일 18:57", cafeName: "메가커피 서면점", orderMenu: "아메리카노", price: 2000, paymentMethod: "토스머니",), // 주문내역 리스트
           // OrderHistoryList()
         ],
       ),
