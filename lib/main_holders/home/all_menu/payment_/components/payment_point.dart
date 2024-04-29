@@ -22,13 +22,30 @@ class PaymentPoint extends StatelessWidget {
             ),
             Row(
               children: [
-                Text('보유 포인트'),
+                Text(
+                  '보유 포인트 0',
+                  style: TextStyle(fontSize: 12),
+                ),
                 Spacer(),
-                ElevatedButton(
-                  style: ,
-                  onPressed: () {},
-                  child: Text('모두 사용'),
-                )
+                Container(
+                  width: 80,
+                  height: 30,
+                  decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      borderRadius: BorderRadius.circular(5),
+                      border: Border.all(
+                        color: Colors.transparent,
+                      )),
+                  child: InkWell(
+                    onTap: () {},
+                    child: Center(
+                        child: Text(
+                      '모두 사용',
+                      style:
+                          TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
+                    )),
+                  ),
+                ),
               ],
             ),
             // Text(
