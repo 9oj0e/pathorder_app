@@ -24,8 +24,7 @@ class OrderHistoryPoint extends StatelessWidget {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  border:
-                  Border.all(color: Color(0xD7EAEAEA), width: 40),
+                  border: Border.all(color: Color(0xD7EAEAEA), width: 40),
                 ),
               ),
               Positioned(
@@ -39,15 +38,13 @@ class OrderHistoryPoint extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.w500),
                       ),
-                      SizedBox(width: 20,),
                       Stack(children: [
                         Container(
                           height: 30,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
                             border: Border.all(
-                                width: 73,
-                                color: Colors.deepOrangeAccent),
+                                width: 73, color: Colors.deepOrangeAccent),
                           ),
                         ),
                         Positioned.fill(
@@ -70,7 +67,6 @@ class OrderHistoryPoint extends StatelessWidget {
           ),
         ],
       ),
-
     );
   }
 }
