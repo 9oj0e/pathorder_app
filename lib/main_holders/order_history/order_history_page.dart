@@ -39,7 +39,7 @@ class OrderHistoryPage extends StatelessWidget {
               ),
             ),
           ),
-          OrderHistoryList()
+          OrderHistoryList() // 주문내역 리스트
         ],
       ),
     );

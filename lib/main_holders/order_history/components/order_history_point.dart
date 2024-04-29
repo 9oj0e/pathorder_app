@@ -39,6 +39,7 @@ class OrderHistoryPoint extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.w500),
                       ),
+                      SizedBox(width: 20,),
                       Stack(children: [
                         Container(
                           height: 30,
