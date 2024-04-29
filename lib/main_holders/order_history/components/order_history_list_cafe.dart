@@ -1,16 +1,18 @@
 import 'package:flutter/cupertino.dart';
 
 class OderHistoryListCafe extends StatelessWidget {
-  const OderHistoryListCafe({
-    super.key,
-  });
+
+  final cafeName;
+
+  const OderHistoryListCafe({required this.cafeName});
+
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Text(
-          "하이오커피 서면점",
+          cafeName,
           style: TextStyle(
               fontSize: 22, fontWeight: FontWeight.bold),
         ),
