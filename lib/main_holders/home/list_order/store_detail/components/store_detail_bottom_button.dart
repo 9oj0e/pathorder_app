@@ -16,7 +16,7 @@ class StoreDetailBottomButton extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: SizedBox(
           width: double.infinity,
-          height: 80,
+          height: 70,
           child: ElevatedButton(
             onPressed: () {
               Navigator.push(
@@ -28,7 +28,7 @@ class StoreDetailBottomButton extends StatelessWidget {
             },
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(
-                  Color(0xFFFF7414)), // Adjust button color
+                  Colors.deepOrangeAccent), // Adjust button color
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
                   borderRadius:
@@ -38,7 +38,10 @@ class StoreDetailBottomButton extends StatelessWidget {
             ),
             child: Text(
               '주문하기',
-              style: TextStyle(fontSize: 25, color: Colors.white),
+              style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w700),
             ),
           ),
         ),

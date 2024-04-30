@@ -20,25 +20,26 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
     return DefaultTabController(
       length: 2, // TabBar에 표시할 탭 수
       child: Scaffold(
-          body: Stack(
-        children: [
-          NestedScrollView(
-            headerSliverBuilder: (context, _) {
-              return [
-                StoreDetailAppBar(screenHeight: screenHeight),
-                StoreDetailTitle(),
-              ];
-            },
-            body: Column(
-              children: [
-                StoreDetailTabBar(),
-                Expanded(child: StoreDetailTabBarView())
-              ],
+        body: Stack(
+          children: [
+            NestedScrollView(
+              headerSliverBuilder: (context, _) {
+                return [
+                  StoreDetailAppBar(screenHeight: screenHeight),
+                  StoreDetailTitle(),
+                ];
+              },
+              body: Column(
+                children: [
+                  StoreDetailTabBar(),
+                  Expanded(child: StoreDetailTabBarView())
+                ],
+              ),
             ),
-          ),
-          StoreDetailBottomButton(),
-        ],
-      )),
+            StoreDetailBottomButton(),
+          ],
+        ),
+      ),
     );
   }
 }
