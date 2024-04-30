@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'components/my_login_main_pop_button.dart';
 import 'components/my_login_main_buttons.dart';
-import 'components/my_login_main_header.dart';
+import 'components/my_login_main_pop_button.dart';
 
 class MyLoginPage extends StatelessWidget {
   const MyLoginPage({Key? key});
@@ -36,9 +34,3 @@ class MyLoginPage extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-

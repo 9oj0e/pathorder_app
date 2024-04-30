@@ -17,7 +17,7 @@ class MyPage extends StatelessWidget {
         backgroundColor: Colors.white,
         title: Text(
           '아임패써',
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
         ),
       ),
       body: ListView(
