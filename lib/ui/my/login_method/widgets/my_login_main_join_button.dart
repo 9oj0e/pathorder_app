@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../auth/join/join_page.dart';
+import '../../../login/join/join_page.dart';
 
 class MyLoginMainJoinButton extends StatelessWidget {
   const MyLoginMainJoinButton({

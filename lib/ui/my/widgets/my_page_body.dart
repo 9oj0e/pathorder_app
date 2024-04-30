@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/ui/my/login_method/login_method_page.dart';
 
 import '../../../models/icon_menu.dart';
 import '../card/card_page.dart';
-import '../login/my_login_page.dart';
 
 class MyPageBody extends StatelessWidget {
   final List<IconMenu> iconMenuList;
@@ -69,13 +69,13 @@ class MyPageBody extends StatelessWidget {
                 ),
               );
             }
-          } else if(mainTitle == '기타'){
-            if(index == 4){
+          } else if (mainTitle == '기타') {
+            if (index == 4) {
               print('로그아웃');
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => MyLoginPage(),
+                  builder: (context) => LoginMethodPage(),
                 ),
               );
             }

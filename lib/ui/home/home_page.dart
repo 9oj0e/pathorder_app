@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/ui/home/store_list/list_order_page.dart';
 
-import 'list_order/list_order_page.dart';
-import 'map_order/map_order_page.dart';
+import 'map_list/map_order_page.dart';
 import 'widgets/search.dart';
 
 class HomePage extends StatelessWidget {

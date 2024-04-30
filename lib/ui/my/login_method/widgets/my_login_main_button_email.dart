@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../auth/login/login_page.dart';
+import '../../../login/login_page.dart';
 
 class MyLoginMainButtonEmail extends StatelessWidget {
   const MyLoginMainButtonEmail({

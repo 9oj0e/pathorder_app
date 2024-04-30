@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/ui/home/list_order/store_detail/all_menu/payment/payment_page.dart';
+import 'package:pathorder_app/ui/home/store_list/store_detail/all_menu/payment/payment_page.dart';
 
 import 'widgets/menu_list.dart';
 import 'widgets/search_menu.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/ui/home/list_order/near_me_store/widgets/near_me_store_body.dart';
+import 'package:pathorder_app/ui/home/store_list/near_me_store/widgets/near_me_store_body.dart';
 
 import '../../../../models/near_me_store_menu.dart';
 import '../../../widgets/back_app_bar.dart';

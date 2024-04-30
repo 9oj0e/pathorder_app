@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'widgets/my_login_main_buttons.dart';
 import 'widgets/my_login_main_pop_button.dart';
 
-class MyLoginPage extends StatelessWidget {
-  const MyLoginPage({Key? key});
+class LoginMethodPage extends StatelessWidget {
+  const LoginMethodPage({Key? key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/ui/home/list_order/store_detail/all_menu/all_menu_page.dart';
+
+import '../all_menu/all_menu_page.dart';
 
 class StoreDetailBottomButton extends StatelessWidget {
   const StoreDetailBottomButton({
