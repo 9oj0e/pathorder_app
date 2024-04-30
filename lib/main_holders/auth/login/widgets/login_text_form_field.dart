@@ -24,8 +24,8 @@ class LoginTextFormField extends StatelessWidget {
               ? "Please enter some text"
               : null, // 1. 값이 없으면 Please enter some text 경고 화면 표시
           obscureText:
-              // 2. 해당 TextFormField가 비밀번호 입력 양식이면 **** 처리 해주기
-              '이메일' == "Password" ? true : false,
+          // 2. 해당 TextFormField가 비밀번호 입력 양식이면 **** 처리 해주기
+          text == '비밀번호',
           decoration: InputDecoration(
             hintText: "${hinttext}",
             hintStyle: TextStyle(color: Colors.grey),
