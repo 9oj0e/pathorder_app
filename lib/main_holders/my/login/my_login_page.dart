@@ -129,12 +129,17 @@ class MyLoginPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 55),
-                Text(
-                  "이메일로 회원가입하기",
-                  style: TextStyle(
-                    color: Colors.white, // 흰색 텍스트
-                    fontSize: 15,
+                InkWell(
+                  child: Text(
+                    "이메일로 회원가입하기",
+                    style: TextStyle(
+                      color: Colors.white, // 흰색 텍스트
+                      fontSize: 15,
+                    ),
                   ),
+                  onTap: () {
+
+                  },
                 ),
               ],
             ),
