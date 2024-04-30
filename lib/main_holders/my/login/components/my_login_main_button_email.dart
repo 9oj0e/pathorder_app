@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../auth/login/login_page.dart';
+
 class MyLoginMainButtonEmail extends StatelessWidget {
   const MyLoginMainButtonEmail({
     super.key,
@@ -12,10 +14,16 @@ class MyLoginMainButtonEmail extends StatelessWidget {
       width: 330,
       height: 68,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => LoginPage(),
+            ),
+          );
+        },
         style: ButtonStyle(
-          backgroundColor:
-          MaterialStateProperty.all<Color>(Colors.transparent),
+          backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
           minimumSize: MaterialStateProperty.all<Size>(Size(330, 68)),
           // 버튼의 최소 크기를 지정합니다.
           side: MaterialStateProperty.all<BorderSide>(
