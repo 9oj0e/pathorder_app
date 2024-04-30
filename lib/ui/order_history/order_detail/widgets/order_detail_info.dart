@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/ui/widgets/custom_dotted_line.dart';
 
 import '../../../../models/order_detail_menu.dart';
-import '../../../widgets/dotted_line.dart';
 
 class OrderDetailInfo extends StatelessWidget {
   const OrderDetailInfo({super.key});
@@ -75,7 +75,7 @@ class OrderDetailInfo extends StatelessWidget {
                 child: Center(
                   child: Container(
                     width: double.infinity,
-                    child: DottedLine(
+                    child: CustomDottedLine(
                       color: Colors.grey,
                     ),
                   ),

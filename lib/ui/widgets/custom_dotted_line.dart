@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class DottedLine extends StatelessWidget {
+class CustomDottedLine extends StatelessWidget {
   final double height;
   final Color color;
   final double strokeWidth;
   final double gap;
 
-  DottedLine({
+  CustomDottedLine({
     this.height = 1.0,
     this.color = Colors.black,
     this.strokeWidth = 1.0,

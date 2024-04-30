@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class BackAppBar extends StatelessWidget implements PreferredSizeWidget {
+class CustomBackAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
 
-  BackAppBar({required this.title});
+  CustomBackAppBar({required this.title});
 
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
