@@ -25,8 +25,8 @@ class LoginBody extends StatelessWidget {
                 child: Column(
                   children: [
                     LoginTextFormField(
-                      text: '이메일',
-                      hinttext: 'ex)ssar1234@nate.com',
+                      text: '아이디',
+                      hinttext: '아이디 입력',
                     ),
                     SizedBox(height: 15),
                     LoginTextFormField(

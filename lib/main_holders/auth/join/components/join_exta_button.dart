@@ -13,7 +13,7 @@ class JoinExtraButton extends StatelessWidget {
         TextButton(
           onPressed: () {},
           child: Text(
-            '이메일 찾기',
+            '아이디 찾기',
             style: TextStyle(fontSize: 12, color: Colors.grey[700]),
           ),
         ),
