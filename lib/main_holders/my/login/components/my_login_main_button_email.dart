@@ -32,10 +32,10 @@ class MyLoginMainButtonEmail extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(CupertinoIcons.mail, color: Colors.white), // 말풍선 아이콘
+            Icon(Icons.perm_identity, color: Colors.white), // 말풍선 아이콘
             SizedBox(width: 8), // 아이콘과 텍스트 사이의 간격 조절
             Text(
-              "이메일로 로그인",
+              "아이디로 로그인",
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 20,
