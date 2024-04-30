@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'main_holders/main_holder.dart';
-
-
+import 'package:pathorder_app/ui/main_holder.dart';
 
 void main() {
   runApp(const MyApp());
