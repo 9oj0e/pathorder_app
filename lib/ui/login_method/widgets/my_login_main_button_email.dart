@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../../login/login_page.dart';
+import 'package:pathorder_app/ui/login_method/login/login_page.dart';
 
 class MyLoginMainButtonEmail extends StatelessWidget {
   const MyLoginMainButtonEmail({

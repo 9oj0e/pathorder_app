@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/ui/login/join/widgets/join_body.dart';
-
-import '../../widgets/back_app_bar.dart';
+import 'package:pathorder_app/ui/login_method/login/join/widgets/join_body.dart';
+import 'package:pathorder_app/ui/widgets/back_app_bar.dart';
 
 class JoinPage extends StatelessWidget {
   const JoinPage({super.key});

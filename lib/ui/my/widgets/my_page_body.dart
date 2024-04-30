@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/ui/my/login_method/login_method_page.dart';
+import 'package:pathorder_app/ui/login_method/login_method_page.dart';
 
 import '../../../models/icon_menu.dart';
 import '../card/card_page.dart';
