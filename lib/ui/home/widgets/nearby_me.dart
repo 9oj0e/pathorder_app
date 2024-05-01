@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../store_detail/store_detail_page.dart';
+import 'package:pathorder_app/ui/home/store_detail/store_detail_page.dart';
 
 class NearbyMe extends StatelessWidget {
   final String cafeName;

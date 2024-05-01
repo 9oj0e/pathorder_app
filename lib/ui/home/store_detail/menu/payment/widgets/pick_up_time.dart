@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/ui/home/store_list/store_detail/all_menu/payment/widgets/selectButtons.dart';
+import 'package:pathorder_app/ui/home/store_detail/menu/payment/widgets/selectButtons.dart';
 
 class PickUpTime extends StatelessWidget {
   const PickUpTime({

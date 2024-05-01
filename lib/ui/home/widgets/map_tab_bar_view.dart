@@ -3,14 +3,14 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class MapOrderPage extends StatefulWidget {
-  const MapOrderPage({super.key});
+class MapTabBarView extends StatefulWidget {
+  const MapTabBarView({super.key});
 
   @override
-  State<MapOrderPage> createState() => _MapOrderPageState();
+  State<MapTabBarView> createState() => _MapOrderPageState();
 }
 
-class _MapOrderPageState extends State<MapOrderPage> {
+class _MapOrderPageState extends State<MapTabBarView> {
   Completer<GoogleMapController> _controller = Completer();
   static final CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(37.42796133580664, -122.085749655962),

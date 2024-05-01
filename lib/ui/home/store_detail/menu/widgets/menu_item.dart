@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../menu_option/widgets/menu_option_main.dart';
 
-class MenuList extends StatelessWidget {
+class MenuItem extends StatelessWidget {
   final menuNameKor;
   final menuNameEng;
   final price;
   final imgUrl;
 
-  const MenuList(
+  const MenuItem(
       {required this.menuNameKor,
       required this.menuNameEng,
       required this.price,

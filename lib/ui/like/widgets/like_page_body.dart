@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pathorder_app/models/near_me_store_menu.dart';
-import 'package:pathorder_app/ui/home/store_list/near_me_store/widgets/near_me_store_body.dart';
+import 'package:pathorder_app/ui/home/near_me_store/widgets/near_me_store_body.dart';
 
 class LikePageBody extends StatelessWidget {
   const LikePageBody({super.key});

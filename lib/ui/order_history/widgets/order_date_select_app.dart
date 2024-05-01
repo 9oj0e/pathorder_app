@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class OrderDateSelect extends StatefulWidget {
-  const OrderDateSelect({Key? key}) : super(key: key);
+class OrderDateSelectApp extends StatefulWidget {
+  const OrderDateSelectApp({Key? key}) : super(key: key);
 
   @override
-  State<OrderDateSelect> createState() => _OrderDateSelectState();
+  State<OrderDateSelectApp> createState() => _OrderDateSelectState();
 }
 
-class _OrderDateSelectState extends State<OrderDateSelect> {
+class _OrderDateSelectState extends State<OrderDateSelectApp> {
   late int selectedYear;
   late int selectedMonth;
 
@@ -30,20 +30,17 @@ class _OrderDateSelectState extends State<OrderDateSelect> {
             Text(
               '$selectedYear년 $selectedMonth월',
               style: const TextStyle(
-                fontSize: 22.0,
-                color: Colors.black,
-                fontWeight: FontWeight.w400
-              ),
+                  fontSize: 22.0,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w400),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 5, top: 1),
               child: InkWell(
-                child: Icon(
-                  color: Colors.grey[300],
-                  CupertinoIcons.chevron_down_circle_fill
-                ),
-                onTap: () => _showDatePicker()
-              ),
+                  child: Icon(
+                      color: Colors.grey[300],
+                      CupertinoIcons.chevron_down_circle_fill),
+                  onTap: () => _showDatePicker()),
             ),
           ],
         ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/order_date_select.dart';
+import 'widgets/order_date_select_app.dart';
 import 'widgets/order_history_appbar.dart';
 import 'widgets/order_history_header.dart';
 import 'widgets/order_history_list.dart';
@@ -31,7 +31,7 @@ class OrderHistoryPage extends StatelessWidget {
                 children: [
                   OrderHistoryHeader(),
                   SizedBox(height: 10),
-                  OrderDateSelect(), // 날짜 선택
+                  OrderDateSelectApp(), // 날짜 선택
                   SizedBox(
                     height: 10,
                   ),
