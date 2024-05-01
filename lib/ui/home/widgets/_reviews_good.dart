@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pathorder_app/models/cafe.dart';
 
-import 'cafe_detail.dart';
+import '_cafe_detail.dart';
 
 class ReviewsGood extends StatelessWidget {
   final Cafe cafe;

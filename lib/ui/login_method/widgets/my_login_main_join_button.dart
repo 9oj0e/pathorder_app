@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/ui/login_method/login/join/join_page.dart';
+import 'package:pathorder_app/ui/login_method/join/join_page.dart';
 
 class MyLoginMainJoinButton extends StatelessWidget {
   const MyLoginMainJoinButton({

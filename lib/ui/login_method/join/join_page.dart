@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/ui/login_method/login/join/widgets/join_body.dart';
+import 'package:pathorder_app/ui/login_method/join/widgets/join_body.dart';
 import 'package:pathorder_app/ui/widgets/custom_back_app_bar.dart';
 
 class JoinPage extends StatelessWidget {
