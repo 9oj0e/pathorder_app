@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:pathorder_app/ui/main_holder.dart';
 import 'package:pathorder_app/ui/order_history/detail/detail_page.dart';
+
 import '../../ui/home/home_page.dart';
 import '../../ui/home/near_me_store/near_me_store_page.dart';
 import '../../ui/home/store_detail/menu/menu_page.dart';
@@ -16,6 +18,9 @@ import '../../ui/my/profile/profile_page.dart';
 import '../../ui/order_history/order_history_page.dart';
 
 class Move {
+  // main
+  static String mainHolder = "/main";
+
   // login_method
   static String loginMethod = "/login";
   static String loginId = "/login/id"; // 아이디로 로그인하기
@@ -40,11 +45,13 @@ class Move {
   static String my = "/user/my";
   static String myProfile = "/user/my/profile";
   static String myCard = "/user/my/card";
-
 }
 
 Map<String, Widget Function(BuildContext)> getRouters() {
   return {
+    // main
+    Move.mainHolder: (context) => const MainHolder(),
+
     // login_method
     Move.loginMethod: (context) => const LoginMethodPage(),
     Move.loginId: (context) => const LoginPage(), // 아이디로 로그인하기

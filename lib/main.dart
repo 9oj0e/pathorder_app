@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/ui/main_holder.dart';
+
+import '_core/constants/move.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,8 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'pass_order',
       debugShowCheckedModeBanner: false,
-      home: MainHolder(),
+      initialRoute: Move.mainHolder,
+      routes: getRouters(),
       // theme: theme(),
     );
   }
