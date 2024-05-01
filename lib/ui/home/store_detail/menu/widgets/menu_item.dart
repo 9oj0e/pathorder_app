@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../menu_option/widgets/menu_option_main.dart';
+import 'package:pathorder_app/ui/home/store_detail/menu/option/widgets/_menu_option_main.dart';
 
 class MenuItem extends StatelessWidget {
   final menuNameKor;
@@ -67,7 +66,7 @@ class MenuItem extends StatelessWidget {
         print("메뉴");
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => MenuOptionPage()),
+          MaterialPageRoute(builder: (context) => MenuOptionMain()),
         );
       },
     );

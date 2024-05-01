@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/widgets/menu_bottom_app_bar.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/widgets/menu_item.dart';
 
-import 'widgets/search_menu.dart';
+import 'widgets/menu_search.dart';
 
 class AllMenuPage extends StatelessWidget {
   const AllMenuPage({super.key});
@@ -16,7 +16,7 @@ class AllMenuPage extends StatelessWidget {
         title: Text("가나다 커피 부산진구점"),
         bottom: PreferredSize(
             preferredSize: Size.fromHeight(30.0), // 아래쪽 위젯의 선호 높이를 지정
-            child: Container(alignment: Alignment.center, child: SearchMenu())),
+            child: Container(alignment: Alignment.center, child: MenuSearch())),
       ),
       body: const SingleChildScrollView(
         child: Column(

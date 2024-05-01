@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/ui/like/widgets/like_page_app_bar.dart';
-import 'package:pathorder_app/ui/like/widgets/like_page_body.dart';
+import 'package:pathorder_app/ui/like/widgets/like_app_bar.dart';
+import 'package:pathorder_app/ui/like/widgets/like_body.dart';
 
 class LikePage extends StatelessWidget {
   const LikePage({super.key});
@@ -10,9 +10,9 @@ class LikePage extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(kToolbarHeight), // Set desired height
-        child: LikePageAppBar(),
+        child: LikeAppBar(),
       ),
-      body: LikePageBody(),
+      body: LikeBody(),
       // body: NearMeStoreBody(nearMeStoreMenu1),
     );
   }

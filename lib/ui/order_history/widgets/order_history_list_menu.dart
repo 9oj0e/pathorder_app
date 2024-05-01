@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../order_detail/order_detail_page.dart';
+import 'package:pathorder_app/ui/order_history/detail/detail_page.dart';
 
 class OrderHistoryListMenu extends StatelessWidget {
   final orderMenu;
@@ -31,7 +30,7 @@ class OrderHistoryListMenu extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => OrderDetailPage()),
+                MaterialPageRoute(builder: (context) => DetailPage()),
               );
             },
             child: Text(

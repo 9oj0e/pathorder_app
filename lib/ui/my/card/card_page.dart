@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/ui/my/card/widgets/card_button.dart';
 
-import '../../../models/card_menu.dart';
-import 'widgets/card_page_body.dart';
+import 'widgets/card_body.dart';
 
 class CardPage extends StatelessWidget {
   const CardPage({super.key});
@@ -10,7 +10,8 @@ class CardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _CardAppBar(context),
-      body: CardPageBody(cardMenuList: cardMenu1),
+      body: CardBody(),
+      bottomNavigationBar: CardButton(),
     );
   }
 

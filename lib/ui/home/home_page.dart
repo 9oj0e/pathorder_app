@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/ui/home/widgets/home_page_body.dart';
+import 'package:pathorder_app/ui/home/widgets/home_body.dart';
 
-import 'widgets/search_text_field_app.dart';
+import 'widgets/home_search_text_field_app.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
-          title: SearchTextFieldApp(),
+          title: HomeSearchTextFieldApp(),
           bottom: const TabBar(
             indicatorColor: Colors.black87,
             labelColor: Colors.black87,
@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
             ],
           ),
         ),
-        body: HomePageBody(),
+        body: HomeBody(),
       ),
     );
   }
