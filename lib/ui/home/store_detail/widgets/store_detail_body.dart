@@ -6,15 +6,9 @@ import 'package:pathorder_app/ui/home/store_detail/widgets/store_detail_tab_bar_
 import 'package:pathorder_app/ui/home/store_detail/widgets/store_detail_title.dart';
 
 class StoreDetailBody extends StatelessWidget {
-  const StoreDetailBody({
-    super.key,
-    required this.screenHeight,
-  });
-
-  final double screenHeight;
-
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
     return Stack(
       children: [
         NestedScrollView(

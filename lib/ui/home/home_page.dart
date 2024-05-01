@@ -12,19 +12,23 @@ class HomePage extends StatelessWidget {
       initialIndex: 0,
       length: 2,
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: HomeSearchTextFieldApp(),
-          bottom: const TabBar(
-            indicatorColor: Colors.black87,
-            labelColor: Colors.black87,
-            tabs: [
-              Tab(child: Text("리스트로 주문")),
-              Tab(child: Text("지도로 주문")),
-            ],
-          ),
-        ),
+        appBar: _buildAppBar(),
         body: HomeBody(),
+      ),
+    );
+  }
+
+  AppBar _buildAppBar() {
+    return AppBar(
+      backgroundColor: Colors.white,
+      title: HomeSearchTextFieldApp(),
+      bottom: const TabBar(
+        indicatorColor: Colors.black87,
+        labelColor: Colors.black87,
+        tabs: [
+          Tab(child: Text("리스트로 주문")),
+          Tab(child: Text("지도로 주문")),
+        ],
       ),
     );
   }

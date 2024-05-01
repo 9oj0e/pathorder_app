@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../models/icon_menu.dart';
-import 'widgets/my_page_body.dart';
-import 'widgets/my_page_header.dart';
+import 'package:pathorder_app/ui/my/widgets/my_body.dart';
 
 class MyPage extends StatelessWidget {
   const MyPage({
@@ -20,15 +17,7 @@ class MyPage extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
         ),
       ),
-      body: ListView(
-        children: [
-          MyPageHeader(),
-          SizedBox(height: 8.0),
-          MyPageBody(iconMenuList: iconMenu1, mainTitle: '마이 페이지'),
-          SizedBox(height: 8.0),
-          MyPageBody(iconMenuList: iconMenu2, mainTitle: '기타'),
-        ],
-      ),
+      body: MyBody(),
     );
   }
 }

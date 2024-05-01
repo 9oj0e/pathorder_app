@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../profile/profile_page.dart';
 
-class MyPageHeader extends StatelessWidget {
-  const MyPageHeader({super.key});
+class MyBodyHeader extends StatelessWidget {
+  const MyBodyHeader({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -4,11 +4,11 @@ import 'package:pathorder_app/ui/login_method/login_method_page.dart';
 import '../../../models/icon_menu.dart';
 import '../card/card_page.dart';
 
-class MyPageBody extends StatelessWidget {
+class MyCategoryButtons extends StatelessWidget {
   final List<IconMenu> iconMenuList;
   final String mainTitle;
 
-  MyPageBody({required this.iconMenuList, required this.mainTitle});
+  MyCategoryButtons({required this.iconMenuList, required this.mainTitle});
 
   @override
   Widget build(BuildContext context) {

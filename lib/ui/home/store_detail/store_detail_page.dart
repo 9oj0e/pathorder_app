@@ -11,11 +11,10 @@ class StoreDetailPage extends StatefulWidget {
 class _StoreDetailPageState extends State<StoreDetailPage> {
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
     return DefaultTabController(
       length: 2, // TabBar에 표시할 탭 수
       child: Scaffold(
-        body: StoreDetailBody(screenHeight: screenHeight),
+        body: StoreDetailBody(),
       ),
     );
   }

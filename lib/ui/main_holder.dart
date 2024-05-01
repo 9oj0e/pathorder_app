@@ -28,36 +28,40 @@ class _MainHolderState extends State<MainHolder> {
           MyPage(),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
-        selectedItemColor: Colors.deepOrangeAccent,
-        type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.home),
-            label: '홈',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.doc_text), // doc_plantext, doc_richtext
-            label: '주문내역',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.heart),
-            label: '자주가요',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.person),
-            label: '아임패써',
-          ),
-        ],
-        onTap: (value) {
-          setState(() {
-            _index = value;
-            print("클릭됨 ${value}");
-          });
-        },
-        currentIndex: _index,
-      ),
+      bottomNavigationBar: _buildBottomNavigationBar(),
+    );
+  }
+
+  BottomNavigationBar _buildBottomNavigationBar() {
+    return BottomNavigationBar(
+      backgroundColor: Colors.white,
+      selectedItemColor: Colors.deepOrangeAccent,
+      type: BottomNavigationBarType.fixed,
+      items: [
+        BottomNavigationBarItem(
+          icon: Icon(CupertinoIcons.home),
+          label: '홈',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(CupertinoIcons.doc_text), // doc_plantext, doc_richtext
+          label: '주문내역',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(CupertinoIcons.heart),
+          label: '자주가요',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(CupertinoIcons.person),
+          label: '아임패써',
+        ),
+      ],
+      onTap: (value) {
+        setState(() {
+          _index = value;
+          print("클릭됨 ${value}");
+        });
+      },
+      currentIndex: _index,
     );
   }
 }
