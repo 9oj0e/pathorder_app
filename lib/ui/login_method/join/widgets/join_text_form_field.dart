@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 class JoinTextFormField extends StatelessWidget {
   final text;
   final hinttext;
+  final validator;
+  final onChange;
 
   const JoinTextFormField({
     required this.text,
     required this.hinttext,
+    this.validator,
+    this.onChange
   });
 
   @override
@@ -20,9 +24,8 @@ class JoinTextFormField extends StatelessWidget {
         ),
         SizedBox(height: 10),
         TextFormField(
-          validator: (value) => value!.isEmpty
-              ? "Please enter some text"
-              : null, // 1. 값이 없으면 Please enter some text 경고 화면 표시
+          onChanged: onChange,
+          validator: validator,
           obscureText:
           // 2. 해당 TextFormField가 비밀번호 입력 양식이면 **** 처리 해주기
           text == '비밀번호' || text =='비밀번호 확인',

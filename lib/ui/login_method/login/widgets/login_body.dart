@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/_core/utils/validator_util.dart';
 
 import 'login_button.dart';
 import 'login_extra_button.dart';
@@ -27,11 +28,13 @@ class LoginBody extends StatelessWidget {
                     LoginTextFormField(
                       text: '아이디',
                       hinttext: '아이디 입력',
+                      validator: validateUserId(),
                     ),
                     SizedBox(height: 15),
                     LoginTextFormField(
                       text: '비밀번호',
                       hinttext: '비밀번호 입력',
+                      validator: validatePassword(),
                     ),
                   ],
                 ),
