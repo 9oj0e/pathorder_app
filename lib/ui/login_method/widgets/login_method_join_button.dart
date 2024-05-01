@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/_core/constants/move.dart';
 import 'package:pathorder_app/ui/login_method/join/join_page.dart';
 
 class LoginMethodJoinButton extends StatelessWidget {
@@ -17,12 +18,7 @@ class LoginMethodJoinButton extends StatelessWidget {
         ),
       ),
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => JoinPage(),
-          ),
-        );
+        Navigator.pushNamed(context, Move.join);
       },
     );
   }

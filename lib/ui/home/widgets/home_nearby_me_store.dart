@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/_core/constants/move.dart';
 import 'package:pathorder_app/ui/home/store_detail/store_detail_page.dart';
 
 class HomeNearbyMeStore extends StatelessWidget {
@@ -89,10 +90,7 @@ class HomeNearbyMeStore extends StatelessWidget {
       ),
       onTap: () {
         print("클릭");
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => StoreDetailPage()),
-        );
+        Navigator.pushNamed(context, Move.storeDetail);
       },
     );
   }

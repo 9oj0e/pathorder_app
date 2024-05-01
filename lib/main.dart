@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/_core/constants/move.dart';
 import 'package:pathorder_app/ui/main_holder.dart';
 
 void main() {
@@ -20,6 +21,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       home: MainHolder(),
       // theme: theme(),
+      routes: getRouters(),
     );
   }
 }

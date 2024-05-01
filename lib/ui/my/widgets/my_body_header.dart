@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/_core/constants/move.dart';
 
 import '../profile/profile_page.dart';
 
@@ -27,12 +28,7 @@ class MyBodyHeader extends StatelessWidget {
               // 수정 버튼 클릭시 수정 페이지 이동
               InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ProfilePage(),
-                    ),
-                  );
+                  Navigator.pushNamed(context, Move.myProfile);
                 },
                 child: Row(
                   children: [
