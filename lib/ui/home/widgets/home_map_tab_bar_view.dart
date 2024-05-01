@@ -13,7 +13,7 @@ class HomeMapTabBarView extends StatefulWidget {
 class _MapOrderPageState extends State<HomeMapTabBarView> {
   Completer<GoogleMapController> _controller = Completer();
   static final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
+    target: LatLng(35.1595990016, 129.060227846),
     zoom: 14.4746,
   );
 
@@ -27,7 +27,7 @@ class _MapOrderPageState extends State<HomeMapTabBarView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: GoogleMap(
-        mapType: MapType.hybrid,
+        mapType: MapType.normal,
         initialCameraPosition: _kGooglePlex,
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
