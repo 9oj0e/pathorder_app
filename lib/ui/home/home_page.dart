@@ -10,7 +10,6 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
     SessionStore store = ref.read(sessionProvider);
 
     return DefaultTabController(
@@ -18,7 +17,6 @@ class HomePage extends ConsumerWidget {
       length: 2,
       child: Scaffold(
         appBar: _buildAppBar(),
-        bottomNavigationBar: Text("로그인됐나? ${store.isLogin}"),
         body: HomeBody(),
       ),
     );

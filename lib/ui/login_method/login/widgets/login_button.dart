@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../../../../_core/constants/move.dart';
-import '../../../../data/dtos/user_request.dart';
-import '../../../../data/store/session_store.dart';
+import 'package:pathorder_app/data/dtos/user_request.dart';
+import 'package:pathorder_app/data/store/session_store.dart';
 
 class LoginButton extends ConsumerWidget {
   const LoginButton({
@@ -28,7 +26,6 @@ class LoginButton extends ConsumerWidget {
       child: InkWell(
         splashColor: Colors.black,
         borderRadius: BorderRadius.circular(10.0),
-
         onTap: () {
           // if (_formKey.currentState!.validate()) {
           //   Navigator.pushNamed(context, "/home");
@@ -43,13 +40,11 @@ class LoginButton extends ConsumerWidget {
             print("비밀번호 : ${_password}");
 
             LoginReqDTO loginReqDTO =
-            LoginReqDTO(username: _username, password: _password);
+                LoginReqDTO(username: _username, password: _password);
 
             SessionStore store = ref.read(sessionProvider);
 
             store.login(loginReqDTO);
-            print("로그인 여부 : ${store.isLogin}");
-            Navigator.popAndPushNamed(context, Move.home);
           }
         },
         child: Center(
