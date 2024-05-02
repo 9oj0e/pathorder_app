@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pathorder_app/_core/utils/validator_util.dart';
+
 import 'join_button.dart';
 import 'join_exta_button.dart';
 import 'join_text_form_field.dart';
@@ -48,6 +49,12 @@ class JoinBody extends StatelessWidget {
                         text: '별명',
                         hinttext: '별명 입력',
                         validator: validateNickname(),
+                      ),
+                      SizedBox(height: 15),
+                      JoinTextFormField(
+                        text: '이름',
+                        hinttext: '이름 입력',
+                        validator: validateName(),
                       ),
                       SizedBox(height: 15),
                       JoinTextFormField(

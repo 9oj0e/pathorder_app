@@ -3,7 +3,6 @@ import 'package:validators/validators.dart';
 
 Function validateUserId() {
   return (String? value) {
-
     if (value!.isEmpty) {
       return "공백이 들어갈 수 없습니다.";
     } else if (!isAlphanumeric(value)) {
@@ -44,7 +43,6 @@ Function validatePasswordMatch(TextEditingController passwordController) {
   };
 }
 
-
 Function validateNickname() {
   return (String? value) {
     if (value!.isEmpty) {
@@ -53,6 +51,20 @@ Function validateNickname() {
       return "별명의 길이를 초과하였습니다.";
     } else if (value.length < 2) {
       return "별명의 최소 길이는 2자입니다.";
+    } else {
+      return null;
+    }
+  };
+}
+
+Function validateName() {
+  return (String? value) {
+    if (value!.isEmpty) {
+      return "공백이 들어갈 수 없습니다.";
+    } else if (value.length > 4) {
+      return "올바른 이름을 입력해주세요";
+    } else if (value.length < 2) {
+      return "옳바른 이름을 입력해주세요";
     } else {
       return null;
     }
@@ -82,4 +94,3 @@ Function validateTel() {
     }
   };
 }
-
