@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/_core/constants/move.dart';
 import 'package:pathorder_app/ui/home/near_me_store/near_me_store_page.dart';
 
 class HomeNearbyMeText extends StatelessWidget {
@@ -42,12 +43,7 @@ class HomeNearbyMeText extends StatelessWidget {
               // 가까이 있는 매장 더보기 버튼
               InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => NearMeStorePage(),
-                    ),
-                  );
+                  Navigator.pushNamed(context, Move.nearMeStore);
                 },
                 child: Row(
                   children: [

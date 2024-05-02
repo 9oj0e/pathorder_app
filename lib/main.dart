@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '_core/constants/move.dart';
+import 'package:pathorder_app/_core/constants/move.dart';
+
 
 void main() {
   runApp(const MyApp());

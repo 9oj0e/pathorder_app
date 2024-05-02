@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/_core/constants/move.dart';
 
 import '../../../../../models/near_me_store_menu.dart';
 import '../../store_detail/store_detail_page.dart';
@@ -36,12 +37,7 @@ class NearMeStoreBody extends StatelessWidget {
       int likes, int comments, BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => StoreDetailPage(),
-          ),
-        );
+        Navigator.pushNamed(context, Move.storeDetail);
       },
       child: Container(
         padding: const EdgeInsets.all(0),

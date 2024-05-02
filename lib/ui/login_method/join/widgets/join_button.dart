@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../_core/constants/move.dart';
+
 class JoinButton extends StatelessWidget {
   const JoinButton({
     super.key,
@@ -21,7 +23,7 @@ class JoinButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.0),
         onTap: () {
           if (_formKey.currentState!.validate()) {
-            Navigator.pushNamed(context, "/home");
+            Navigator.pushNamed(context, Move.home);
           }
         },
         child: Center(

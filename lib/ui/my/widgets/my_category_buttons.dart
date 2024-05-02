@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/_core/constants/move.dart';
 import 'package:pathorder_app/ui/login_method/login_method_page.dart';
 
 import '../../../models/icon_menu.dart';
@@ -62,22 +63,12 @@ class MyCategoryButtons extends StatelessWidget {
             }
             if (index == 2) {
               print('내 카드 페이지 이동');
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => CardPage(),
-                ),
-              );
+              Navigator.pushNamed(context, Move.myCard);
             }
           } else if (mainTitle == '기타') {
             if (index == 4) {
               print('로그아웃');
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => LoginMethodPage(),
-                ),
-              );
+              Navigator.pushNamed(context, Move.loginMethod);
             }
           }
         },

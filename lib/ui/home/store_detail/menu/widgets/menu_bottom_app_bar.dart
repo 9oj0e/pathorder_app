@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/_core/constants/move.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/payment/payment_page.dart';
 
 class MenuBottomAppBar extends StatelessWidget {
@@ -21,12 +22,7 @@ class MenuBottomAppBar extends StatelessWidget {
           borderRadius: BorderRadius.circular(10.0),
           onTap: () {
             // TODO: 장바구니 보기 버튼을 눌렀을 때 수행할 작업
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => PaymentPage(),
-              ),
-            );
+            Navigator.pushNamed(context, Move.payment);
           },
           child: Center(
             child: Text(

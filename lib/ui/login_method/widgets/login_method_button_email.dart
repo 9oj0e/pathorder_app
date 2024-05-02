@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/_core/constants/move.dart';
 import 'package:pathorder_app/ui/login_method/login/login_page.dart';
 
 class LoginMethodButtonEmail extends StatelessWidget {
@@ -13,12 +14,7 @@ class LoginMethodButtonEmail extends StatelessWidget {
       height: 68,
       child: ElevatedButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => LoginPage(),
-            ),
-          );
+          Navigator.pushNamed(context, Move.loginId);
         },
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/_core/constants/move.dart';
 import 'package:pathorder_app/ui/order_history/detail/detail_page.dart';
 
 class OrderHistoryListMenu extends StatelessWidget {
@@ -28,10 +29,7 @@ class OrderHistoryListMenu extends StatelessWidget {
           alignment: Alignment.centerRight,
           child: InkWell(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => DetailPage()),
-              );
+              Navigator.pushNamed(context, Move.orderDetail);
             },
             child: Text(
               "더보기",
