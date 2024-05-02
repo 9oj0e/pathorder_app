@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/_core/utils/validator_util.dart';
 
 import 'join_button.dart';
 import 'join_exta_button.dart';
@@ -32,18 +33,18 @@ class JoinBody extends StatelessWidget {
                   key: _formKey,
                   child: Column(
                     children: [
-                      // TODO: validator 주석 해제
+                      // TODO: 비밀번호 확인 구현
                       JoinTextFormField(
                         text: '아이디',
                         hinttext: '아이디 입력',
-                        // validator: validateUserId(),
+                        validator: validateUserId(),
                         controller: _username,
                       ),
                       SizedBox(height: 15),
                       JoinTextFormField(
                         text: '비밀번호',
                         hinttext: '비밀번호 입력',
-                        // validator: validatePassword(),
+                        validator: validatePassword(),
                         controller: _password,
                       ),
                       SizedBox(height: 15),
@@ -56,28 +57,28 @@ class JoinBody extends StatelessWidget {
                       JoinTextFormField(
                         text: '별명',
                         hinttext: '별명 입력',
-                        // validator: validateNickname(),
+                        validator: validateNickname(),
                         controller: _nickname,
                       ),
                       SizedBox(height: 15),
                       JoinTextFormField(
                         text: '이름',
                         hinttext: '이름 입력',
-                        // validator: validateName(),
+                        validator: validateName(),
                         controller: _name,
                       ),
                       SizedBox(height: 15),
                       JoinTextFormField(
                         text: '전화번호',
                         hinttext: 'ex)01012345678',
-                        // validator: validateTel(),
+                        validator: validateTel(),
                         controller: _tel,
                       ),
                       SizedBox(height: 15),
                       JoinTextFormField(
                         text: '이메일',
                         hinttext: 'ex)ssar1234@nate.com',
-                        // validator: validateEmail(),
+                        validator: validateEmail(),
                         controller: _email,
                       ),
                       SizedBox(height: 15),
