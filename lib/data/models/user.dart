@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 class User {
   final int id;
   final String username;
@@ -25,13 +27,13 @@ class User {
 
   User.fromJson(Map<String, dynamic> json)
       : id = json['id'],
-        username = json['username'],
-        password = json['password'],
-        nickname = json['nickname'],
-        status = json['status'],
-        name = json['name'],
-        tel = json['tel'],
-        email = json['email'],
-        imgFilename = json['imgFilename'],
-        registeredAt = json['registeredAt'];
+        username = json['username'] ?? "",
+        password = json['password'] ?? "",
+        nickname = json['nickname'] ?? "",
+        status = json['status'] ?? "",
+        name = json['name'] ?? "",
+        tel = json['tel'] ?? "",
+        email = json['email'] ?? "",
+        imgFilename = json['imgFilename'] ?? "",
+        registeredAt = DateFormat("yyyy-mm-dd").parse(json["registeredAt"] ?? "");
 }

@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pathorder_app/data/store/session_store.dart';
 import 'package:pathorder_app/ui/home/widgets/home_body.dart';
 
 import 'widgets/home_search_text_field_app.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+
+    SessionStore store = ref.read(sessionProvider);
+
     return DefaultTabController(
       initialIndex: 0,
       length: 2,
       child: Scaffold(
         appBar: _buildAppBar(),
+        bottomNavigationBar: Text("로그인됐나? ${store.isLogin}"),
         body: HomeBody(),
       ),
     );
