@@ -14,6 +14,7 @@ class SessionUser {
   User? user;
   String? accessToken;
   bool isLogin = false;
+  //int? seletedUserId;
 
   SessionUser();
 }

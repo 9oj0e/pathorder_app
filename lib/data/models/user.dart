@@ -4,7 +4,7 @@ class User {
   final String password;
   final String nickname;
   final status;
-  final String name;
+  final String? name;
   final String tel; // 전화번호
   final String email;
   final String imgFilename;
@@ -29,7 +29,7 @@ class User {
         password = json['password'] ?? "",
         nickname = json['nickname'],
         status = json['status'] ?? "",
-        name = json['name'],
+        name = json['name'] ?? "",
         tel = json['tel'],
         email = json['email'],
         imgFilename = json['imgFilename'],

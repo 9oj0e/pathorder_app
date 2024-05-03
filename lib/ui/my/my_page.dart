@@ -13,7 +13,7 @@ class MyPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Text(
-          '아임패써',
+          '내아임다',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
         ),
       ),

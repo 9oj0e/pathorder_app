@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pathorder_app/ui/my/profile/widgets/profile_body.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +14,14 @@ class ProfilePage extends StatelessWidget {
 
   AppBar _ProfileAppBar(BuildContext context) {
     return AppBar(
+      bottom: PreferredSize(
+        preferredSize: Size.fromHeight(0),
+        child: Divider(
+          thickness: 0.5,
+          height: 0.5,
+          color: Colors.grey[300],
+        ),
+      ),
       backgroundColor: Colors.white,
       leading: IconButton(
         onPressed: () {
@@ -27,7 +34,7 @@ class ProfilePage extends StatelessWidget {
       ),
       title: Text(
         "프로필 수정",
-        style: TextStyle(fontSize: 16),
+        style: TextStyle(fontSize: 17.5, fontWeight: FontWeight.bold),
       ),
       centerTitle: true,
       actions: [
@@ -39,7 +46,7 @@ class ProfilePage extends StatelessWidget {
             children: [
               Text(
                 '완료',
-                style: TextStyle(fontSize: 14),
+                style: TextStyle(fontSize: 14.5, ),
               ),
               SizedBox(
                 width: 16,
