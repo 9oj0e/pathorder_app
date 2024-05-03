@@ -48,6 +48,7 @@ class Move {
 }
 
 Map<String, Widget Function(BuildContext)> getRouters() {
+
   return {
     // main
     Move.mainHolder: (context) => const MainHolder(),
@@ -74,7 +75,7 @@ Map<String, Widget Function(BuildContext)> getRouters() {
 
     // my
     Move.my: (context) => const MyPage(),
-    Move.myProfile: (context) => const ProfilePage(),
+    Move.myProfile: (context) => ProfilePage(),
     Move.myCard: (context) => const CardPage(),
   };
 }

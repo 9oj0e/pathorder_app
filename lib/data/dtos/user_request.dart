@@ -27,3 +27,18 @@ class LoginReqDTO {
 
   Map<String, dynamic> toJson() => {"username": username, "password": password};
 }
+
+class MyProfileUpdateReqDTO {
+  final nickname;
+  final email;
+  final tel;
+
+  MyProfileUpdateReqDTO(
+      {required this.nickname, required this.email, required this.tel});
+
+  Map<String, dynamic> toJson() =>
+      {"nickname": nickname,
+        "email": email,
+        "tel": tel
+      };
+}

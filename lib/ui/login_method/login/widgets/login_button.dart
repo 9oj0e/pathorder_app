@@ -39,7 +39,6 @@ class LoginButton extends ConsumerWidget {
                 LoginReqDTO(username: _username, password: _password);
 
             SessionStore store = ref.read(sessionProvider);
-
             store.login(loginReqDTO);
           }
         },
