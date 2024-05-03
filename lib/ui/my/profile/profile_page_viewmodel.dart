@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pathorder_app/data/models/user.dart';
-
 import '../../../data/dtos/response_dto.dart';
 import '../../../data/repositories/user_repository.dart';
 import '../../../data/store/session_store.dart';
+import '../../../main.dart';
 
 class ProfileDetailModel {
   User user;
@@ -12,22 +14,31 @@ class ProfileDetailModel {
 }
 
 class ProfileDetailViewModel extends StateNotifier<ProfileDetailModel?> {
-  Ref ref;
+  final mContext = navigatorKey.currentContext;
+  final Ref ref;
+
   ProfileDetailViewModel(super.state, this.ref);
 
-  Future<void> notifyInit(int id) async {
-    // 통신하기
+  Future<void> notifyInit() async {
     SessionStore sessionStore = ref.read(sessionProvider);
-    ResponseDTO responseDTO =
-    await UserRepository().fetchMyPage(sessionStore.accessToken!, id);
+    String jwt = sessionStore.accessToken!;
 
-    // 상태값 갱신 (새로 new해서 넣어줘야 한다)
-    state = ProfileDetailModel(responseDTO.response);
+    ResponseDTO responseDTO = await UserRepository().fetchMyProfile(
+        sessionStore.user!.id, jwt);
+
+    print("뷰모델 : ${responseDTO.status}");
+    if (responseDTO.status == 200) {
+      state = ProfileDetailModel(responseDTO.response);
+    } else {
+      ScaffoldMessenger.of(mContext!).showSnackBar(
+          SnackBar(
+              content: Text("프로필 정보 보기 실패 : ${responseDTO.errorMessage}")));
+    }
   }
 }
 
-// 화면이 stack 에서 제거될때, 창고도 함께 제거되게 하기 (autoDispose)
-final profileDetailProvider = StateNotifierProvider.autoDispose
-    .family<ProfileDetailViewModel, ProfileDetailModel?, int>((ref, postId) {
-  return ProfileDetailViewModel(null, ref)..notifyInit(postId);
-});
+  final ProfileDetailProvider =
+  StateNotifierProvider<ProfileDetailViewModel, ProfileDetailModel?>((ref) {
+    return ProfileDetailViewModel(null, ref)
+      ..notifyInit();
+  });

@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class ProfileTextFormFieldPhone extends StatelessWidget {
   final String text;
+  final hintText;
 
-  const ProfileTextFormFieldPhone({required this.text});
+  const ProfileTextFormFieldPhone({required this.text, required this.hintText});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class ProfileTextFormFieldPhone extends StatelessWidget {
             // 텍스트가 상자의 세로기준 정중앙에 글자가 써지도록 함
             textAlignVertical: TextAlignVertical(y: 1.0),
             decoration: InputDecoration(
-              hintText: "",
+              hintText: hintText,
               enabledBorder: OutlineInputBorder(
                 // 3. 기본 TextFormField 디자인
                 borderSide: BorderSide(
