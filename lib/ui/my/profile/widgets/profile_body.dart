@@ -3,8 +3,6 @@ import 'package:pathorder_app/ui/my/profile/widgets/profile_text_button.dart';
 import 'package:pathorder_app/ui/my/profile/widgets/profile_text_form.dart';
 
 class ProfileBody extends StatelessWidget {
-  int id;
-  ProfileBody(this.id);
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +51,7 @@ class ProfileBody extends StatelessWidget {
             ],
           ),
           SizedBox(height: 28),
-          ProfileTextForm(id), // 텍스트폼 !!
+          ProfileTextForm(), // 텍스트폼 !!
           Divider(
             thickness: 1.5, // 두께 조절
             color: Colors.grey[200], // 색상 조절

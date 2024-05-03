@@ -11,9 +11,9 @@ class ProfileDetailModel {
   ProfileDetailModel(this.user);
 }
 
-class PostDetailViewModel extends StateNotifier<ProfileDetailModel?> {
+class ProfileDetailViewModel extends StateNotifier<ProfileDetailModel?> {
   Ref ref;
-  PostDetailViewModel(super.state, this.ref);
+  ProfileDetailViewModel(super.state, this.ref);
 
   Future<void> notifyInit(int id) async {
     // 통신하기
@@ -27,7 +27,7 @@ class PostDetailViewModel extends StateNotifier<ProfileDetailModel?> {
 }
 
 // 화면이 stack 에서 제거될때, 창고도 함께 제거되게 하기 (autoDispose)
-final postDetailProvider = StateNotifierProvider.autoDispose
-    .family<PostDetailViewModel, ProfileDetailModel?, int>((ref, postId) {
-  return PostDetailViewModel(null, ref)..notifyInit(postId);
+final profileDetailProvider = StateNotifierProvider.autoDispose
+    .family<ProfileDetailViewModel, ProfileDetailModel?, int>((ref, postId) {
+  return ProfileDetailViewModel(null, ref)..notifyInit(postId);
 });

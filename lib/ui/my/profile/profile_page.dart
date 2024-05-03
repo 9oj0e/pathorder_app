@@ -2,16 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:pathorder_app/ui/my/profile/widgets/profile_body.dart';
 
 class ProfilePage extends StatelessWidget {
-  int id;
-
-  ProfilePage(this.id);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: _ProfileAppBar(context),
-      body: ProfileBody(id),
+      body: ProfileBody(),
     );
   }
 

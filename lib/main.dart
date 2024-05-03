@@ -16,7 +16,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  late final int id;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,7 @@ class _MyAppState extends State<MyApp> {
       title: 'pass_order',
       debugShowCheckedModeBanner: false,
       initialRoute: Move.mainHolder,
-      routes: getRouters(id),
+      routes: getRouters(),
       // theme: theme(),
     );
   }

@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 
 class ProfileTextFormField extends StatelessWidget {
   final String text;
-  final int id;
 
-  const ProfileTextFormField({required this.text, required this.id});
+  const ProfileTextFormField({required this.text});
 
   @override
   Widget build(BuildContext context) {
