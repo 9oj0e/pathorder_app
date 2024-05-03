@@ -3,12 +3,12 @@ class User {
   final String username;
   final String password;
   final String nickname;
-  final bool status;
+  final status;
   final String name;
   final String tel; // 전화번호
   final String email;
   final String imgFilename;
-  final DateTime? registeredAt;
+  final registeredAt;
 
   User({
     required this.id,

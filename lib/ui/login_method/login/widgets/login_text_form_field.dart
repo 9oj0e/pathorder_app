@@ -4,11 +4,13 @@ class LoginTextFormField extends StatelessWidget {
   final text;
   final hinttext;
   final validator;
+  final controller;
 
   const LoginTextFormField({
     required this.text,
     required this.hinttext,
-    required this.validator
+    required this.validator,
+    required this.controller,
   });
 
   @override
@@ -22,10 +24,11 @@ class LoginTextFormField extends StatelessWidget {
         ),
         SizedBox(height: 10),
         TextFormField(
+          controller: controller,
           validator: validator,
           obscureText:
-          // 2. 해당 TextFormField가 비밀번호 입력 양식이면 **** 처리 해주기
-          text == '비밀번호',
+              // 2. 해당 TextFormField가 비밀번호 입력 양식이면 **** 처리 해주기
+              text == '비밀번호',
           decoration: InputDecoration(
             hintText: "${hinttext}",
             hintStyle: TextStyle(color: Colors.grey),

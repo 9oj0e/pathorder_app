@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pathorder_app/_core/constants/http.dart';
 import 'package:pathorder_app/_core/constants/move.dart';
 import 'package:pathorder_app/data/dtos/response_dto.dart';
 import 'package:pathorder_app/data/dtos/user_request.dart';
@@ -42,27 +43,27 @@ class SessionStore extends SessionUser {
       );
     }
   }
-//
-// Future<void> login(LoginReqDTO loginReqDTO) async {
-//   var (responseDTO, accessToken) =
-//       await UserRepository().fetchLogin(loginReqDTO);
-//
-//   if (responseDTO.success) {
-//     await secureStorage.write(key: "accessToken", value: accessToken);
-//
-//     this.user = responseDTO.response;
-//     this.accessToken = accessToken;
-//     this.isLogin = true;
-//
-//     Navigator.pushNamedAndRemoveUntil(
-//         mContext!, Move.mainHolder, (route) => false);
-//
-//     //Navigator.pushNamed(mContext!, Move.postListPage);
-//   } else {
-//     ScaffoldMessenger.of(mContext!).showSnackBar(
-//         SnackBar(content: Text("로그인 실패 : ${responseDTO.errorMessage}")));
-//   }
-// }
+
+  Future<void> login(LoginReqDTO loginReqDTO) async {
+    var (responseDTO, accessToken) =
+        await UserRepository().fetchLogin(loginReqDTO);
+    print(responseDTO.status);
+    print("user 유저 유저 유저 : ${responseDTO.response}");
+
+    if (responseDTO.status == 200) {
+      await secureStorage.write(key: "accessToken", value: accessToken);
+
+      this.user = responseDTO.response;
+      print("user 유저 유저 유저 : ${responseDTO.response}");
+      this.accessToken = accessToken;
+      this.isLogin = true;
+
+      Navigator.pushNamed(mContext!, Move.mainHolder); // 로그인 성공 시 mainHolder
+    } else {
+      ScaffoldMessenger.of(mContext!).showSnackBar(
+          SnackBar(content: Text("로그인 실패 : ${responseDTO.errorMessage}")));
+    }
+  }
 }
 
 // 창고 관리자

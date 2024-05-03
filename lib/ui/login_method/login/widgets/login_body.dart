@@ -7,6 +7,8 @@ import 'login_text_form_field.dart';
 
 class LoginBody extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
+  final _username = TextEditingController();
+  final _password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +28,14 @@ class LoginBody extends StatelessWidget {
                 child: Column(
                   children: [
                     LoginTextFormField(
+                      controller: _username,
                       text: '아이디',
                       hinttext: '아이디 입력',
                       validator: validateUserId(),
                     ),
                     SizedBox(height: 15),
                     LoginTextFormField(
+                      controller: _password,
                       text: '비밀번호',
                       hinttext: '비밀번호 입력',
                       validator: validatePassword(),
@@ -42,7 +46,7 @@ class LoginBody extends StatelessWidget {
               SizedBox(height: 10),
               LoginExtraButton(),
               SizedBox(height: 10),
-              LoginButton(formKey: _formKey)
+              LoginButton(formKey: _formKey, username: _username, password: _password)
             ],
           ),
         ),

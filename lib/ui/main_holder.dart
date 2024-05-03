@@ -19,6 +19,7 @@ class _MainHolderState extends State<MainHolder> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: IndexedStack(
         index: _index,
         children: [
