@@ -15,12 +15,13 @@ class ProfileTextButton extends StatelessWidget {
         children: [
           Text(
             '${text}',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold, color: Colors.black87),
           ),
           Spacer(),
           Icon(
             Icons.arrow_forward_ios_rounded,
-            size: 18,
+            size: 13,
+            color: Colors.black26,
           )
         ],
       ),

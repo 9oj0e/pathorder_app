@@ -47,7 +47,8 @@ class Move {
   static String myCard = "/user/my/card";
 }
 
-Map<String, Widget Function(BuildContext)> getRouters() {
+Map<String, Widget Function(BuildContext)> getRouters(int id) {
+
   return {
     // main
     Move.mainHolder: (context) => const MainHolder(),
@@ -74,7 +75,7 @@ Map<String, Widget Function(BuildContext)> getRouters() {
 
     // my
     Move.my: (context) => const MyPage(),
-    Move.myProfile: (context) => const ProfilePage(),
+    Move.myProfile: (context) => ProfilePage(id),
     Move.myCard: (context) => const CardPage(),
   };
 }

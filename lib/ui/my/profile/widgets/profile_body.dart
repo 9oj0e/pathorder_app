@@ -3,9 +3,8 @@ import 'package:pathorder_app/ui/my/profile/widgets/profile_text_button.dart';
 import 'package:pathorder_app/ui/my/profile/widgets/profile_text_form.dart';
 
 class ProfileBody extends StatelessWidget {
-  const ProfileBody({
-    super.key,
-  });
+  int id;
+  ProfileBody(this.id);
 
   @override
   Widget build(BuildContext context) {
@@ -13,10 +12,12 @@ class ProfileBody extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: ListView(
         children: [
+          SizedBox(height: 10,),
           Text(
             '프로필 정보',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
           ),
+          SizedBox(height: 35,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -33,7 +34,7 @@ class ProfileBody extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 8),
+          SizedBox(height: 9),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -43,21 +44,29 @@ class ProfileBody extends StatelessWidget {
                 },
                 child: Text(
                   '프로필 사진 수정',
-                  style: TextStyle(fontSize: 12),
+                  style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.deepOrangeAccent,
+                      fontWeight: FontWeight.w500),
                 ),
               ),
             ],
           ),
-          SizedBox(height: 20),
-          ProfileTextForm(),
-          SizedBox(height: 20),
+          SizedBox(height: 28),
+          ProfileTextForm(id), // 텍스트폼 !!
+          Divider(
+            thickness: 1.5, // 두께 조절
+            color: Colors.grey[200], // 색상 조절
+            height: 60,
+          ),
           Text(
             '계정 정보',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black87),
           ),
-          SizedBox(height: 20),
+
+          SizedBox(height: 25),
           ProfileTextButton(text: '계정 관리'),
-          SizedBox(height: 10),
+          SizedBox(height: 15),
           ProfileTextButton(text: '결제 비밀번호 설정'),
         ],
       ),

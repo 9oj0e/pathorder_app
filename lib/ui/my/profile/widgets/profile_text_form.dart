@@ -4,6 +4,10 @@ import 'package:pathorder_app/ui/my/profile/widgets/profile_text_form_field_phon
 
 class ProfileTextForm extends StatelessWidget {
   final _formKey = GlobalKey<FormState>(); // 1. 글로벌 key
+  int id;
+
+  ProfileTextForm(this.id);
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -11,9 +15,9 @@ class ProfileTextForm extends StatelessWidget {
       key: _formKey,
       child: Column(
         children: [
-          const ProfileTextFormField(text: '닉네임'),
+          ProfileTextFormField(text: '닉네임', id: id),
           const SizedBox(height: 10),
-          const ProfileTextFormField(text: '이메일'),
+          ProfileTextFormField(text: '이메일', id: id),
           const SizedBox(height: 10),
           ProfileTextFormFieldPhone(text: '휴대폰'),
         ],
