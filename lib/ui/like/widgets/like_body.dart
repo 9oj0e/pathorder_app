@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/models/near_me_store_menu.dart';
-import 'package:pathorder_app/ui/home/near_me_store/widgets/near_me_store_body.dart';
 
 class LikeBody extends StatelessWidget {
   const LikeBody({super.key});
@@ -40,7 +38,8 @@ class LikeBody extends StatelessWidget {
           ),
         ];
       },
-      body: NearMeStoreBody(nearMeStoreMenu1),
+      // body: NearMeStoreBody(),
+      body: Center(child: Text('비어있음')),
     );
   }
 }

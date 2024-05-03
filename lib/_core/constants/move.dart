@@ -59,7 +59,7 @@ Map<String, Widget Function(BuildContext)> getRouters() {
 
     // home
     Move.home: (context) => const HomePage(),
-    Move.nearMeStore: (context) => const NearMeStorePage(),
+    Move.nearMeStore: (context) => NearMeStorePage(),
     Move.storeDetail: (context) => StoreDetailPage(),
     Move.allMenu: (context) => const AllMenuPage(),
     Move.menuOption: (context) => const OptionPage(),

@@ -1,40 +1,38 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pathorder_app/_core/constants/http.dart';
 import 'package:pathorder_app/_core/constants/move.dart';
+import 'package:pathorder_app/data/models/store.dart';
+import 'package:pathorder_app/ui/home/near_me_store/store_list_view_model.dart';
 
-import '../../../../../models/near_me_store_menu.dart';
-import '../../store_detail/store_detail_page.dart';
-
-class NearMeStoreBody extends StatelessWidget {
-  final List<NearMeStoreMenu> nearMeStoreMenuList;
-
-  NearMeStoreBody(this.nearMeStoreMenuList);
-
+class NearMeStoreBody extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
-    return GridView.count(
-      primary: false,
-      padding: const EdgeInsets.all(10),
-      crossAxisSpacing: 10,
-      mainAxisSpacing: 10,
-      crossAxisCount: 2,
-      childAspectRatio: 2 / 3,
-      children: List.generate(
-        nearMeStoreMenuList.length,
-        (index) => _buildNearMeStoreMenuItem(
-          nearMeStoreMenuList[index].title,
-          nearMeStoreMenuList[index].imageUrl,
-          nearMeStoreMenuList[index].distance,
-          nearMeStoreMenuList[index].likes,
-          nearMeStoreMenuList[index].comments,
-          context,
+  Widget build(BuildContext context, WidgetRef ref) {
+    StoreListModel? model = ref.watch(storeListProvider);
+
+    if (model == null) {
+      return Center(child: CircularProgressIndicator());
+    } else {
+      return GridView.count(
+        primary: false,
+        padding: const EdgeInsets.all(10),
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        crossAxisCount: 2,
+        childAspectRatio: 2 / 3,
+        children: List.generate(
+          4,
+          (index) => _buildNearMeStoreMenuItem(
+            model.stores[index],
+            context,
+          ),
         ),
-      ),
-    );
+      );
+    }
   }
 
-  _buildNearMeStoreMenuItem(String title, String imageUrl, String distance,
-      int likes, int comments, BuildContext context) {
+  _buildNearMeStoreMenuItem(Store store, BuildContext context) {
     return InkWell(
       onTap: () {
         Navigator.pushNamed(context, Move.storeDetail);
@@ -47,7 +45,7 @@ class NearMeStoreBody extends StatelessWidget {
             children: [
               Expanded(
                 child: Image.network(
-                  imageUrl,
+                  '${baseUrl}/upload/${store.imgFilename}',
                   width: 200,
                   height: 200,
                   fit: BoxFit.cover,
@@ -58,7 +56,7 @@ class NearMeStoreBody extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    title,
+                    store.name,
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -72,7 +70,7 @@ class NearMeStoreBody extends StatelessWidget {
                         color: Colors.grey[400],
                       ),
                       Text(
-                        distance,
+                        store.distance.toString(),
                         style: TextStyle(color: Colors.grey),
                       ),
                     ],
@@ -88,7 +86,7 @@ class NearMeStoreBody extends StatelessWidget {
                       ),
                       SizedBox(width: 5),
                       Text(
-                        likes.toString(),
+                        store.likeCount.toString(),
                         style: TextStyle(fontSize: 12),
                       ),
                       SizedBox(width: 10),
@@ -98,7 +96,8 @@ class NearMeStoreBody extends StatelessWidget {
                       ),
                       SizedBox(width: 5),
                       Text(
-                        comments.toString(),
+                        // TODO: commentCount 백엔드에서 받아야함
+                        '155',
                         style: TextStyle(fontSize: 12),
                       ),
                     ],
