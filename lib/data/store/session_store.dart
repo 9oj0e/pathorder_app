@@ -57,8 +57,11 @@ class SessionStore extends SessionUser {
       print("user 유저 유저 유저 : ${responseDTO.response}");
       this.accessToken = accessToken;
       this.isLogin = true;
-
-      Navigator.pushNamed(mContext!, Move.mainHolder); // 로그인 성공 시 mainHolder
+      Navigator.pushNamedAndRemoveUntil(
+        mContext!,
+        Move.mainHolder, // '/main' 화면으로 이동
+        ModalRoute.withName(Move.home), // 'home' 화면까지 스택 제거
+      ); // 로그인 성공 시 mainHolder
     } else {
       ScaffoldMessenger.of(mContext!).showSnackBar(
           SnackBar(content: Text("로그인 실패 : ${responseDTO.errorMessage}")));

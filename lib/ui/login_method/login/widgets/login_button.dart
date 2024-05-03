@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pathorder_app/_core/constants/move.dart';
 import 'package:pathorder_app/data/dtos/user_request.dart';
 import 'package:pathorder_app/data/store/session_store.dart';
 
@@ -37,13 +36,11 @@ class LoginButton extends ConsumerWidget {
             print("비밀번호 : ${_password}");
 
             LoginReqDTO loginReqDTO =
-            LoginReqDTO(username: _username, password: _password);
+                LoginReqDTO(username: _username, password: _password);
 
             SessionStore store = ref.read(sessionProvider);
 
             store.login(loginReqDTO);
-            print("로그인 여부 : ${store.isLogin}");
-            Navigator.popAndPushNamed(context, Move.home);
           }
         },
         child: Center(
