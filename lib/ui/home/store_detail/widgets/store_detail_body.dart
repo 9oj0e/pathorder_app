@@ -38,7 +38,7 @@ class StoreDetailBody extends ConsumerWidget {
               ],
             ),
           ),
-          StoreDetailBottomButton(),
+          StoreDetailBottomButton(model.store.id),
         ],
       );
 

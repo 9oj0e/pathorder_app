@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pathorder_app/_core/constants/move.dart';
-import 'package:pathorder_app/ui/order_history/detail/detail_page.dart';
 
 class OrderHistoryListMenu extends StatelessWidget {
   final orderMenu;

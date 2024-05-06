@@ -2,8 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pathorder_app/_core/constants/move.dart';
 
-import '../profile/profile_page.dart';
-
 class MyBodyHeader extends StatelessWidget {
   const MyBodyHeader({super.key});
 

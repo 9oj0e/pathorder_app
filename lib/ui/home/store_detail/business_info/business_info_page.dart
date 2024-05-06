@@ -7,6 +7,7 @@ class BusinessInfoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // TODO: 이거 해야함
       appBar: CustomBackAppBar(title: '컴포즈커피 서면학원점'),
     );
   }

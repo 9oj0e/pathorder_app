@@ -8,7 +8,6 @@ class StoreDetailTabBarView extends StatelessWidget {
   final intro;
   final address;
 
-
   StoreDetailTabBarView(this.name, this.openingTime, this.closingTime,
       this.closedDay, this.intro, this.address);
 
@@ -62,11 +61,14 @@ class StoreDetailTabBarView extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 Row(
+                  // TODO : 오버플로우 해결
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text('주소'),
                     SizedBox(width: 40),
-                    Text('${address}'),
+                    Text(
+                      '${address}',
+                    ),
                   ],
                 ),
                 SizedBox(height: 10),

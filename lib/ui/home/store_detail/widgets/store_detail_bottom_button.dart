@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/_core/constants/move.dart';
+import 'package:pathorder_app/ui/home/store_detail/menu/menu_page.dart';
 
 class StoreDetailBottomButton extends StatelessWidget {
-  const StoreDetailBottomButton({
-    super.key,
-  });
+  int storeId;
+
+  StoreDetailBottomButton(this.storeId);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,8 @@ class StoreDetailBottomButton extends StatelessWidget {
           height: 70,
           child: ElevatedButton(
             onPressed: () {
-              Navigator.pushNamed(context, Move.allMenu);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => MenuPage(storeId)));
             },
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(

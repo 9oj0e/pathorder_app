@@ -6,9 +6,10 @@ import 'package:pathorder_app/ui/home/home_page_view_model.dart';
 import 'package:pathorder_app/ui/home/near_me_store/store_list_view_model.dart';
 
 class StoreRepository {
-  Future<ResponseDTO> fetchStoreDetail(String accessToken, int storeId) async {
+  Future<ResponseDTO> fetchStoreMenuList(
+      String accessToken, int storeId) async {
     final response = await dio.get(
-      "/api/stores/${storeId}",
+      "/api/stores/${storeId}/menus",
       options: Options(headers: {"Authorization": "${accessToken}"}),
     );
 
@@ -22,12 +23,33 @@ class StoreRepository {
     print('${responseDTO.errorMessage}');
     if (responseDTO.status == 200) {
       responseDTO.response = Store.fromJson(responseDTO.response);
+      print('${responseDTO.response}');
     }
 
     print('repository 이상무@!');
     return responseDTO;
   }
 
+  Future<ResponseDTO> fetchStoreDetail(String accessToken, int storeId) async {
+    final response = await dio.get(
+      "/api/stores/${storeId}",
+      options: Options(headers: {"Authorization": "${accessToken}"}),
+    );
+
+    print('${response}');
+    print('아무이상없나');
+
+    ResponseDTO responseDTO = ResponseDTO.fromJson(response.data);
+
+    print('${responseDTO.status} 이거 200이지?');
+    print('${responseDTO.errorMessage}');
+    if (responseDTO.status == 200) {
+      responseDTO.response = Store.fromJson(responseDTO.response);
+    }
+
+    print('repository 이상무@!');
+    return responseDTO;
+  }
 
   Future<ResponseDTO> fetchStoreList(String accessToken, {int page = 0}) async {
     final response = await dio.get(
@@ -48,7 +70,8 @@ class StoreRepository {
     return responseDTO;
   }
 
-  Future<ResponseDTO> fetchLittleStoreList(String accessToken, {int page = 0}) async {
+  Future<ResponseDTO> fetchLittleStoreList(String accessToken,
+      {int page = 0}) async {
     final response = await dio.get(
       "/api/stores",
       queryParameters: {"page": page},
@@ -68,5 +91,4 @@ class StoreRepository {
     print('${responseDTO.response} 키키키키키키키키키키키키ㅣ키키키키키키');
     return responseDTO;
   }
-
 }

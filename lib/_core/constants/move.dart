@@ -4,7 +4,6 @@ import 'package:pathorder_app/ui/order_history/detail/detail_page.dart';
 
 import '../../ui/home/home_page.dart';
 import '../../ui/home/near_me_store/near_me_store_page.dart';
-import '../../ui/home/store_detail/menu/menu_page.dart';
 import '../../ui/home/store_detail/menu/option/option_page.dart';
 import '../../ui/home/store_detail/menu/payment/payment_page.dart';
 import '../../ui/like/like_page.dart';
@@ -28,6 +27,7 @@ class Move {
   // home
   static String home = "/home";
   static String nearMeStore = "/home/store";
+
   // static String storeDetail = "/store/detail";
   static String allMenu = "/store/menu";
   static String menuOption = "/store/option";
@@ -47,7 +47,6 @@ class Move {
 }
 
 Map<String, Widget Function(BuildContext)> getRouters() {
-
   return {
     // main
     Move.mainHolder: (context) => const MainHolder(),
@@ -61,7 +60,7 @@ Map<String, Widget Function(BuildContext)> getRouters() {
     Move.home: (context) => const HomePage(),
     Move.nearMeStore: (context) => NearMeStorePage(),
     // Move.storeDetail: (context) => StoreDetailPage(),
-    Move.allMenu: (context) => const AllMenuPage(),
+    // Move.allMenu: (context) => const AllMenuPage(),
     Move.menuOption: (context) => const OptionPage(),
     Move.payment: (context) => const PaymentPage(),
 

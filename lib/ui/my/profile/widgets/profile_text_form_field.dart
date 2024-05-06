@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/data/models/user.dart';
 
 class ProfileTextFormField extends StatelessWidget {
   final String text;
@@ -7,14 +6,14 @@ class ProfileTextFormField extends StatelessWidget {
 
   ProfileTextFormField({required this.text, this.hintText});
 
-
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Text(
           '${text}',
-          style: TextStyle(fontSize: 15, color: Colors.black54, fontWeight: FontWeight.bold),
+          style: TextStyle(
+              fontSize: 15, color: Colors.black54, fontWeight: FontWeight.bold),
         ),
         SizedBox(
           width: 25,

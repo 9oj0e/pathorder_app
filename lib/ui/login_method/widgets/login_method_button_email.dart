@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pathorder_app/_core/constants/move.dart';
-import 'package:pathorder_app/ui/login_method/login/login_page.dart';
 
 class LoginMethodButtonEmail extends StatelessWidget {
   const LoginMethodButtonEmail({

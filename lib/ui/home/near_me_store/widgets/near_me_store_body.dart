@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pathorder_app/_core/constants/http.dart';
-import 'package:pathorder_app/_core/constants/move.dart';
 import 'package:pathorder_app/data/models/store.dart';
 import 'package:pathorder_app/ui/home/near_me_store/store_list_view_model.dart';
 import 'package:pathorder_app/ui/home/store_detail/store_detail_page.dart';
@@ -36,7 +35,8 @@ class NearMeStoreBody extends ConsumerWidget {
   _buildNearMeStoreMenuItem(Store store, BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (_) => StoreDetailPage(store.id)));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (_) => StoreDetailPage(store.id)));
       },
       child: Container(
         padding: const EdgeInsets.all(0),

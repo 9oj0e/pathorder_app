@@ -1,3 +1,5 @@
+import 'package:pathorder_app/data/models/menu.dart';
+
 class Store {
   final id;
 
@@ -28,7 +30,11 @@ class Store {
   final distance;
   final likeCount;
 
-  const Store({
+  final storeId;
+  final storeName;
+  List<Menu> menu;
+
+  Store({
     required this.id,
     required this.username,
     required this.password,
@@ -50,6 +56,9 @@ class Store {
     required this.registeredAt,
     required this.distance,
     required this.likeCount,
+    required this.storeId,
+    required this.storeName,
+    required this.menu,
   });
 
   Store.fromJson(Map<String, dynamic> json)
@@ -73,5 +82,10 @@ class Store {
         longitude = json['longitude'] ?? "",
         registeredAt = json['registeredAt'] ?? "",
         distance = json['distance'] ?? "",
-        likeCount = json['likeCount'] ?? "";
+        likeCount = json['likeCount'] ?? "",
+        storeId = json['storeId'] ?? "",
+        storeName = json['storeName'] ?? "",
+        menu = json["menuList"] != null
+            ? List<Menu>.from(json["menuList"].map((x) => Menu.fromJson(x)))
+            : [];
 }

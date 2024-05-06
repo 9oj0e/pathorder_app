@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pathorder_app/_core/constants/move.dart';
-import 'package:pathorder_app/ui/login_method/login_method_page.dart';
 
 import '../../../models/icon_menu.dart';
-import '../card/card_page.dart';
 
 class MyCategoryButtons extends StatelessWidget {
   final List<IconMenu> iconMenuList;
