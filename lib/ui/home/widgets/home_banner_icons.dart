@@ -6,19 +6,17 @@ class HomeBannerIcons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: Padding(
-        padding: EdgeInsets.all(20.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            _topButtons("전화주문", CupertinoIcons.phone),
-            _topButtons("포인트", CupertinoIcons.money_dollar_circle),
-            _topButtons("알림", CupertinoIcons.bell),
-            _topButtons("적립마켓", CupertinoIcons.house),
-            _topButtons("선물하기", CupertinoIcons.gift),
-          ],
-        ),
+    return Padding(
+      padding: EdgeInsets.all(20.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          _topButtons("전화주문", CupertinoIcons.phone),
+          _topButtons("포인트", CupertinoIcons.money_dollar_circle),
+          _topButtons("알림", CupertinoIcons.bell),
+          _topButtons("적립마켓", CupertinoIcons.house),
+          _topButtons("선물하기", CupertinoIcons.gift),
+        ],
       ),
     );
   }

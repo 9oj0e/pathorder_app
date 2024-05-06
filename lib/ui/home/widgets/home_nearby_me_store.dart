@@ -1,18 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/_core/constants/http.dart';
 import 'package:pathorder_app/_core/constants/move.dart';
-import 'package:pathorder_app/ui/home/store_detail/store_detail_page.dart';
 
 class HomeNearbyMeStore extends StatelessWidget {
   final String cafeName;
   final int distance;
-  final IconData iconData;
   final String imageUrl;
 
   const HomeNearbyMeStore({
     required this.cafeName,
     required this.distance,
-    required this.iconData,
     required this.imageUrl,
   });
 
@@ -46,11 +44,12 @@ class HomeNearbyMeStore extends StatelessWidget {
                   children: [
                     Row(
                       children: [
+                        // TODO: 오버플로우 해결해야함
                         Text.rich(TextSpan(children: [
                           TextSpan(
                             text: cafeName,
                             style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w600),
+                                fontSize: 15, fontWeight: FontWeight.w600)
                           ),
                         ])),
                         SizedBox(
@@ -68,7 +67,7 @@ class HomeNearbyMeStore extends StatelessWidget {
                     Row(
                       children: [
                         Icon(
-                          iconData,
+                          CupertinoIcons.location_solid,
                           size: 11,
                           color: Colors.grey,
                         ),
@@ -103,12 +102,12 @@ class HomeNearbyMeStore extends StatelessWidget {
       ),
       child: Stack(children: [
         Image.network(
-          imageUrl,
+          '${baseUrl}/upload/${imageUrl}',
           width: 161,
           height: 200,
           fit: BoxFit.cover,
         ),
-        const Positioned(
+        Positioned(
           top: 178,
           right: 80,
           child: Row(

@@ -10,8 +10,8 @@ class HomeListTabBarView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
+    return ListView(
+      children: [
         HomeBannerIcons(),
         GreyBlank(),
         HomeAd(),

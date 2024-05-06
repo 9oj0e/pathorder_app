@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pathorder_app/_core/constants/move.dart';
-import 'package:pathorder_app/ui/home/store_detail/menu/option/widgets/_menu_option_main.dart';
 
 class MenuItem extends StatelessWidget {
   final menuNameKor;

@@ -22,7 +22,7 @@ class NearMeStoreBody extends ConsumerWidget {
         crossAxisCount: 2,
         childAspectRatio: 2 / 3,
         children: List.generate(
-          4,
+          model.stores.length,
           (index) => _buildNearMeStoreMenuItem(
             model.stores[index],
             context,

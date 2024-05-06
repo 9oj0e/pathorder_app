@@ -2,6 +2,7 @@
 
     <application
         android:label="pathorder_app"
+        android:enableOnBackInvokedCallback="true"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <meta-data
