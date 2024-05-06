@@ -1,17 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pathorder_app/_core/constants/http.dart';
-import 'package:pathorder_app/_core/constants/move.dart';
+import 'package:pathorder_app/ui/home/store_detail/store_detail_page.dart';
 
 class HomeNearbyMeStore extends StatelessWidget {
   final String cafeName;
   final int distance;
   final String imageUrl;
+  final int id;
 
   const HomeNearbyMeStore({
     required this.cafeName,
     required this.distance,
     required this.imageUrl,
+    required this.id,
   });
 
   @override
@@ -88,8 +90,8 @@ class HomeNearbyMeStore extends StatelessWidget {
         ),
       ),
       onTap: () {
-        print("클릭");
-        Navigator.pushNamed(context, Move.storeDetail);
+        print('클릭됨 ${id}');
+        Navigator.push(context, MaterialPageRoute(builder: (_) => StoreDetailPage(id)));
       },
     );
   }

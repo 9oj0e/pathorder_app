@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:pathorder_app/ui/home/store_detail/widgets/store_detail_body.dart';
 
 class StoreDetailPage extends StatefulWidget {
-  const StoreDetailPage({Key? key});
+  int storeId;
+
+  StoreDetailPage(this.storeId);
 
   @override
   State<StoreDetailPage> createState() => _StoreDetailPageState();
@@ -14,7 +16,7 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
     return DefaultTabController(
       length: 2, // TabBar에 표시할 탭 수
       child: Scaffold(
-        body: StoreDetailBody(),
+        body: StoreDetailBody(widget.storeId),
       ),
     );
   }

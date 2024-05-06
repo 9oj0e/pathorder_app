@@ -36,6 +36,7 @@ class HomeNearbyMe extends ConsumerWidget {
                   cafeName: store.name,
                   distance: store.distance,
                   imageUrl: store.imgFilename,
+                  id: store.id,
                 )).toList(),
               ),),
           ],

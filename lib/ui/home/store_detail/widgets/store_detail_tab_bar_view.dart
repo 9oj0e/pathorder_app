@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 
 class StoreDetailTabBarView extends StatelessWidget {
-  const StoreDetailTabBarView({
-    super.key,
-  });
+  final name;
+  final openingTime;
+  final closingTime;
+  final closedDay;
+  final intro;
+  final address;
+
+
+  StoreDetailTabBarView(this.name, this.openingTime, this.closingTime,
+      this.closedDay, this.intro, this.address);
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +22,10 @@ class StoreDetailTabBarView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('가성비짱!', style: TextStyle(color: Colors.grey[700])),
+                Text('${intro}!', style: TextStyle(color: Colors.grey[700])),
                 SizedBox(height: 10),
                 Text(
-                  '* 유의사항 : 컴포즈 포인트 중복 적립 불가',
+                  '* 유의사항 : ${name} 포인트 중복 적립 불가',
                   style: TextStyle(fontSize: 12, color: Colors.grey),
                 ),
                 SizedBox(height: 10),
@@ -34,7 +41,7 @@ class StoreDetailTabBarView extends StatelessWidget {
                   children: [
                     Text('영업시간'),
                     SizedBox(width: 16),
-                    Text('월 화 수 목 금 토 일 09:00~00:00'),
+                    Text('${openingTime}~${closingTime}'),
                   ],
                 ),
                 SizedBox(height: 10),
@@ -42,7 +49,7 @@ class StoreDetailTabBarView extends StatelessWidget {
                   children: [
                     Text('휴무일'),
                     SizedBox(width: 29),
-                    Text('없음'),
+                    Text('${closedDay}'),
                   ],
                 ),
                 SizedBox(height: 10),
@@ -59,7 +66,7 @@ class StoreDetailTabBarView extends StatelessWidget {
                   children: [
                     Text('주소'),
                     SizedBox(width: 40),
-                    Text('부산광역시 부산진구\n중앙대로692번길 26(부전동) 26\n1층'),
+                    Text('${address}'),
                   ],
                 ),
                 SizedBox(height: 10),

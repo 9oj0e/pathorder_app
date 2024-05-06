@@ -5,6 +5,7 @@ import 'package:pathorder_app/_core/constants/http.dart';
 import 'package:pathorder_app/_core/constants/move.dart';
 import 'package:pathorder_app/data/models/store.dart';
 import 'package:pathorder_app/ui/home/near_me_store/store_list_view_model.dart';
+import 'package:pathorder_app/ui/home/store_detail/store_detail_page.dart';
 
 class NearMeStoreBody extends ConsumerWidget {
   @override
@@ -35,7 +36,7 @@ class NearMeStoreBody extends ConsumerWidget {
   _buildNearMeStoreMenuItem(Store store, BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, Move.storeDetail);
+        Navigator.push(context, MaterialPageRoute(builder: (_) => StoreDetailPage(store.id)));
       },
       child: Container(
         padding: const EdgeInsets.all(0),
