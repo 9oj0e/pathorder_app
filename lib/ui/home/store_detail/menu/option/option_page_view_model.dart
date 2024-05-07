@@ -1,13 +1,15 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pathorder_app/data/dtos/response_dto.dart';
-import 'package:pathorder_app/data/models/menu.dart';
 import 'package:pathorder_app/data/repositories/menu_repository.dart';
 import 'package:pathorder_app/data/store/session_store.dart';
+import 'package:pathorder_app/ui/home/store_detail/menu/option/data/option_data.dart';
+import 'package:pathorder_app/ui/home/store_detail/menu/option/data/option_list_data.dart';
 
 class MenuOptionModel {
-  Menu menu;
+  OptionData option;
+  List<OptionListData> optionList;
 
-  MenuOptionModel(this.menu);
+  MenuOptionModel({required this.option, required this.optionList});
 }
 
 class MenuOptionViewModel extends StateNotifier<MenuOptionModel?> {
@@ -23,7 +25,7 @@ class MenuOptionViewModel extends StateNotifier<MenuOptionModel?> {
 
     print('${responseDTO.response} 뭐고 여기는 올까요요요오오');
     // 상태값 갱신 (새로 new해서 넣어줘야 한다)
-    state = MenuOptionModel(responseDTO.response);
+    state = responseDTO.response;
     print('${state}');
 
     print('여기 안오겠네 그러면');

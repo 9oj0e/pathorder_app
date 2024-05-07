@@ -1,7 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:pathorder_app/_core/constants/http.dart';
 import 'package:pathorder_app/data/dtos/response_dto.dart';
-import 'package:pathorder_app/data/models/menu.dart';
+import 'package:pathorder_app/ui/home/store_detail/menu/option/data/option_data.dart';
+import 'package:pathorder_app/ui/home/store_detail/menu/option/data/option_list_data.dart';
+import 'package:pathorder_app/ui/home/store_detail/menu/option/option_page_view_model.dart';
 
 class MenuRepository {
   Future<ResponseDTO> fetchMenuOptionList(
@@ -21,7 +23,14 @@ class MenuRepository {
     print('${responseDTO.status} 이거 200이지?');
     print('${responseDTO.errorMessage}');
     if (responseDTO.status == 200) {
-      responseDTO.response = Menu.fromJson(responseDTO.response);
+      List<dynamic> temp = responseDTO.response["optionList"];
+      List<OptionListData> optionList =
+          temp.map((e) => OptionListData.fromJson(e)).toList();
+      OptionData option = OptionData.fromJson(responseDTO.response);
+
+      MenuOptionModel menuOptionModel =
+          MenuOptionModel(option: option, optionList: optionList);
+      responseDTO.response = menuOptionModel;
       print('${responseDTO.response}');
     }
 
