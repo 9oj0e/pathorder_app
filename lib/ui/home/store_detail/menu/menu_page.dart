@@ -33,11 +33,14 @@ class MenuPage extends ConsumerWidget {
           itemCount: model.store.menu.length,
           itemBuilder: (context, index) {
             return MenuItem(
-                menuNameKor: model.store.menu[index].name,
-                menuNameEng: model.store.menu[index].name,
-                price: model.store.menu[index].price,
-                imgUrl:
-                    "https://viennacoffeehouse.co.kr/data/file/m1/1795031452_xMn1LTkz_295bf7a097571e8a7fad24fd9f90aa5b8453bf46.png");
+              menuNameKor: model.store.menu[index].name,
+              menuNameEng: model.store.menu[index].name,
+              price: model.store.menu[index].price,
+              imgUrl:
+                  "https://viennacoffeehouse.co.kr/data/file/m1/1795031452_xMn1LTkz_295bf7a097571e8a7fad24fd9f90aa5b8453bf46.png",
+              storeId: storeId,
+              menuId: model.store.menu[index].id,
+            );
           },
           separatorBuilder: (context, index) => const SizedBox(
             height: 10,

@@ -9,10 +9,12 @@ class DetailBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(children: [
-      DetailTitle(),
-      DetailInfo(),
-      DetailAmount(),
-    ]);
+    return ListView(
+      children: [
+        DetailTitle(),
+        DetailInfo(),
+        DetailAmount(),
+      ],
+    );
   }
 }

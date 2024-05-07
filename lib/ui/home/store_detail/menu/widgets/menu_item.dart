@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/_core/constants/move.dart';
+import 'package:pathorder_app/ui/home/store_detail/menu/option/option_page.dart';
 
 class MenuItem extends StatelessWidget {
   final menuNameKor;
   final menuNameEng;
   final price;
   final imgUrl;
+  final storeId;
+  final menuId;
 
-  const MenuItem(
-      {required this.menuNameKor,
-      required this.menuNameEng,
-      required this.price,
-      required this.imgUrl});
+  const MenuItem({
+    required this.menuNameKor,
+    required this.menuNameEng,
+    required this.price,
+    required this.imgUrl,
+    required this.storeId,
+    required this.menuId,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -64,10 +69,9 @@ class MenuItem extends StatelessWidget {
       ),
       onTap: () {
         print("메뉴");
-        Navigator.pushNamed(
-          context,
-          Move.menuOption
-        );
+        // TODO: MenuOption| 메뉴에 해당하는 메뉴 옵션으로 이동
+        Navigator.push(context,
+            MaterialPageRoute(builder: (_) => OptionPage(storeId, menuId)));
       },
     );
   }

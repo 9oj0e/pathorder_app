@@ -8,8 +8,8 @@ import 'join_text_form_field.dart';
 class JoinBody extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController passwordController = TextEditingController();
-  final _username = TextEditingController();
-  final _password = TextEditingController();
+  final _username = TextEditingController(text: 'user1');
+  final _password = TextEditingController(text: '1234');
   final _nickname = TextEditingController();
   final _name = TextEditingController();
   final _tel = TextEditingController();

@@ -4,7 +4,6 @@ import 'package:pathorder_app/ui/order_history/detail/detail_page.dart';
 
 import '../../ui/home/home_page.dart';
 import '../../ui/home/near_me_store/near_me_store_page.dart';
-import '../../ui/home/store_detail/menu/option/option_page.dart';
 import '../../ui/home/store_detail/menu/payment/payment_page.dart';
 import '../../ui/like/like_page.dart';
 import '../../ui/login_method/join/join_page.dart';
@@ -61,7 +60,7 @@ Map<String, Widget Function(BuildContext)> getRouters() {
     Move.nearMeStore: (context) => NearMeStorePage(),
     // Move.storeDetail: (context) => StoreDetailPage(),
     // Move.allMenu: (context) => const AllMenuPage(),
-    Move.menuOption: (context) => const OptionPage(),
+    // Move.menuOption: (context) => const OptionPage(),
     Move.payment: (context) => const PaymentPage(),
 
     // order_history

@@ -18,6 +18,7 @@ class StoreRepository {
     print('아무이상없나');
 
     ResponseDTO responseDTO = ResponseDTO.fromJson(response.data);
+    print('${responseDTO.response.toString()}');
 
     print('${responseDTO.status} 이거 200이지?');
     print('${responseDTO.errorMessage}');
