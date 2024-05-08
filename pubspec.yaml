@@ -45,6 +45,9 @@ dependencies:
   logger: ^2.2.0 # 콘솔창에서 결과물을 쉽게 확인할 수 있도록 하는 Log 라이브러리입니다.
   flutter_secure_storage: ^8.0.0 # 어플리케이션 Secure Storage를 쉽게 사용할 수 있도록 도와주는 라이브러리입니다.
   provider: ^6.1.2
+  image_picker: ^1.0.1
+  gallery_saver: ^2.1.0
+  gallery_image_viewer: ^1.0.0
 
 
 dev_dependencies:
@@ -70,9 +73,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+  - assets/
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

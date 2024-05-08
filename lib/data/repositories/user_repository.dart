@@ -43,18 +43,32 @@ class UserRepository {
     return responseDTO;
   }
 
-// Future<ResponseDTO> updateMyProfile(int userId, MyProfileUpdateReqDTO myProfileUpdateReqDTO, String accessToken) async {
-//   // 통신
-//   Response response = await dio.get("/api/users/${userId}",
-//       options: Options(headers: {"Authorization": "$accessToken"}));
-//
-//   // 응답 받은 데이터 파싱
-//   ResponseDTO responseDTO = ResponseDTO.fromJson(response.data);
-//
-//   if (responseDTO.status == 200) {
-//     responseDTO.response = User.fromJson(responseDTO.response);
-//   }
-//
-//   return responseDTO;
-// }
+  // 사진 등록
+  Future<ResponseDTO> fetchImage(int userId, RegisterImgReqDTO registerImgReqDTO, String accessToken) async {
+    final response = await dio.post("/api/users/${userId}", options: Options(headers: {"Authorization": "${accessToken}"}), data: registerImgReqDTO.toJson());
+
+    ResponseDTO responseDTO = ResponseDTO.fromJson(response.data);
+
+    if (responseDTO.status == 200) {
+      responseDTO.response = User.fromJson(responseDTO.response);
+
+    }
+
+    return responseDTO;
+  }
+
+  // Future<ResponseDTO> updateMyProfile(int userId, MyProfileUpdateReqDTO myProfileUpdateReqDTO, String accessToken) async {
+  //   // 통신
+  //   Response response = await dio.get("/api/users/${userId}",
+  //       options: Options(headers: {"Authorization": "$accessToken"}));
+  //
+  //   // 응답 받은 데이터 파싱
+  //   ResponseDTO responseDTO = ResponseDTO.fromJson(response.data);
+  //
+  //   if (responseDTO.status == 200) {
+  //     responseDTO.response = User.fromJson(responseDTO.response);
+  //   }
+  //
+  //   return responseDTO;
+  // }
 }
