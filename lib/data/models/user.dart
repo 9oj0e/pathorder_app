@@ -24,14 +24,14 @@ class User {
   });
 
   User.fromJson(Map<String, dynamic> json)
-      : id = json['id'],
+      : id = json['id'] ?? 0,
         username = json['username'] ?? "",
         password = json['password'] ?? "",
-        nickname = json['nickname'],
-        status = json['status'] ?? "",
+        nickname = json['nickname'] ?? "",
+        status = json['status'],
         name = json['name'] ?? "",
-        tel = json['tel'],
-        email = json['email'],
-        imgFilename = json['imgFilename'],
+        tel = json['tel'] ?? "",
+        email = json['email'] ?? "",
+        imgFilename = json['imgFilename'] ?? "",
         registeredAt = json['registeredAt'] ?? null;
 }

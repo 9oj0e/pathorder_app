@@ -42,3 +42,15 @@ class MyProfileUpdateReqDTO {
         "tel": tel
       };
 }
+
+class RegisterImgReqDTO{
+  final username;
+  final encodedImg;
+
+  RegisterImgReqDTO({required this.username, required this.encodedImg});
+
+  Map<String, dynamic> toJson() =>
+      {"username": username,
+        "encodedImg": encodedImg,
+      };
+}
