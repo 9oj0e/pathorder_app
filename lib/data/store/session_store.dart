@@ -14,6 +14,7 @@ class SessionUser {
   User? user;
   String? accessToken;
   bool isLogin = false;
+
   //int? seletedUserId;
 
   SessionUser();
@@ -33,7 +34,6 @@ class SessionStore extends SessionUser {
 //
   Future<void> join(JoinReqDTO joinReqDTO) async {
     ResponseDTO responseDTO = await UserRepository().fetchJoin(joinReqDTO);
-    print('여기 찍히나');
     // 비지니스 로직
     if (responseDTO.status == 200) {
       Navigator.pushNamed(mContext!, Move.loginId);
@@ -48,14 +48,11 @@ class SessionStore extends SessionUser {
   Future<void> login(LoginReqDTO loginReqDTO) async {
     var (responseDTO, accessToken) =
         await UserRepository().fetchLogin(loginReqDTO);
-    print(responseDTO.status);
-    print("user 유저 유저 유저 : ${responseDTO.response}");
 
     if (responseDTO.status == 200) {
       await secureStorage.write(key: "accessToken", value: accessToken);
 
       this.user = responseDTO.response;
-      print("user 유저 유저 유저 : ${responseDTO.response}");
       this.accessToken = accessToken;
       this.isLogin = true;
       Navigator.pushNamedAndRemoveUntil(

@@ -58,7 +58,6 @@ class _MainHolderState extends State<MainHolder> {
       onTap: (value) {
         setState(() {
           _index = value;
-          print("클릭됨 ${value}");
         });
       },
       currentIndex: _index,

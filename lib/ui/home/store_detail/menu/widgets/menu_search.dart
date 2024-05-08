@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 /// Flutter code sample for [CupertinoSearchTextField].
 
@@ -30,9 +29,8 @@ class _SearchTextFieldExampleState extends State<SearchTextFieldExample> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      backgroundColor: Colors.white,
       child: Container(
-        width: 400,
+        width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[

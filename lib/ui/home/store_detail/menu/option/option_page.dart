@@ -1,171 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pathorder_app/ui/home/store_detail/menu/option/option_page_view_model.dart';
+import 'package:pathorder_app/ui/home/store_detail/menu/option/widgets/menu_option_body.dart';
+import 'package:pathorder_app/ui/home/store_detail/menu/option/widgets/menu_option_bottom_app_bar.dart';
 import 'package:pathorder_app/ui/widgets/custom_back_app_bar.dart';
 
-import 'widgets/menu_option_category.dart';
-import 'widgets/menu_option_counting_button.dart';
-import 'widgets/menu_option_name_price.dart';
-import 'widgets/menu_option_select.dart';
-
-class OptionPage extends ConsumerWidget {
+class OptionPage extends StatelessWidget {
   final storeId;
   final menuId;
+  final storeName;
 
-  OptionPage(this.storeId, this.menuId);
+  OptionPage(this.storeId, this.menuId, this.storeName);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    MenuOptionModel? model = ref.watch(menuOptionProvider([storeId, menuId]));
-
-    if (model == null) {
-      return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: CustomBackAppBar(title: ''),
-        body: Center(child: CircularProgressIndicator()),
-      );
-    } else {
-      return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: Text("${storeId}와${menuId}"),
-        ),
-        body: SingleChildScrollView(
-          child: Container(
-            width: double.infinity,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
-                  child: Image.network(
-                    "https://viennacoffeehouse.co.kr/data/file/m1/1795031452_xMn1LTkz_295bf7a097571e8a7fad24fd9f90aa5b8453bf46.png",
-                    height: 280,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Expanded(
-                    child: Container(
-                      width: double.infinity,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          MenuOptionNamePrice(
-                            menuName: "더치 아메리카노",
-                            price: "1500원",
-                          ),
-                          SizedBox(height: 15),
-                          MenuOptionCountingButton(), // 수량 버튼
-                          SizedBox(height: 15),
-                          Container(
-                            child: Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  MenuOptionCategory(optionCategory: "필수옵션"),
-                                  SizedBox(height: 13),
-                                  MenuOptionSelect(
-                                    optionName: "HOT",
-                                    price: "0원",
-                                  ),
-                                  MenuOptionSelect(
-                                    optionName: "ICE",
-                                    price: "0원",
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Divider(
-                            color: Colors.grey[300], // 수평선의 색상 설정
-                            thickness: 1, // 수평선의 두께 설정
-                            height: 10, // 수평선의 높이 설정
-                          ),
-                          Container(
-                            child: Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  MenuOptionCategory(optionCategory: "선택옵션"),
-                                  SizedBox(height: 13),
-                                  MenuOptionSelect(
-                                    optionName: "디카페인 변경",
-                                    price: "+500원",
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Divider(
-                            color: Colors.grey[300], // 수평선의 색상 설정
-                            thickness: 1, // 수평선의 두께 설정
-                            height: 10, // 수평선의 높이 설정
-                          ),
-                          Container(
-                            child: Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  MenuOptionCategory(optionCategory: "추가옵션"),
-                                  SizedBox(height: 13),
-                                  MenuOptionSelect(
-                                      optionName: "1샷 추가", price: "+500원"),
-                                  MenuOptionSelect(
-                                      optionName: "2샷 추가", price: "+1000원"),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Divider(
-                            color: Colors.grey[300], // 수평선의 색상 설정
-                            thickness: 1, // 수평선의 두께 설정
-                            height: 10, // 수평선의 높이 설정
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        bottomNavigationBar: BottomAppBar(
-          // TODO : widgets
-          height: 90,
-          color: Colors.white,
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
-              color: Colors.deepOrangeAccent,
-            ),
-            child: InkWell(
-              splashColor: Colors.black,
-              borderRadius: BorderRadius.circular(10.0),
-              onTap: () {
-                Navigator.pop(context);
-                // TODO: 담기버튼 눌리면 장바구니에 담겨야함
-                print('담기 버튼이 눌렸습니다.');
-              },
-              child: Center(
-                child: Text(
-                  "1500원 담기",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
-      );
-    }
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: CustomBackAppBar(title: "${storeId}와${menuId}와$storeName"),
+      body: MenuOptionBody([storeId, menuId]),
+      bottomNavigationBar: MenuOptionBottomAppBar(),
+    );
   }
 }
+
+// }

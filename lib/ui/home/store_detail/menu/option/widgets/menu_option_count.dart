@@ -9,9 +9,11 @@ class _MenuOptionCountState extends State<MenuOptionCount> {
   int quantity = 1;
 
   void increasecount() {
-    setState(() {
-      quantity++;
-    });
+    if (quantity < 99) {
+      setState(() {
+        quantity++;
+      });
+    }
   }
 
   void decreasecount() {
@@ -24,28 +26,59 @@ class _MenuOptionCountState extends State<MenuOptionCount> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
-          border: Border.all(color: Colors.grey)),
-      child: Stack(children: [
-        Row(
-          children: [
-            IconButton(
-              icon: Icon(Icons.remove),
-              onPressed: decreasecount,
+    return Row(
+      children: [
+        Container(
+          height: 30,
+          width: 30,
+          decoration: BoxDecoration(
+              color: Colors.grey[100],
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(5),
+                topLeft: Radius.circular(5),
+              ),
+              border: Border.all(color: Colors.grey)),
+          child: InkWell(
+            onTap: decreasecount,
+            child: Icon(
+              Icons.remove,
+              size: 20,
             ),
-            Text(
-              '$quantity',
-              style: TextStyle(fontSize: 20),
-            ),
-            IconButton(
-              icon: Icon(Icons.add),
-              onPressed: increasecount,
-            ),
-          ],
+          ),
         ),
-      ]),
+        Container(
+          height: 30,
+          width: 35,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            border: Border.all(color: Colors.grey),
+          ),
+          child: Center(
+            child: Text(
+              '  $quantity  ',
+              style: TextStyle(fontSize: 15),
+            ),
+          ),
+        ),
+        Container(
+          height: 30,
+          width: 30,
+          decoration: BoxDecoration(
+              color: Colors.grey[100],
+              borderRadius: BorderRadius.only(
+                bottomRight: Radius.circular(5),
+                topRight: Radius.circular(5),
+              ),
+              border: Border.all(color: Colors.grey)),
+          child: InkWell(
+            child: Icon(
+              Icons.add,
+              size: 20,
+            ),
+            onTap: increasecount,
+          ),
+        ),
+      ],
     );
   }
 }

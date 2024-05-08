@@ -22,6 +22,15 @@ class MenuPage extends ConsumerWidget {
         backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.white,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back_ios,
+              size: 18,
+            ),
+          ),
           title: Text("${model.store.storeName}"),
           bottom: PreferredSize(
               preferredSize: Size.fromHeight(30.0), // 아래쪽 위젯의 선호 높이를 지정
@@ -40,6 +49,7 @@ class MenuPage extends ConsumerWidget {
                   "https://viennacoffeehouse.co.kr/data/file/m1/1795031452_xMn1LTkz_295bf7a097571e8a7fad24fd9f90aa5b8453bf46.png",
               storeId: storeId,
               menuId: model.store.menu[index].id,
+              storeName: model.store.storeName,
             );
           },
           separatorBuilder: (context, index) => const SizedBox(

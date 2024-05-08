@@ -1,4 +1,3 @@
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pathorder_app/data/dtos/response_dto.dart';
 import 'package:pathorder_app/data/models/store.dart';
@@ -13,19 +12,17 @@ class StoreDetailModel {
 
 class StoreDetailViewModel extends StateNotifier<StoreDetailModel?> {
   Ref ref;
+
   StoreDetailViewModel(super.state, this.ref);
 
   Future<void> notifyInit(int storeId) async {
     // 통신하기
     SessionStore sessionStore = ref.read(sessionProvider);
-    ResponseDTO responseDTO =
-    await StoreRepository().fetchStoreDetail(sessionStore.accessToken!, storeId);
+    ResponseDTO responseDTO = await StoreRepository()
+        .fetchStoreDetail(sessionStore.accessToken!, storeId);
 
-    print('${responseDTO.response} 뭐고 여기는 올까요요요오오');
     // 상태값 갱신 (새로 new해서 넣어줘야 한다)
     state = StoreDetailModel(responseDTO.response);
-
-    print('여기 안오겠네 그러면');
   }
 }
 

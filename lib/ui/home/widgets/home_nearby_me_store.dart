@@ -49,10 +49,9 @@ class HomeNearbyMeStore extends StatelessWidget {
                         // TODO: 오버플로우 해결해야함
                         Text.rich(TextSpan(children: [
                           TextSpan(
-                            text: cafeName,
-                            style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w600)
-                          ),
+                              text: cafeName,
+                              style: TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.w600)),
                         ])),
                         SizedBox(
                           width: 5,
@@ -90,8 +89,8 @@ class HomeNearbyMeStore extends StatelessWidget {
         ),
       ),
       onTap: () {
-        print('클릭됨 ${id}');
-        Navigator.push(context, MaterialPageRoute(builder: (_) => StoreDetailPage(id)));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (_) => StoreDetailPage(id)));
       },
     );
   }

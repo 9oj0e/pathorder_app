@@ -21,11 +21,8 @@ class HomePageViewModel extends StateNotifier<HomePageModel?> {
   HomePageViewModel(super.state, this.ref);
 
   Future<void> notifyInit() async {
-    print('여기 안들어오는건가');
     SessionStore sessionStore = ref.read(sessionProvider);
     String jwt = sessionStore.accessToken!;
-    print('${jwt}');
-    print('아아아아아아아아아아아아아아아아아아아아아아아아아아');
     ResponseDTO responseDTO = await StoreRepository().fetchLittleStoreList(jwt);
 
     if (responseDTO.status == 200) {

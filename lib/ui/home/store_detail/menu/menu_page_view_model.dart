@@ -21,11 +21,8 @@ class MenuViewModel extends StateNotifier<MenuModel?> {
     ResponseDTO responseDTO = await StoreRepository()
         .fetchStoreMenuList(sessionStore.accessToken!, storeId);
 
-    print('${responseDTO.response} 뭐고 여기는 올까요요요오오');
     // 상태값 갱신 (새로 new해서 넣어줘야 한다)
     state = MenuModel(responseDTO.response);
-
-    print('여기 안오겠네 그러면');
   }
 }
 

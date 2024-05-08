@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 
 import 'menu_option_radio.dart';
 
-class MenuOptionSelect extends StatelessWidget {
+class MenuOptionSelect2 extends StatelessWidget {
   final optionName;
   final price;
   final required;
 
-  const MenuOptionSelect(
+  const MenuOptionSelect2(
       {required this.optionName, required this.price, required this.required});
 
   @override
   Widget build(BuildContext context) {
-    if (required == true) {
+    if (required == false) {
       return Padding(
           padding: EdgeInsets.only(bottom: 5, top: 5),
           child: Row(

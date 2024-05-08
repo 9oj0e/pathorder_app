@@ -21,11 +21,8 @@ class StoreListViewModel extends StateNotifier<StoreListModel?> {
   StoreListViewModel(super.state, this.ref);
 
   Future<void> notifyInit() async {
-    print('여기 안들어오는건가');
     SessionStore sessionStore = ref.read(sessionProvider);
     String jwt = sessionStore.accessToken!;
-    print('${jwt}');
-    print('아아아아아아아아아아아아아아아아아아아아아아아아아아');
     ResponseDTO responseDTO = await StoreRepository().fetchStoreList(jwt);
 
     if (responseDTO.status == 200) {

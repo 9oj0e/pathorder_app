@@ -32,8 +32,6 @@ class LoginButton extends ConsumerWidget {
           if (isOk) {
             String _username = username.text.trim();
             String _password = password.text.trim();
-            print("유저네임 : ${_username}");
-            print("비밀번호 : ${_password}");
 
             LoginReqDTO loginReqDTO =
                 LoginReqDTO(username: _username, password: _password);

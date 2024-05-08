@@ -8,6 +8,7 @@ class MenuItem extends StatelessWidget {
   final imgUrl;
   final storeId;
   final menuId;
+  final storeName;
 
   const MenuItem({
     required this.menuNameKor,
@@ -16,6 +17,7 @@ class MenuItem extends StatelessWidget {
     required this.imgUrl,
     required this.storeId,
     required this.menuId,
+    required this.storeName,
   });
 
   @override
@@ -70,8 +72,10 @@ class MenuItem extends StatelessWidget {
       onTap: () {
         print("메뉴");
         // TODO: MenuOption| 메뉴에 해당하는 메뉴 옵션으로 이동
-        Navigator.push(context,
-            MaterialPageRoute(builder: (_) => OptionPage(storeId, menuId)));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (_) => OptionPage(storeId, menuId, storeName)));
       },
     );
   }
