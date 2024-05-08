@@ -14,7 +14,7 @@ class OptionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: CustomBackAppBar(title: "${storeId}와${menuId}와$storeName"),
+      appBar: CustomBackAppBar(title: "$storeName"),
       body: MenuOptionBody([storeId, menuId]),
       bottomNavigationBar: MenuOptionBottomAppBar(),
     );
