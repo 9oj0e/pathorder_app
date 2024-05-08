@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:logger/logger.dart';
 import 'package:pathorder_app/_core/constants/http.dart';
 import 'package:pathorder_app/data/dtos/response_dto.dart';
 import 'package:pathorder_app/data/dtos/user_request.dart';
@@ -40,6 +41,20 @@ class UserRepository {
 
     if (responseDTO.status == 200) {
       responseDTO.response = User.fromJson(responseDTO.response);
+    }
+
+    return responseDTO;
+  }
+
+  // 사진 등록
+  Future<ResponseDTO> fetchImage(int userId, RegisterImgReqDTO registerImgReqDTO, String accessToken) async {
+    final response = await dio.post("/api/users/${userId}", options: Options(headers: {"Authorization": "${accessToken}"}), data: registerImgReqDTO.toJson());
+
+    ResponseDTO responseDTO = ResponseDTO.fromJson(response.data);
+
+    if (responseDTO.status == 200) {
+      responseDTO.response = User.fromJson(responseDTO.response);
+      Logger().d(responseDTO.response);
     }
 
     return responseDTO;
