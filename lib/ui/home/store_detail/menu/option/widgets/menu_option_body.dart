@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/option/option_page_view_model.dart';
-import 'package:pathorder_app/ui/home/store_detail/menu/option/widgets/menu_option_category.dart';
+import 'package:pathorder_app/ui/home/store_detail/menu/option/widgets/menu_option_check.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/option/widgets/menu_option_counting_button.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/option/widgets/menu_option_name_price.dart';
-import 'package:pathorder_app/ui/home/store_detail/menu/option/widgets/menu_option_select.dart';
-import 'package:pathorder_app/ui/home/store_detail/menu/option/widgets/menu_option_select2.dart';
+import 'package:pathorder_app/ui/home/store_detail/menu/option/widgets/menu_option_radio.dart';
 import 'package:pathorder_app/ui/widgets/custom_divider.dart';
 
 class MenuOptionBody extends ConsumerWidget {
@@ -43,36 +42,11 @@ class MenuOptionBody extends ConsumerWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                MenuOptionCategory(optionCategory: "필수옵션"),
-                SizedBox(height: 13),
-                ListView.builder(
-                  shrinkWrap: true, // ListView의 크기를 내부 컨텐츠에 맞춤
-                  physics: NeverScrollableScrollPhysics(), //내부 리스트뷰 스크롤 동작 비활성화
-                  itemCount: model.optionList.length,
-                  itemBuilder: (context, index) {
-                    return MenuOptionSelect(
-                      optionName: "${model.optionList[index].name}",
-                      price: '${model.optionList[index].price}',
-                      required: model.optionList[index].required,
-                    );
-                  },
-                ),
+                MenuOptionRadio(model),
                 CustomDivider(),
-                SizedBox(height: 15),
-                MenuOptionCategory(optionCategory: "선택 옵션"),
                 SizedBox(height: 13),
-                ListView.builder(
-                  shrinkWrap: true, // ListView의 크기를 내부 컨텐츠에 맞춤
-                  physics: NeverScrollableScrollPhysics(), //내부 리스트뷰 스크롤 동작 비활성화
-                  itemCount: model.optionList.length,
-                  itemBuilder: (context, index) {
-                    return MenuOptionSelect2(
-                      optionName: "${model.optionList[index].name}",
-                      price: '${model.optionList[index].price}',
-                      required: model.optionList[index].required,
-                    );
-                  },
-                ),
+                MenuOptionCheck(model),
+                SizedBox(height: 15),
               ],
             ),
           ),
