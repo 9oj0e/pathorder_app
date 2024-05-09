@@ -1,18 +1,26 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pathorder_app/data/models/cart.dart';
+import 'package:pathorder_app/data/models/cart_item.dart';
 
 class SessionCart {
-  List<Cart> cartList;
+  List<CartItem> cartList;
 
   SessionCart() : cartList = [];
 
-  void addToCart(Cart cartItem) {
+  void addToCart(CartItem cartItem) {
     cartList.add(cartItem);
+  }
+
+  void removeToCart(CartItem cartItem) {
+    cartList.remove(cartItem);
+  }
+
+  void clear() {
+    cartList.clear();
   }
 }
 
 class CartStore extends SessionCart {
-  void saveCart(Cart cartItem) {
+  void saveCart(CartItem cartItem) {
     addToCart(cartItem);
   }
 }
