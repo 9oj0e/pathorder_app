@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pathorder_app/data/models/cart_item.dart';
 
 class SessionCart {
+  String? storeName;
   List<CartItem> cartList;
 
   SessionCart() : cartList = [];
@@ -17,13 +18,17 @@ class SessionCart {
   void clear() {
     cartList.clear();
   }
-}
 
-class CartStore extends SessionCart {
-  void saveCart(CartItem cartItem) {
-    addToCart(cartItem);
+  int getTotalPrice() {
+    int totalPrice = 0;
+    for (var item in cartList) {
+      totalPrice += item.price ?? 0;
+    }
+    return totalPrice;
   }
 }
+
+class CartStore extends SessionCart {}
 
 final cartProvider = StateProvider<CartStore>((ref) {
   return CartStore();

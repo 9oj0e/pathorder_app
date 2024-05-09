@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pathorder_app/data/store/session_store.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/option/option_page_view_model.dart';
+import 'package:pathorder_app/ui/home/store_detail/menu/option/widgets/menu_option_check.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/option/widgets/menu_option_counting_button.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/option/widgets/menu_option_name_price.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/option/widgets/menu_option_radio.dart';
-import 'package:pathorder_app/ui/home/store_detail/menu/option/widgets/menu_option_check.dart';
 import 'package:pathorder_app/ui/widgets/custom_divider.dart';
 
 class MenuOptionBody extends ConsumerWidget {

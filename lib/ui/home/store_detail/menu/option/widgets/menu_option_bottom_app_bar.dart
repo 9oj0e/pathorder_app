@@ -5,14 +5,14 @@ import 'package:pathorder_app/data/store/cart_store.dart';
 import 'package:pathorder_app/data/store/session_store.dart';
 
 class MenuOptionBottomAppBar extends ConsumerWidget {
-  const MenuOptionBottomAppBar({
-    super.key,
-  });
+  final price;
+  
+  MenuOptionBottomAppBar(this.price);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     CartStore cartStore = ref.read(cartProvider);
-    SessionStore sessionStore = ref.read(sessionProvider);
+    SessionStore sessionStore = ref.watch(sessionProvider);
     return BottomAppBar(
       // TODO : widgets
       height: 90,
@@ -26,7 +26,7 @@ class MenuOptionBottomAppBar extends ConsumerWidget {
           splashColor: Colors.black,
           borderRadius: BorderRadius.circular(10.0),
           onTap: () {
-            cartStore.saveCart(
+            cartStore.addToCart(
                 CartItem(name: sessionStore.name, price: sessionStore.price));
             Navigator.pop(context);
             // TODO: 담기버튼 눌리면 장바구니에 담겨야함
@@ -34,7 +34,7 @@ class MenuOptionBottomAppBar extends ConsumerWidget {
           },
           child: Center(
             child: Text(
-              "담기",
+              "${price}원 담기",
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 20,

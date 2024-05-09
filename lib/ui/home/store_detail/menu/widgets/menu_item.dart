@@ -75,7 +75,7 @@ class MenuItem extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (_) => OptionPage(storeId, menuId, storeName)));
+                builder: (_) => OptionPage(storeId, menuId, storeName, price)));
       },
     );
   }

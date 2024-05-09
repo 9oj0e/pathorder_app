@@ -7,8 +7,9 @@ class OptionPage extends StatelessWidget {
   final storeId;
   final menuId;
   final storeName;
+  final price;
 
-  OptionPage(this.storeId, this.menuId, this.storeName);
+  OptionPage(this.storeId, this.menuId, this.storeName, this.price);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class OptionPage extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: CustomBackAppBar(title: "$storeName"),
       body: MenuOptionBody([storeId, menuId]),
-      bottomNavigationBar: MenuOptionBottomAppBar(),
+      bottomNavigationBar: MenuOptionBottomAppBar(price),
     );
   }
 }

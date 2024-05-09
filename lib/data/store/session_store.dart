@@ -16,6 +16,7 @@ class SessionUser {
   bool isLogin = false;
   String? name;
   int? price;
+  String? storeName;
 
   //int? seletedUserId;
 

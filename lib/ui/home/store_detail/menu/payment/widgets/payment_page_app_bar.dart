@@ -2,6 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PaymentPageAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final storeName;
+
+  PaymentPageAppBar(this.storeName);
+
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
 
@@ -19,7 +23,8 @@ class PaymentPageAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       title: Text(
-        '컴포즈커피 서면학원점',
+        // TODO: 카페이름 불러오기
+        '${storeName}',
         style: TextStyle(fontSize: 16),
       ),
       centerTitle: true,

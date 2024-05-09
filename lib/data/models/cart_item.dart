@@ -1,6 +1,6 @@
 class CartItem {
   final name;
-  final price;
+  int? price;
 
   CartItem({required this.name, required this.price});
 
