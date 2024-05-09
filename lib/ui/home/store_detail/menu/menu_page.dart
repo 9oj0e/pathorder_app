@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pathorder_app/data/store/session_store.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/widgets/menu_bottom_app_bar.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/widgets/menu_item.dart';
 
@@ -14,10 +15,12 @@ class MenuPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     MenuModel? model = ref.watch(menuProvider(storeId));
+    SessionStore sessionStore = ref.read(sessionProvider);
 
     if (model == null) {
       return Center(child: CircularProgressIndicator());
     } else {
+      sessionStore.storeName = model.store.storeName;
       return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
