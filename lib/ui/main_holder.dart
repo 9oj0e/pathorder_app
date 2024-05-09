@@ -15,6 +15,7 @@ class MainHolder extends StatefulWidget {
 
 class _MainHolderState extends State<MainHolder> {
   int _index = 0;
+  var loadPages = [0];
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +23,10 @@ class _MainHolderState extends State<MainHolder> {
       body: IndexedStack(
         index: _index,
         children: [
-          HomePage(),
-          OrderHistoryPage(),
-          LikePage(),
-          MyPage(),
+          loadPages.contains(0) ? const HomePage() : Container(),
+          loadPages.contains(1) ? const OrderHistoryPage() : Container(),
+          loadPages.contains(2) ? const LikePage() : Container(),
+          loadPages.contains(3) ? const MyPage() : Container(),
         ],
       ),
       bottomNavigationBar: _buildBottomNavigationBar(),
@@ -56,6 +57,15 @@ class _MainHolderState extends State<MainHolder> {
         ),
       ],
       onTap: (value) {
+        var pages = loadPages;
+
+        if (!pages.contains(value)) {
+          // 아직 열리지 않았다면!!
+          pages.add(value);
+          print(pages);
+        }
+        
+        pages = loadPages;
         setState(() {
           _index = value;
         });
