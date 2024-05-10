@@ -9,6 +9,7 @@ class PaymentBottomAppBar extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     CartStore cartStore = ref.watch(cartProvider);
+    cartStore.setRequestNull();
     print('${cartStore.storeId}');
     print('${cartStore.storeName}');
     print('${cartStore.customerId}');

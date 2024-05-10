@@ -29,7 +29,10 @@ class PaymentOrderQuest extends ConsumerWidget {
                 hintText: "요청 사항을 입력해주세요.",
                 hintStyle: TextStyle(fontSize: 12),
               ),
-              onChanged: (value) => cartStore.setRequest(value),
+              onChanged: (value) async {
+                await Future.delayed(const Duration(seconds: 1));
+                cartStore.setRequest(value);
+              },
             ),
           ],
         ),

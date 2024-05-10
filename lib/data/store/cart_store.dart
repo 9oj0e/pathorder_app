@@ -43,6 +43,10 @@ class SessionCart {
     request = value;
   }
 
+  void setRequestNull() {
+    request = null;
+  }
+
   int getTotalPrice() {
     int totalPrice = 0;
     for (var item in orderMenuList) {
