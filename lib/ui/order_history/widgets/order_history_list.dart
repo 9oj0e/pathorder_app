@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/ui/order_history/data/order_list.dart';
+import 'package:pathorder_app/ui/order_history/data/order_menu_list.dart';
 
 import 'order_history_list_button.dart';
 import 'order_history_list_divider.dart';
@@ -9,19 +11,10 @@ import 'order_history_list_menu.dart';
 import 'order_history_list_pay.dart';
 
 class OrderHistoryList extends StatelessWidget {
-  final datetime;
-  final cafeName;
-  final orderMenu;
-  final price;
-  final paymentMethod;
+  final OrderList orderList;
 
   const OrderHistoryList({
-
-    required this.datetime,
-    required this.cafeName,
-    required this.orderMenu,
-    required this.price,
-    required this.paymentMethod,
+    required this.orderList,
   });
 
   @override
@@ -40,13 +33,15 @@ class OrderHistoryList extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              OrderHistoryListDate(datetime: datetime),
-              SizedBox(height: 10,),
-              OderHistoryListCafe(cafeName: cafeName),
+              OrderHistoryListDate(datetime: orderList.createdAt),
+              SizedBox(height: 10),
+              OderHistoryListCafe(cafeName: orderList.storeName),
               OrderHistoryListDivider(),
-              OrderHistoryListMenu(orderMenu: orderMenu),
-              SizedBox(height: 10,),
-              OrderHistoryListPay(price: price, paymentMethod: paymentMethod),
+              for (var menu in orderList.orderMenuList)
+                OrderHistoryListMenu(orderMenu: menu.name),
+              SizedBox(height: 10),
+              OrderHistoryListPay(
+                  price: orderList.totalPrice, paymentMethod: "카카오페이"),
               OrderHistoryListDivider(),
               OrderHistoryListButton(),
             ],
@@ -56,13 +51,3 @@ class OrderHistoryList extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-

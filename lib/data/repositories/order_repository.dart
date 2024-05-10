@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:pathorder_app/_core/constants/http.dart';
 import 'package:pathorder_app/data/dtos/response_dto.dart';
-import 'package:pathorder_app/data/models/user.dart';
+import 'package:pathorder_app/ui/order_history/data/order_list.dart';
+import 'package:pathorder_app/ui/order_history/order_history_page_viewmodel.dart';
 
 
 class OrderRepository {
@@ -14,7 +15,13 @@ class OrderRepository {
     ResponseDTO responseDTO = ResponseDTO.fromJson(response.data);
 
     if (responseDTO.status == 200) {
-      responseDTO.response = User.fromJson(responseDTO.response);
+      List<dynamic> responseList = responseDTO.response["orderList"];
+      List<OrderList> orderList =
+      responseList.map((e) => OrderList.fromJson(e)).toList();
+
+      OrderHistoryModel orderHistoryModel = OrderHistoryModel(orderList);
+      responseDTO.response = orderHistoryModel;
+      print("orderList : ${orderList[0].totalPrice}");
     }
 
     return responseDTO;
