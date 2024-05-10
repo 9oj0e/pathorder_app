@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pathorder_app/data/store/cart_store.dart';
 import 'package:pathorder_app/data/store/session_store.dart';
 
 import 'widgets/payment_body.dart';
@@ -11,9 +12,12 @@ class PaymentPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    CartStore cartStore = ref.read(cartProvider);
     SessionStore sessionStore = ref.read(sessionProvider);
+    cartStore.setCustomerId(sessionStore.user!.id);
+    cartStore.setCustomerNickname(sessionStore.user!.nickname);
     return Scaffold(
-      appBar: PaymentPageAppBar(sessionStore.storeName),
+      appBar: PaymentPageAppBar(cartStore.storeName),
       body: PaymentBody(),
       bottomNavigationBar: PaymentBottomAppBar(),
     );

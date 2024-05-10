@@ -34,11 +34,9 @@ class PaymentViewModel extends StateNotifier<PaymentModel?> {
           SnackBar(content: Text("주문 실패 : ${responseDTO.errorMessage}")));
     }
   }
-
-  notifyInit() {}
 }
 
 final paymentProvider =
     StateNotifierProvider<PaymentViewModel, PaymentModel?>((ref) {
-  return PaymentViewModel(null, ref)..notifyInit();
+  return PaymentViewModel(null, ref);
 });

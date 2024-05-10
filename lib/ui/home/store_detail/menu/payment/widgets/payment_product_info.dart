@@ -25,15 +25,15 @@ class PaymentProductInfo extends ConsumerWidget {
             ListView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(), //내부 리스트뷰 스크롤 동작 비활성화
-              itemCount: cartStore.cartList.length,
+              itemCount: cartStore.orderMenuList.length,
               itemBuilder: (context, index) {
                 return Column(
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('${cartStore.cartList[index].name}'),
-                        Text('${cartStore.cartList[index].price}원')
+                        Text('${cartStore.orderMenuList[index].name}'),
+                        Text('${cartStore.orderMenuList[index].price}원')
                       ],
                     ),
                     SizedBox(height: 10),

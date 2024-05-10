@@ -1,27 +1,51 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pathorder_app/data/models/cart_item.dart';
+import 'package:pathorder_app/data/dtos/order_request.dart';
 
 class SessionCart {
+  int? storeId;
   String? storeName;
-  List<CartItem> cartList;
+  int? customerId;
+  String? customerNickname;
+  String? request;
+  List<OrderMenuList> orderMenuList = [];
 
-  SessionCart() : cartList = [];
+  SessionCart();
 
-  void addToCart(CartItem cartItem) {
-    cartList.add(cartItem);
+  void addToCart(OrderMenuList cartItem) {
+    orderMenuList.add(cartItem);
   }
 
-  void removeToCart(CartItem cartItem) {
-    cartList.remove(cartItem);
+  void removeToCart(OrderMenuList cartItem) {
+    orderMenuList.remove(cartItem);
   }
 
   void clear() {
-    cartList.clear();
+    orderMenuList.clear();
+  }
+
+  void setStoreId(value) {
+    storeId = value;
+  }
+
+  void setCustomerId(value) {
+    customerId = value;
+  }
+
+  void setCustomerNickname(value) {
+    customerNickname = value;
+  }
+
+  void setStoreName(value) {
+    storeName = value;
+  }
+
+  void setRequest(value) {
+    request = value;
   }
 
   int getTotalPrice() {
     int totalPrice = 0;
-    for (var item in cartList) {
+    for (var item in orderMenuList) {
       totalPrice += item.price ?? 0;
     }
     return totalPrice;
