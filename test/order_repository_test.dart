@@ -2,7 +2,14 @@ import 'package:pathorder_app/data/dtos/order_request.dart';
 import 'package:pathorder_app/data/repositories/order_repository.dart';
 
 void main() async {
-  await fetchSaveOrder_test();
+  await fetchDetailOrder_test();
+}
+
+Future<void> fetchDetailOrder_test() async {
+  await OrderRepository().fetchDetailOrder(
+      'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwYXRob3JkZXIiLCJuaWNrbmFtZSI6Iu-_veygme-_veyBvSIsImlkIjoyLCJleHAiOjE3MTU1OTkzMDYsInVzZXJuYW1lIjoidXNlcjIifQ.AOBXU0aZifa2R8fAOo-NkHNLqzm3CWgidWUKb0iU_GwLhOD3adRjg2jzFC_jrbUflNkvi1NKATdFw2llQYhjlA',
+      1,
+      9);
 }
 
 Future<void> fetchSaveOrder_test() async {

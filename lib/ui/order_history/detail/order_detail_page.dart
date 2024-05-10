@@ -5,10 +5,10 @@ import 'package:pathorder_app/ui/widgets/custom_back_app_bar.dart';
 
 import 'widgets/detail_body.dart';
 
-class DetailPage extends ConsumerWidget {
+class OrderDetailPage extends ConsumerWidget {
   int orderId;
 
-  DetailPage(this.orderId);
+  OrderDetailPage(this.orderId);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pathorder_app/ui/widgets/custom_dotted_line.dart';
 
 class DetailTitle extends StatelessWidget {
-  const DetailTitle({
-    super.key,
-  });
-
   @override
   Widget build(BuildContext context) {
     return Padding(

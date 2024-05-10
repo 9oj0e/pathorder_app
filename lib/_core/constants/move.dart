@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:pathorder_app/ui/main_holder.dart';
-import 'package:pathorder_app/ui/order_history/detail/detail_page.dart';
 
 import '../../ui/home/home_page.dart';
 import '../../ui/home/near_me_store/near_me_store_page.dart';
@@ -65,7 +64,7 @@ Map<String, Widget Function(BuildContext)> getRouters() {
 
     // order_history
     Move.orderHistory: (context) => const OrderHistoryPage(),
-    Move.orderDetail: (context) => const DetailPage(),
+    // Move.orderDetail: (context) => const DetailPage(),
 
     // like
     Move.like: (context) => const LikePage(),
