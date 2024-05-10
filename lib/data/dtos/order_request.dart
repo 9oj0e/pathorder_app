@@ -1,4 +1,4 @@
-class OrderReqDto {
+class OrderReqDTO {
   int storeId;
   String storeName;
   int customerId;
@@ -6,7 +6,7 @@ class OrderReqDto {
   String request;
   List<OrderMenuList> orderMenuList;
 
-  OrderReqDto({
+  OrderReqDTO({
     required this.storeId,
     required this.storeName,
     required this.customerId,
@@ -15,7 +15,7 @@ class OrderReqDto {
     required this.orderMenuList,
   });
 
-  OrderReqDto.fromJson(Map<String, dynamic> json)
+  OrderReqDTO.fromJson(Map<String, dynamic> json)
       : storeId = json["storeId"],
         storeName = json["storeName"],
         customerId = json["customerId"],
@@ -38,17 +38,20 @@ class OrderReqDto {
 class OrderMenuList {
   String name;
   int price;
+  int qty;
   List<OrderMenuOptionList> orderMenuOptionList;
 
   OrderMenuList({
     required this.name,
     required this.price,
+    required this.qty,
     required this.orderMenuOptionList,
   });
 
   OrderMenuList.fromJson(Map<String, dynamic> json)
       : name = json["name"],
         price = json["price"],
+        qty = json["qty"],
         orderMenuOptionList = List<OrderMenuOptionList>.from(
             json["orderMenuOptionList"]
                 .map((x) => OrderMenuOptionList.fromJson(x)));
@@ -56,6 +59,7 @@ class OrderMenuList {
   Map<String, dynamic> toJson() => {
         "name": name,
         "price": price,
+        "qty": qty,
         "orderMenuOptionList":
             List<dynamic>.from(orderMenuOptionList.map((x) => x.toJson())),
       };
