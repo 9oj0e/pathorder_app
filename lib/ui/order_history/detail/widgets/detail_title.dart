@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:pathorder_app/ui/widgets/custom_dotted_line.dart';
 
 class DetailTitle extends StatelessWidget {
+  final orderDetail;
+
+  DetailTitle(this.orderDetail);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -10,7 +14,7 @@ class DetailTitle extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            '하이오커피 동아대점',
+            '${orderDetail.storeName}',
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
           ),
           Text(
@@ -24,7 +28,7 @@ class DetailTitle extends StatelessWidget {
                 '주문번호 : ',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              Text('3'),
+              Text('${orderDetail.id}'),
             ],
           ),
           SizedBox(height: 5),
@@ -41,7 +45,7 @@ class DetailTitle extends StatelessWidget {
                 style: TextStyle(color: Colors.grey[300]),
               ),
               SizedBox(width: 5),
-              Text('2022.05.28 20:15'),
+              Text('${orderDetail.createdAt}'),
             ],
           ),
           SizedBox(height: 5),
@@ -51,7 +55,7 @@ class DetailTitle extends StatelessWidget {
                 '전화번호 : ',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              Text('010-****-0326'),
+              Text('${orderDetail.storeTel}'),
             ],
           ),
           SizedBox(height: 20),

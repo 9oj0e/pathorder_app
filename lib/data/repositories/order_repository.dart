@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:logger/logger.dart';
 import 'package:pathorder_app/_core/constants/http.dart';
 import 'package:pathorder_app/data/dtos/order_request.dart';
 import 'package:pathorder_app/data/dtos/response_dto.dart';
@@ -15,7 +14,6 @@ class OrderRepository {
       String accessToken, int userId, int orderId) async {
     Response response = await dio.get("/api/users/${userId}/orders/${orderId}",
         options: Options(headers: {"Authorization": "${accessToken}"}));
-    Logger().d(response.data);
     ResponseDTO responseDTO = ResponseDTO.fromJson(response.data);
     if (responseDTO.status == 200) {
       List<dynamic> temp = responseDTO.response["orderMenuList"];
@@ -26,11 +24,6 @@ class OrderRepository {
       DetailPageModel detailPageModel = DetailPageModel(
           orderDetail: orderDetail, orderDetailList: orderDetailList);
       responseDTO.response = detailPageModel;
-
-      // Logger().d(de.paymentHeader.customerId);
-      // Logger().d(paymentModel.paymentHeader.customerNickname);
-      // Logger().d(paymentModel.paymentList[0].name);
-      // Logger().d(paymentModel.paymentList[0].orderMenuOptionList[0].name);
     }
 
     return responseDTO;

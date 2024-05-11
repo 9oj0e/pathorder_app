@@ -29,14 +29,15 @@ class PaymentViewModel extends StateNotifier<PaymentModel?> {
     CartStore cartStore = ref.read(cartProvider);
     ResponseDTO responseDTO = await OrderRepository()
         .fetchSaveOrder(sessionUser.accessToken!, reqDTO, sessionUser.user!.id);
-
     // 상태값 갱신
     if (responseDTO.status == 200) {
       state = responseDTO.response;
       cartStore.clear();
       Navigator.pushAndRemoveUntil(
         mContext!,
-        MaterialPageRoute(builder: (context) => OrderDetailPage(12)),
+        MaterialPageRoute(
+            builder: (context) =>
+                OrderDetailPage(responseDTO.response.paymentHeader.id)),
         (route) => false,
       );
     } else {

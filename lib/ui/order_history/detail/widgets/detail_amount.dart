@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class DetailAmount extends StatelessWidget {
-  const DetailAmount({super.key});
+  String totalPrice;
+
+  DetailAmount(this.totalPrice);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,7 @@ class DetailAmount extends StatelessWidget {
               ),
               Spacer(),
               Text(
-                '13,300원',
+                '${totalPrice}',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               )
             ],
@@ -33,7 +35,7 @@ class DetailAmount extends StatelessWidget {
               ),
               Spacer(),
               Text(
-                '13,300원',
+                '${totalPrice}',
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
