@@ -1,11 +1,28 @@
 import 'package:dio/dio.dart';
+import 'package:logger/logger.dart';
 import 'package:pathorder_app/_core/constants/http.dart';
 import 'package:pathorder_app/data/dtos/response_dto.dart';
 import 'package:pathorder_app/data/models/store.dart';
 import 'package:pathorder_app/ui/home/home_page_view_model.dart';
 import 'package:pathorder_app/ui/home/near_me_store/store_list_view_model.dart';
+import 'package:pathorder_app/ui/home/store_detail/business_info/data/business_info_data.dart';
 
 class StoreRepository {
+  Future<ResponseDTO> fetchBusinessInfo(String accessToken, int storeId) async {
+    final response = await dio.get(
+      "/api/stores/${storeId}/biz-info",
+      options: Options(headers: {"Authorization": "${accessToken}"}),
+    );
+
+    ResponseDTO responseDTO = ResponseDTO.fromJson(response.data);
+    Logger().d(response.data);
+    if (responseDTO.status == 200) {
+      responseDTO.response = BusinessInfoData.fromJson(responseDTO.response);
+    }
+
+    return responseDTO;
+  }
+
   Future<ResponseDTO> fetchStoreMenuList(
       String accessToken, int storeId) async {
     final response = await dio.get(

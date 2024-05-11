@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomBackAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String title;
+  final title;
 
   CustomBackAppBar({required this.title});
 

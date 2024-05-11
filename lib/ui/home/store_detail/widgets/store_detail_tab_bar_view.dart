@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/ui/home/store_detail/business_info/business_info_page.dart';
 
 class StoreDetailTabBarView extends StatelessWidget {
   final name;
@@ -7,9 +8,10 @@ class StoreDetailTabBarView extends StatelessWidget {
   final closedDay;
   final intro;
   final address;
+  final storeId;
 
   StoreDetailTabBarView(this.name, this.openingTime, this.closingTime,
-      this.closedDay, this.intro, this.address);
+      this.closedDay, this.intro, this.address, this.storeId);
 
   @override
   Widget build(BuildContext context) {
@@ -82,6 +84,12 @@ class StoreDetailTabBarView extends StatelessWidget {
                     TextButton(
                       onPressed: () {
                         // TODO: 사업자 정보 페이지 이동
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => BusinessInfoPage(storeId),
+                          ),
+                        );
                       },
                       child: Row(
                         children: [

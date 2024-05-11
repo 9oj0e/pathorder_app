@@ -30,6 +30,7 @@ class Move {
   static String allMenu = "/store/menu";
   static String menuOption = "/store/option";
   static String payment = "/store/payment";
+  static String businessInfo = "/store/info";
 
   // order_history
   static String orderHistory = "/user/order/history";
@@ -61,6 +62,7 @@ Map<String, Widget Function(BuildContext)> getRouters() {
     // Move.allMenu: (context) => const AllMenuPage(),
     // Move.menuOption: (context) => const OptionPage(),
     Move.payment: (context) => const PaymentPage(),
+    // Move.businessInfo: (context) => BusinessInfoPage(),
 
     // order_history
     Move.orderHistory: (context) => const OrderHistoryPage(),
