@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/ui/order_history/detail/data/order_detail_list_data.dart';
 import 'package:pathorder_app/ui/widgets/custom_dotted_line.dart';
 
-import '../../../../models/order_detail_menu.dart';
-
 class DetailInfo extends StatelessWidget {
-  const DetailInfo({super.key});
+  List<OrderDetailList> orderDetailList;
+  String request;
+
+  DetailInfo(this.orderDetailList, this.request);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,7 @@ class DetailInfo extends StatelessWidget {
               numeric: true,
             ),
           ],
-          rows: orderDetailMenu1.map((menu) {
+          rows: orderDetailList.map((menu) {
             return DataRow(cells: [
               DataCell(
                 Text(
@@ -46,7 +48,7 @@ class DetailInfo extends StatelessWidget {
               ),
               DataCell(
                 Text(
-                  menu.count.toString(),
+                  menu.qty.toString(),
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 ),
               ),
@@ -65,7 +67,7 @@ class DetailInfo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '5분 뒤에 받으러 갈게요',
+                '${request}',
                 style: TextStyle(color: Colors.grey),
               ),
               SizedBox(height: 10),

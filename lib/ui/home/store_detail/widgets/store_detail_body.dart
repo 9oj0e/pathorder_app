@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pathorder_app/data/store/cart_store.dart';
 import 'package:pathorder_app/ui/home/store_detail/store_detail_view_model.dart';
 import 'package:pathorder_app/ui/home/store_detail/widgets/store_detail_app_bar.dart';
 import 'package:pathorder_app/ui/home/store_detail/widgets/store_detail_bottom_button.dart';
@@ -15,6 +16,7 @@ class StoreDetailBody extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     StoreDetailModel? model = ref.watch(storeDetailProvider(storeId));
+    CartStore cartStore = ref.read(cartProvider);
     double screenHeight = MediaQuery.of(context).size.height;
 
     if (model == null) {
@@ -32,8 +34,15 @@ class StoreDetailBody extends ConsumerWidget {
             body: Column(
               children: [
                 StoreDetailTabBar(),
-                Expanded(child: StoreDetailTabBarView(
-                  model.store.name, model.store.openingTime, model.store.closingTime, model.store.closedDay, model.store.intro, model.store.address
+                Expanded(
+                    child: StoreDetailTabBarView(
+                  model.store.name,
+                  model.store.openingTime,
+                  model.store.closingTime,
+                  model.store.closedDay,
+                  model.store.intro,
+                  model.store.address,
+                  cartStore.storeId,
                 ))
               ],
             ),
@@ -41,7 +50,6 @@ class StoreDetailBody extends ConsumerWidget {
           StoreDetailBottomButton(model.store.id),
         ],
       );
-
     }
   }
 }

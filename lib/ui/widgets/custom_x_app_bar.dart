@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/_core/constants/move.dart';
 
-class PaymentPageAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final storeName;
+class CustomXAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final String title;
 
-  PaymentPageAppBar(this.storeName);
+  CustomXAppBar({required this.title});
 
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
@@ -15,7 +16,12 @@ class PaymentPageAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.white,
       leading: IconButton(
         onPressed: () {
-          Navigator.pop(context);
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            Move.mainHolder, // '/main' 화면으로 이동
+
+            ModalRoute.withName(Move.home), // 'home' 화면까지 스택 제거
+          );
         },
         icon: Icon(
           CupertinoIcons.xmark,
@@ -23,8 +29,7 @@ class PaymentPageAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       title: Text(
-        // TODO: 카페이름 불러오기
-        '${storeName}',
+        title,
         style: TextStyle(fontSize: 16),
       ),
       centerTitle: true,
