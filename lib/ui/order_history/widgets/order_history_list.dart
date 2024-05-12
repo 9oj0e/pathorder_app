@@ -1,28 +1,17 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/ui/order_history/data/order_list.dart';
 
 import 'order_history_list_button.dart';
-import 'order_history_list_divider.dart';
 import 'order_history_list_cafe.dart';
 import 'order_history_list_date.dart';
+import 'order_history_list_divider.dart';
 import 'order_history_list_menu.dart';
 import 'order_history_list_pay.dart';
 
 class OrderHistoryList extends StatelessWidget {
-  final datetime;
-  final cafeName;
-  final orderMenu;
-  final price;
-  final paymentMethod;
+  List<OrderList> orderList;
 
-  const OrderHistoryList({
-
-    required this.datetime,
-    required this.cafeName,
-    required this.orderMenu,
-    required this.price,
-    required this.paymentMethod,
-  });
+  OrderHistoryList(this.orderList);
 
   @override
   Widget build(BuildContext context) {
@@ -40,13 +29,16 @@ class OrderHistoryList extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              OrderHistoryListDate(datetime: datetime),
-              SizedBox(height: 10,),
-              OderHistoryListCafe(cafeName: cafeName),
+              OrderHistoryListDate(datetime: orderList[0].createdAt),
+              SizedBox(height: 10),
+              OderHistoryListCafe(cafeName: orderList[0].storeName),
               OrderHistoryListDivider(),
-              OrderHistoryListMenu(orderMenu: orderMenu),
-              SizedBox(height: 10,),
-              OrderHistoryListPay(price: price, paymentMethod: paymentMethod),
+              for (var menu in orderList)
+                OrderHistoryListMenu(
+                    orderMenu: orderList[0].orderMenuList[0].name),
+              SizedBox(height: 10),
+              OrderHistoryListPay(
+                  price: orderList[0].totalPrice, paymentMethod: "카카오페이"),
               OrderHistoryListDivider(),
               OrderHistoryListButton(),
             ],
@@ -56,13 +48,3 @@ class OrderHistoryList extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-

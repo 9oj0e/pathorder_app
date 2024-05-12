@@ -54,3 +54,4 @@ class RegisterImgReqDTO{
         "encodedImg": encodedImg,
       };
 }
+

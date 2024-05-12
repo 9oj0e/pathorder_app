@@ -5,11 +5,33 @@ import 'package:pathorder_app/data/dtos/response_dto.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/payment/data/payment_header_data.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/payment/data/payment_list_data.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/payment/payment_page_view_model.dart';
+import 'package:pathorder_app/ui/order_history/data/order_list.dart';
 import 'package:pathorder_app/ui/order_history/detail/data/order_detail_data.dart';
 import 'package:pathorder_app/ui/order_history/detail/data/order_detail_list_data.dart';
 import 'package:pathorder_app/ui/order_history/detail/detail_page_view_model.dart';
+import 'package:pathorder_app/ui/order_history/order_history_page_viewmodel.dart';
 
 class OrderRepository {
+  Future<ResponseDTO> fetchOrderHistory(int userId, String accessToken) async {
+    // 통신
+    Response response = await dio.get("/api/users/${userId}/orders",
+        options: Options(headers: {"Authorization": "$accessToken"}));
+
+    // 응답 받은 데이터 파싱
+    ResponseDTO responseDTO = ResponseDTO.fromJson(response.data);
+
+    if (responseDTO.status == 200) {
+      List<dynamic> responseList = responseDTO.response["orderList"];
+      List<OrderList> orderList =
+          responseList.map((e) => OrderList.fromJson(e)).toList();
+
+      OrderHistoryModel orderHistoryModel = OrderHistoryModel(orderList);
+      responseDTO.response = orderHistoryModel;
+      print("orderList : ${orderList[0].totalPrice}");
+    }
+    return responseDTO;
+  }
+
   Future<ResponseDTO> fetchDetailOrder(
       String accessToken, int userId, int orderId) async {
     Response response = await dio.get("/api/users/${userId}/orders/${orderId}",
