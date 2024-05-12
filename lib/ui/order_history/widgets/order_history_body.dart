@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pathorder_app/ui/order_history/data/order_list.dart';
-import 'package:pathorder_app/ui/order_history/data/order_menu_list.dart';
 import 'package:pathorder_app/ui/order_history/order_history_page_viewmodel.dart';
 import 'package:pathorder_app/ui/order_history/widgets/order_history_date_select_app.dart';
 import 'package:pathorder_app/ui/order_history/widgets/order_history_header.dart';
@@ -39,11 +37,9 @@ class OrderHistoryBody extends ConsumerWidget {
         Expanded(
           child: ListView.builder(
             scrollDirection: Axis.vertical,
-            itemCount: model?.orderList.length ?? 0,
+            itemCount: model!.orderList.length,
             itemBuilder: (context, index) {
-              return OrderHistoryList(
-                orderList: model!.orderList[index],
-              );
+              return OrderHistoryList(model.orderList);
             },
           ),
         ),

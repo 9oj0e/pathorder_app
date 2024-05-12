@@ -3,11 +3,8 @@ class OrderMenuList {
   final name;
   final totalPrice;
 
-  OrderMenuList({
-    required this.id,
-    required this.name,
-    required this.totalPrice
-  });
+  OrderMenuList(
+      {required this.id, required this.name, required this.totalPrice});
 
   factory OrderMenuList.fromJson(Map<String, dynamic> json) {
     return OrderMenuList(
@@ -16,5 +13,4 @@ class OrderMenuList {
       totalPrice: json["totalPrice"] ?? 0,
     );
   }
-//
 }

@@ -1,4 +1,3 @@
-import 'package:pathorder_app/data/models/order/order_status.dart';
 import 'order_menu_list.dart';
 
 class OrderList {
@@ -26,7 +25,8 @@ class OrderList {
         id: json["id"] ?? 0,
         status: json["status"] ?? "",
         createdAt: json["createdAt"] ?? null,
-        orderMenuList: json["orderMenuList"],
+        orderMenuList: List<OrderMenuList>.from(
+            json["orderMenuList"].map((x) => OrderMenuList.fromJson(x))),
         totalPrice: json["totalPrice"] ?? 0);
   }
 }
