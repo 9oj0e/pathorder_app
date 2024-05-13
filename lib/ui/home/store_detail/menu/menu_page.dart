@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pathorder_app/data/store/cart_store.dart';
@@ -45,12 +44,12 @@ class MenuPage extends ConsumerWidget {
             ),
             SliverList(
               delegate: SliverChildBuilderDelegate(
-                    (BuildContext context, int index) {
+                (BuildContext context, int index) {
                   return MenuItem(
                     menuNameKor: model.store.menu[index].name,
                     menuNameEng: model.store.menu[index].name,
                     price: model.store.menu[index].price,
-                    imgUrl: "https://viennacoffeehouse.co.kr/data/file/m1/1795031452_xMn1LTkz_295bf7a097571e8a7fad24fd9f90aa5b8453bf46.png",
+                    imgUrl: model.store.menu[index].imgFilename,
                     storeId: storeId,
                     menuId: model.store.menu[index].id,
                     storeName: model.store.storeName,
