@@ -12,6 +12,7 @@ class HomePage extends StatelessWidget {
       initialIndex: 0,
       length: 2,
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: _buildAppBar(),
         body: HomeBody(),
       ),
