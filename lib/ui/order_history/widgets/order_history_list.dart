@@ -9,9 +9,11 @@ import 'order_history_list_menu.dart';
 import 'order_history_list_pay.dart';
 
 class OrderHistoryList extends StatelessWidget {
-  List<OrderList> orderList;
+  final OrderList orderList;
 
-  OrderHistoryList(this.orderList);
+  const OrderHistoryList(
+   this.orderList,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -29,22 +31,40 @@ class OrderHistoryList extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              OrderHistoryListDate(datetime: orderList[0].createdAt),
+              OrderHistoryListDate(datetime: orderList.createdAt),
               SizedBox(height: 10),
-              OderHistoryListCafe(cafeName: orderList[0].storeName),
+              OderHistoryListCafe(cafeName: orderList.storeName),
               OrderHistoryListDivider(),
-              for (var menu in orderList)
-                OrderHistoryListMenu(
-                    orderMenu: orderList[0].orderMenuList[0].name),
+              OrderHistoryListMenu(orderMenu: "${orderList.orderMenuList[0].name}..."),
               SizedBox(height: 10),
               OrderHistoryListPay(
-                  price: orderList[0].totalPrice, paymentMethod: "카카오페이"),
+                  price: orderList.totalPrice, paymentMethod: "카카오페이"),
               OrderHistoryListDivider(),
               OrderHistoryListButton(),
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class YourPage extends StatelessWidget {
+  final List<OrderList> orderList;
+
+  const YourPage({
+    required this.orderList,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: orderList.length,
+      itemBuilder: (BuildContext context, int index) {
+        return OrderHistoryList(
+          orderList[index],
+        );
+      },
     );
   }
 }

@@ -17,6 +17,7 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
     return DefaultTabController(
       length: 2, // TabBar에 표시할 탭 수
       child: Scaffold(
+        backgroundColor: Colors.white,
         body: StoreDetailBody(widget.storeId),
       ),
     );

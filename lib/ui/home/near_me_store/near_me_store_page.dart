@@ -6,6 +6,7 @@ class NearMeStorePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: CustomBackAppBar(title: '가까이 있는 매장'),
       body: NearMeStoreBody(),
     );

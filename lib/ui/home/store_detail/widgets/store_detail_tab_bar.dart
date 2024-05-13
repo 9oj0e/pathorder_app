@@ -8,6 +8,9 @@ class StoreDetailTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TabBar(
+      indicatorColor: Colors.black,
+      indicatorSize: TabBarIndicatorSize.tab,
+      labelColor: Colors.black,
       tabs: [
         Tab(text: '정보'),
         Tab(text: '리뷰'),
