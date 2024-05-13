@@ -17,26 +17,27 @@ class OrderHistoryBody extends ConsumerWidget {
     if (model == null) {
       return Center(child: CircularProgressIndicator());
     } else {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            color: Colors.white,
-            child: const Padding(
-              padding: EdgeInsets.all(20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  OrderHistoryHeader(),
-                  SizedBox(height: 10),
-                  OrderDateSelectApp(), // 날짜 선택
-                  SizedBox(height: 10),
-                  OrderHistoryPoint(),
-                ],
+      return SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              color: Colors.white,
+              child: const Padding(
+                padding: EdgeInsets.all(20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    OrderHistoryHeader(),
+                    SizedBox(height: 10),
+                    OrderDateSelectApp(), // 날짜 선택
+                    SizedBox(height: 10),
+                    OrderHistoryPoint(),
+                  ],
+                ),
               ),
             ),
-          ),
-           ListView.builder(
+            ListView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
               scrollDirection: Axis.vertical,
@@ -45,8 +46,8 @@ class OrderHistoryBody extends ConsumerWidget {
                 return OrderHistoryList(model.orderList[index]);
               },
             ),
-
-        ],
+          ],
+        ),
       );
     }
   }
