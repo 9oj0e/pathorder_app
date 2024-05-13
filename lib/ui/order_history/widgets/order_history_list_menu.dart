@@ -32,7 +32,7 @@ class OrderHistoryListMenu extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   // TODO: 박찬혁
-                  builder: (context) => DetailPage(10),
+                  builder: (context) => DetailPage(1),
                 ),
               );
             },
