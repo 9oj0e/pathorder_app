@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pathorder_app/data/store/session_store.dart';
 
-class OrderHistoryPoint extends StatelessWidget {
+class OrderHistoryPoint extends ConsumerWidget {
   const OrderHistoryPoint({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    SessionStore sessionStore = ref.read(sessionProvider);
+
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,7 +38,7 @@ class OrderHistoryPoint extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '큐티와이님의 포인트',
+                        "${sessionStore.user!.nickname}님의 포인트",
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.w500),
                       ),

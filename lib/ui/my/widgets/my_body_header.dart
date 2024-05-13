@@ -34,7 +34,7 @@ class MyBodyHeader extends ConsumerWidget {
                 model!.user.nickname,
                 style: TextStyle(
                 fontWeight: FontWeight.w500,
-                  fontSize: 15
+                  fontSize: 16
                 ),
               ),
               Spacer(),

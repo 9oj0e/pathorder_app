@@ -35,7 +35,7 @@ class OrderHistoryList extends StatelessWidget {
               SizedBox(height: 10),
               OderHistoryListCafe(cafeName: orderList.storeName),
               OrderHistoryListDivider(),
-              OrderHistoryListMenu(orderMenu: orderList.orderMenuList[0].name),
+              OrderHistoryListMenu(orderMenu: "${orderList.orderMenuList[0].name}..."),
               SizedBox(height: 10),
               OrderHistoryListPay(
                   price: orderList.totalPrice, paymentMethod: "카카오페이"),

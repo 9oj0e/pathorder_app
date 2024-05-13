@@ -20,15 +20,15 @@ class OrderHistoryBody extends ConsumerWidget {
       children: [
         Container(
           color: Colors.white,
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
+          child: const Padding(
+            padding: EdgeInsets.all(20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 OrderHistoryHeader(),
-                const SizedBox(height: 10),
+                SizedBox(height: 10),
                 OrderDateSelectApp(), // 날짜 선택
-                const SizedBox(height: 10),
+                SizedBox(height: 10),
                 OrderHistoryPoint(),
               ],
             ),
