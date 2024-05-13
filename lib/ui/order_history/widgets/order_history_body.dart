@@ -39,7 +39,7 @@ class OrderHistoryBody extends ConsumerWidget {
             scrollDirection: Axis.vertical,
             itemCount: model!.orderList.length,
             itemBuilder: (context, index) {
-              return OrderHistoryList(model.orderList);
+              return OrderHistoryList(model.orderList[index]);
             },
           ),
         ),
