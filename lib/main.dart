@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
       navigatorKey: navigatorKey,
       title: 'pass_order',
       debugShowCheckedModeBanner: false,
-      initialRoute: Move.loginId,
+      initialRoute: Move.loginMethod,
       routes: getRouters(),
       // theme: theme(),
     );
