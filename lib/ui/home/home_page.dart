@@ -26,6 +26,7 @@ class HomePage extends StatelessWidget {
       bottom: const TabBar(
         indicatorColor: Colors.black87,
         labelColor: Colors.black87,
+        indicatorSize: TabBarIndicatorSize.tab,
         tabs: [
           Tab(child: Text("리스트로 주문")),
           Tab(child: Text("지도로 주문")),

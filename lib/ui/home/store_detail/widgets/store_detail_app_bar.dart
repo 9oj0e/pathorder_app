@@ -17,7 +17,7 @@ class StoreDetailAppBar extends StatelessWidget {
           Navigator.pop(context);
         },
         icon: Icon(Icons.arrow_back_ios, size: 18),
-        color: Colors.white,
+        color: Colors.black54,
       ),
       actions: [
         IconButton(
@@ -25,7 +25,7 @@ class StoreDetailAppBar extends StatelessWidget {
             // TODO : 하트 기능
           },
           icon: Icon(CupertinoIcons.heart),
-          color: Colors.white,
+          color: Colors.black54,
         ),
         SizedBox(width: 10),
       ],

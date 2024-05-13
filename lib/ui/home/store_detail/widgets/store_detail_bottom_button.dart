@@ -28,7 +28,7 @@ class StoreDetailBottomButton extends StatelessWidget {
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
                   borderRadius:
-                      BorderRadius.circular(5.0), // Adjust button corners
+                      BorderRadius.circular(10.0), // Adjust button corners
                 ),
               ),
             ),

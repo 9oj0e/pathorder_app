@@ -9,6 +9,7 @@ class CardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: _CardAppBar(context),
       body: CardBody(),
       bottomNavigationBar: CardButton(),
