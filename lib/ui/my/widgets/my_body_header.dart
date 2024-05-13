@@ -1,27 +1,42 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pathorder_app/_core/constants/http.dart';
 import 'package:pathorder_app/_core/constants/move.dart';
+import 'package:pathorder_app/ui/my/profile/profile_page_viewmodel.dart';
 
-class MyBodyHeader extends StatelessWidget {
+class MyBodyHeader extends ConsumerWidget {
   const MyBodyHeader({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    ProfileDetailModel? model = ref.watch(ProfileDetailProvider);
+
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 16, top: 8),
       child: Column(
         children: [
           Row(
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(25),
-                child: Image.network(
-                  "https://picsum.photos/id/1/50/50",
-                  fit: BoxFit.cover,
+              SizedBox(
+                width: 50,
+                height: 50,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(90),
+                  child: Image.network(
+                    "${baseUrl +'/upload/'+model!.user.imgFilename}",
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               SizedBox(width: 8),
-              Text('홍길동'),
+              Text(
+                model!.user.nickname,
+                style: TextStyle(
+                fontWeight: FontWeight.w500,
+                  fontSize: 15
+                ),
+              ),
               Spacer(),
               // 수정 버튼 클릭시 수정 페이지 이동
               InkWell(
