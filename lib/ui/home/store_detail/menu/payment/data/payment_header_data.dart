@@ -4,7 +4,7 @@ class PaymentHeaderData {
   int storeId;
   String storeName;
   int id;
-  String request;
+  final request;
   final status;
   String totalPrice;
 

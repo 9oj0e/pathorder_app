@@ -3,7 +3,7 @@ class OrderReqDTO {
   String storeName;
   int customerId;
   String customerNickname;
-  String request;
+  final request;
   List<OrderMenuList> orderMenuList;
 
   OrderReqDTO({

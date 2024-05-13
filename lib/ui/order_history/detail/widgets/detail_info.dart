@@ -4,7 +4,7 @@ import 'package:pathorder_app/ui/widgets/custom_dotted_line.dart';
 
 class DetailInfo extends StatelessWidget {
   List<OrderDetailList> orderDetailList;
-  String request;
+  final request;
 
   DetailInfo(this.orderDetailList, this.request);
 
