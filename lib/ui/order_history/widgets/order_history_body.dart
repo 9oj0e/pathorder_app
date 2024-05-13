@@ -15,35 +15,38 @@ class OrderHistoryBody extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final OrderHistoryModel? model = ref.watch(OrderHistoryProvider);
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          color: Colors.white,
-          child: const Padding(
-            padding: EdgeInsets.all(20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                OrderHistoryHeader(),
-                SizedBox(height: 10),
-                OrderDateSelectApp(), // 날짜 선택
-                SizedBox(height: 10),
-                OrderHistoryPoint(),
-              ],
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            color: Colors.white,
+            child: const Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  OrderHistoryHeader(),
+                  SizedBox(height: 10),
+                  OrderDateSelectApp(), // 날짜 선택
+                  SizedBox(height: 10),
+                  OrderHistoryPoint(),
+                ],
+              ),
             ),
           ),
-        ),
-        Expanded(
-          child: ListView.builder(
+          ListView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
             scrollDirection: Axis.vertical,
             itemCount: model!.orderList.length,
             itemBuilder: (context, index) {
               return OrderHistoryList(model.orderList[index]);
             },
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
+

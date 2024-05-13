@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pathorder_app/_core/constants/move.dart';
 
+import 'splash_page.dart';
+
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 void main() {
@@ -21,9 +23,10 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       navigatorKey: navigatorKey,
+      home: SplashPage(),
       title: 'pass_order',
       debugShowCheckedModeBanner: false,
-      initialRoute: Move.loginMethod,
+      // initialRoute: Move.loginMethod,
       routes: getRouters(),
       // theme: theme(),
     );
