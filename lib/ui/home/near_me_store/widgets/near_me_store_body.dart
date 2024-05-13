@@ -45,11 +45,14 @@ class NearMeStoreBody extends ConsumerWidget {
           child: Column(
             children: [
               Expanded(
-                child: Image.network(
-                  '${baseUrl}/upload/${store.imgFilename}',
-                  width: 200,
-                  height: 200,
-                  fit: BoxFit.cover,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(5), // 테두리의 모든 모서리를 10 픽셀의 원형으로 만듭니다.
+                  child: Image.network(
+                    '${baseUrl}/upload/${store.imgFilename}',
+                    width: 200,
+                    height: 200,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               SizedBox(height: 5),

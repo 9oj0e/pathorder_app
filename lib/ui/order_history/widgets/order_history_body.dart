@@ -36,15 +36,16 @@ class OrderHistoryBody extends ConsumerWidget {
               ),
             ),
           ),
-          Expanded(
-            child: ListView.builder(
+           ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
               scrollDirection: Axis.vertical,
               itemCount: model.orderList.length,
               itemBuilder: (context, index) {
                 return OrderHistoryList(model.orderList[index]);
               },
             ),
-          ),
+
         ],
       );
     }
