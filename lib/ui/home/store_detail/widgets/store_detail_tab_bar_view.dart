@@ -87,7 +87,8 @@ class StoreDetailTabBarView extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => BusinessInfoPage(storeId),
+                            builder: (context) =>
+                                BusinessInfoPage(storeId, name),
                           ),
                         );
                       },

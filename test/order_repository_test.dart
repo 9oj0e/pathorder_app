@@ -14,11 +14,11 @@ Future<void> fetchDetailOrder_test() async {
 
 Future<void> fetchSaveOrder_test() async {
   OrderMenuOptionList orderMenuOptionList1 =
-      OrderMenuOptionList(name: '헤이즐넛시럽', price: 1500);
+      OrderMenuOptionList(name: '헤이즐넛시럽', price: 1500, required: true);
   OrderMenuOptionList orderMenuOptionList2 =
-      OrderMenuOptionList(name: 'hot', price: 0);
+      OrderMenuOptionList(name: 'hot', price: 0, required: true);
   OrderMenuOptionList orderMenuOptionList3 =
-      OrderMenuOptionList(name: '코코아파우더', price: 500);
+      OrderMenuOptionList(name: '코코아파우더', price: 500, required: true);
 
   final orderMenuOptionLists1 = [orderMenuOptionList1];
   final orderMenuOptionLists2 = [orderMenuOptionList2, orderMenuOptionList3];

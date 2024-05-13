@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/data/dtos/order_request.dart';
+import 'package:pathorder_app/data/store/session_store.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/option/widgets/menu_option_category.dart';
 
 class MenuOptionCheck extends StatefulWidget {
   final model;
+  SessionStore sessionStore;
 
-  const MenuOptionCheck(this.model, {Key? key}) : super(key: key);
+  MenuOptionCheck(this.model, this.sessionStore, {Key? key}) : super(key: key);
 
   @override
   State<MenuOptionCheck> createState() => _MenuOptionRadioState();
@@ -26,6 +29,7 @@ class _MenuOptionRadioState extends State<MenuOptionCheck> {
   @override
   Widget build(BuildContext context) {
     var model = widget.model;
+    SessionStore sessionStore = widget.sessionStore;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,6 +62,10 @@ class _MenuOptionRadioState extends State<MenuOptionCheck> {
                     GestureDetector(
                       onTap: () {
                         setState(() {
+                          sessionStore.addMenuOptionList(OrderMenuOptionList(
+                              name: model.optionList[index].name,
+                              price: model.optionList[index].price,
+                              required: false));
                           _isCheckList[index] = !_isCheckList[index];
                         });
                       },

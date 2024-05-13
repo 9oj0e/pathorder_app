@@ -3,7 +3,7 @@ class OrderReqDTO {
   String storeName;
   int customerId;
   String customerNickname;
-  String request;
+  final request;
   List<OrderMenuList> orderMenuList;
 
   OrderReqDTO({
@@ -63,23 +63,37 @@ class OrderMenuList {
         "orderMenuOptionList":
             List<dynamic>.from(orderMenuOptionList.map((x) => x.toJson())),
       };
+
+  @override
+  String toString() {
+    return 'OrderMenuList{name: $name, price: $price, qty: $qty, orderMenuOptionList: $orderMenuOptionList}';
+  }
 }
 
 class OrderMenuOptionList {
-  String name;
-  int price;
+  final name;
+  final price;
+  final required;
 
   OrderMenuOptionList({
     required this.name,
     required this.price,
+    required this.required,
   });
 
   OrderMenuOptionList.fromJson(Map<String, dynamic> json)
       : name = json["name"],
-        price = json["price"];
+        price = json["price"],
+        required = json["required"];
 
   Map<String, dynamic> toJson() => {
         "name": name,
         "price": price,
+        "required": required,
       };
+
+  @override
+  String toString() {
+    return 'OrderMenuOptionList{name: $name, price: $price, required: $required}';
+  }
 }

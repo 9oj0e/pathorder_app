@@ -1,3 +1,5 @@
+import 'package:pathorder_app/data/dtos/order_request.dart';
+
 class OrderDetailList {
   int id;
   String name;
@@ -26,19 +28,24 @@ class OrderDetailList {
         totalPrice = json["totalPrice"];
 }
 
-class OrderMenuOptionList {
-  int id;
-  String name;
-  String price;
-
-  OrderMenuOptionList({
-    required this.id,
-    required this.name,
-    required this.price,
-  });
-
-  OrderMenuOptionList.fromJson(Map<String, dynamic> json)
-      : id = json["id"],
-        name = json["name"],
-        price = json["price"];
-}
+// class OrderMenuOptionList {
+//   final name;
+//   final price;
+//   final required;
+//
+//   OrderMenuOptionList({
+//     required this.name,
+//     required this.price,
+//     required this.required,
+//   });
+//
+//   OrderMenuOptionList.fromJson(Map<String, dynamic> json)
+//       : name = json["name"],
+//         price = json["price"],
+//         required = json["required"];
+//
+//   @override
+//   String toString() {
+//     return 'OrderMenuOptionList{name: $name, price: $price, required: $required}';
+//   }
+// }

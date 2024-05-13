@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/data/store/session_store.dart';
 
 import 'menu_option_count.dart';
 
 class MenuOptionCountingButton extends StatelessWidget {
-  const MenuOptionCountingButton({
-    super.key,
-  });
+  SessionStore sessionStore;
+
+  MenuOptionCountingButton(this.sessionStore);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class MenuOptionCountingButton extends StatelessWidget {
                   "수량",
                   style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
                 ),
-                MenuOptionCount(),
+                MenuOptionCount(sessionStore),
               ],
             ),
           )),

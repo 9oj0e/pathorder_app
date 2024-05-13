@@ -33,20 +33,32 @@ class PaymentProductInfo extends ConsumerWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text('${cartStore.orderMenuList[index].name}'),
-                        Text('${cartStore.orderMenuList[index].price}원')
+                        Text(
+                            '${(cartStore.orderMenuList[index].price) * cartStore.orderMenuList[index].qty}원')
                       ],
                     ),
                     SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'ice 옵션 아직',
-                          style:
-                              TextStyle(fontSize: 12, color: Colors.grey[400]),
-                        ),
-                        PaymentMenuCount(),
-                      ],
+                    ListView.builder(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: cartStore
+                          .orderMenuList[index].orderMenuOptionList.length,
+                      itemBuilder: (context, optionIndex) {
+                        var option = cartStore.orderMenuList[index]
+                            .orderMenuOptionList[optionIndex];
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              option.name,
+                              style: TextStyle(
+                                  fontSize: 12, color: Colors.grey[400]),
+                            ),
+                            PaymentMenuCount(
+                                cartStore.orderMenuList[index].qty),
+                          ],
+                        );
+                      },
                     ),
                   ],
                 );

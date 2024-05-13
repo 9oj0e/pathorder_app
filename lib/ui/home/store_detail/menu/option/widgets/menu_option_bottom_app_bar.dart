@@ -13,6 +13,7 @@ class MenuOptionBottomAppBar extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     CartStore cartStore = ref.read(cartProvider);
     SessionStore sessionStore = ref.watch(sessionProvider);
+    print(sessionStore.menuOptionList);
     return BottomAppBar(
       // TODO : widgets
       height: 90,
@@ -29,17 +30,15 @@ class MenuOptionBottomAppBar extends ConsumerWidget {
             cartStore.addToCart(OrderMenuList(
                 name: sessionStore.name!,
                 price: sessionStore.price!,
-                qty: 1,
-                orderMenuOptionList: [
-                  OrderMenuOptionList(name: '아이스', price: 0)
-                ]));
+                qty: sessionStore.qty!,
+                orderMenuOptionList: sessionStore.menuOptionList));
+            sessionStore.qty = 1;
             Navigator.pop(context);
-            // TODO: 담기버튼 눌리면 장바구니에 담겨야함
-            print('담기 버튼이 눌렸습니다.');
           },
           child: Center(
             child: Text(
-              "${price}원 담기",
+              // TODO : @@원 담기
+              "담기",
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 20,

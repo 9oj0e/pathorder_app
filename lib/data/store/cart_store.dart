@@ -50,7 +50,7 @@ class SessionCart {
   int getTotalPrice() {
     int totalPrice = 0;
     for (var item in orderMenuList) {
-      totalPrice += item.price ?? 0;
+      totalPrice += (item.price * item.qty) ?? 0;
     }
     return totalPrice;
   }

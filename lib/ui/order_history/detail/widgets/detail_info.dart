@@ -4,7 +4,7 @@ import 'package:pathorder_app/ui/widgets/custom_dotted_line.dart';
 
 class DetailInfo extends StatelessWidget {
   List<OrderDetailList> orderDetailList;
-  String request;
+  final request;
 
   DetailInfo(this.orderDetailList, this.request);
 
@@ -54,7 +54,7 @@ class DetailInfo extends StatelessWidget {
               ),
               DataCell(
                 Text(
-                  menu.price,
+                  menu.totalPrice,
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 ),
               ),

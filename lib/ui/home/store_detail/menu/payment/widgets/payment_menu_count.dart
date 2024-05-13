@@ -1,16 +1,27 @@
 import 'package:flutter/material.dart';
 
 class PaymentMenuCount extends StatefulWidget {
+  int qty;
+
+  PaymentMenuCount(this.qty);
+
   @override
   _PaymentMenuCountState createState() => _PaymentMenuCountState();
 }
 
 class _PaymentMenuCountState extends State<PaymentMenuCount> {
-  int quantity = 1;
+  late int quantity;
+
+  @override
+  void initState() {
+    super.initState();
+    quantity = widget.qty;
+  }
 
   void increasecount() {
     setState(() {
       quantity++;
+      widget.qty = quantity;
     });
   }
 
@@ -18,6 +29,7 @@ class _PaymentMenuCountState extends State<PaymentMenuCount> {
     setState(() {
       if (quantity > 1) {
         quantity--;
+        widget.qty = quantity;
       }
     });
   }

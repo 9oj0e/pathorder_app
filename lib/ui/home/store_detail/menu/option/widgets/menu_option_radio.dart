@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/data/dtos/order_request.dart';
+import 'package:pathorder_app/data/store/session_store.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/option/widgets/menu_option_category.dart';
 
 class MenuOptionRadio extends StatefulWidget {
   final model;
+  SessionStore sessionStore;
 
-  const MenuOptionRadio(this.model, {Key? key}) : super(key: key);
+  MenuOptionRadio(this.model, this.sessionStore, {Key? key}) : super(key: key);
 
   @override
   State<MenuOptionRadio> createState() => _MenuOptionRadioState();
@@ -16,6 +19,7 @@ class _MenuOptionRadioState extends State<MenuOptionRadio> {
   @override
   Widget build(BuildContext context) {
     var model = widget.model;
+    SessionStore sessionStore = widget.sessionStore;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,6 +60,10 @@ class _MenuOptionRadioState extends State<MenuOptionRadio> {
                       groupValue: _groupValue,
                       onChanged: (value) {
                         setState(() {
+                          sessionStore.addMenuOptionList(OrderMenuOptionList(
+                              name: value,
+                              price: model.optionList[index].price,
+                              required: true));
                           _groupValue = value!;
                         });
                       },

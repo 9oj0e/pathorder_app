@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/data/store/session_store.dart';
 
 class MenuOptionCount extends StatefulWidget {
+  SessionStore sessionStore;
+
+  MenuOptionCount(this.sessionStore);
+
   @override
   _MenuOptionCountState createState() => _MenuOptionCountState();
 }
@@ -12,6 +17,7 @@ class _MenuOptionCountState extends State<MenuOptionCount> {
     if (quantity < 99) {
       setState(() {
         quantity++;
+        widget.sessionStore.qty = quantity;
       });
     }
   }
@@ -20,6 +26,7 @@ class _MenuOptionCountState extends State<MenuOptionCount> {
     setState(() {
       if (quantity > 1) {
         quantity--;
+        widget.sessionStore.qty = quantity;
       }
     });
   }

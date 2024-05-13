@@ -22,6 +22,8 @@ class MenuOptionBody extends ConsumerWidget {
     } else {
       sessionStore.name = model.option.menuName;
       sessionStore.price = model.option.menuPrice;
+      sessionStore.qty = 1;
+      sessionStore.menuOptionList.clear();
       return ListView(
         children: [
           Center(
@@ -39,17 +41,17 @@ class MenuOptionBody extends ConsumerWidget {
             price: "${model.option.menuPrice}원",
           ),
           SizedBox(height: 15),
-          MenuOptionCountingButton(), // 수량 버튼
+          MenuOptionCountingButton(sessionStore), // 수량 버튼
           SizedBox(height: 15),
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                MenuOptionRadio(model),
+                MenuOptionRadio(model, sessionStore),
                 CustomDivider(),
                 SizedBox(height: 13),
-                MenuOptionCheck(model),
+                MenuOptionCheck(model, sessionStore),
                 SizedBox(height: 15),
               ],
             ),

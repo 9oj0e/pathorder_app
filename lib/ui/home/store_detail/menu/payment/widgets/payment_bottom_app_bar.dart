@@ -33,7 +33,7 @@ class PaymentBottomAppBar extends ConsumerWidget {
               storeName: cartStore.storeName!,
               customerId: cartStore.customerId!,
               customerNickname: cartStore.customerNickname!,
-              request: cartStore.request!,
+              request: cartStore.request,
               orderMenuList: cartStore.orderMenuList,
             );
 
