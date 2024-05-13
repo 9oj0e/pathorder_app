@@ -12,7 +12,7 @@ class OrderHistoryList extends StatelessWidget {
   final OrderList orderList;
 
   const OrderHistoryList(
-   this.orderList,
+    this.orderList,
   );
 
   @override
@@ -35,12 +35,16 @@ class OrderHistoryList extends StatelessWidget {
               SizedBox(height: 10),
               OderHistoryListCafe(cafeName: orderList.storeName),
               OrderHistoryListDivider(),
-              OrderHistoryListMenu(orderMenu: "${orderList.orderMenuList[0].name}..."),
+              OrderHistoryListMenu(
+                orderMenu:
+                    orderList.orderMenuList.map((menu) => menu.name).toList(),
+                id: orderList.id,
+              ),
               SizedBox(height: 10),
               OrderHistoryListPay(
                   price: orderList.totalPrice, paymentMethod: "카카오페이"),
               OrderHistoryListDivider(),
-              OrderHistoryListButton(),
+              OrderHistoryListButton(orderList.id),
             ],
           ),
         ),

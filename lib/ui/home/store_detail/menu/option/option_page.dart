@@ -8,15 +8,17 @@ class OptionPage extends StatelessWidget {
   final menuId;
   final storeName;
   final price;
+  final imgUrl;
 
-  OptionPage(this.storeId, this.menuId, this.storeName, this.price);
+  OptionPage(
+      this.storeId, this.menuId, this.storeName, this.price, this.imgUrl);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: CustomBackAppBar(title: "$storeName"),
-      body: MenuOptionBody([storeId, menuId]),
+      body: MenuOptionBody([storeId, menuId], imgUrl),
       bottomNavigationBar: MenuOptionBottomAppBar(price),
     );
   }

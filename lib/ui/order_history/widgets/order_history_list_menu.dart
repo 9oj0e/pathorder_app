@@ -3,8 +3,9 @@ import 'package:pathorder_app/ui/order_history/detail/detail_page.dart';
 
 class OrderHistoryListMenu extends StatelessWidget {
   final orderMenu;
+  int id;
 
-  const OrderHistoryListMenu({required this.orderMenu});
+  OrderHistoryListMenu({required this.orderMenu, required this.id});
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +21,10 @@ class OrderHistoryListMenu extends StatelessWidget {
         ),
         Expanded(
           child: Text(
-            orderMenu,
+            orderMenu.join(', '),
             style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
           ),
         ),
         Align(
@@ -31,8 +34,7 @@ class OrderHistoryListMenu extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  // TODO: 박찬혁
-                  builder: (context) => DetailPage(10),
+                  builder: (context) => DetailPage(id),
                 ),
               );
             },

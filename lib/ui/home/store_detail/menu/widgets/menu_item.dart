@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/_core/constants/http.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/option/option_page.dart';
 
 class MenuItem extends StatelessWidget {
@@ -53,7 +54,7 @@ class MenuItem extends StatelessWidget {
                   ],
                 ),
                 Image.network(
-                  imgUrl,
+                  '${baseUrl}/upload/${imgUrl}',
                   height: 100,
                   width: 100,
                   fit: BoxFit.cover,
@@ -75,7 +76,8 @@ class MenuItem extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (_) => OptionPage(storeId, menuId, storeName, price)));
+                builder: (_) =>
+                    OptionPage(storeId, menuId, storeName, price, imgUrl)));
       },
     );
   }

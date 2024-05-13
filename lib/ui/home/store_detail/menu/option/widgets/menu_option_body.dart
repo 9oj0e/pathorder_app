@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pathorder_app/_core/constants/http.dart';
 import 'package:pathorder_app/data/store/session_store.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/option/option_page_view_model.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/option/widgets/menu_option_check.dart';
@@ -10,8 +11,9 @@ import 'package:pathorder_app/ui/widgets/custom_divider.dart';
 
 class MenuOptionBody extends ConsumerWidget {
   final List<int> ids;
+  final imgUrl;
 
-  MenuOptionBody(this.ids);
+  MenuOptionBody(this.ids, this.imgUrl);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -30,7 +32,7 @@ class MenuOptionBody extends ConsumerWidget {
             child: Image.network(
               // TODO: 이미지 파일 넣기
               // '${model.option.menuImgFilename}'
-              "https://viennacoffeehouse.co.kr/data/file/m1/1795031452_xMn1LTkz_295bf7a097571e8a7fad24fd9f90aa5b8453bf46.png",
+              '${baseUrl}/upload/${imgUrl}',
               height: 280,
               fit: BoxFit.cover,
             ),
