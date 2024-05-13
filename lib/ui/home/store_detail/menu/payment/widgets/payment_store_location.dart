@@ -34,6 +34,12 @@ class PaymentStoreLocation extends ConsumerWidget {
                   target: LatLng(35.1595990016, 129.060227846),
                   zoom: 20,
                 ),
+                markers: {
+                  Marker(
+                    markerId: MarkerId('${model.store.name}'),
+                    position: LatLng(35.1595990016, 129.060227846),
+                  )
+                },
                 onMapCreated: (GoogleMapController controller) {
                   _controller.complete(controller);
                 },
