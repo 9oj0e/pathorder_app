@@ -25,6 +25,7 @@ class MenuPage extends ConsumerWidget {
       return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
+          scrolledUnderElevation: 0,
           backgroundColor: Colors.white,
           leading: IconButton(
             onPressed: () {

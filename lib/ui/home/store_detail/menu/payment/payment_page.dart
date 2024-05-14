@@ -17,6 +17,7 @@ class PaymentPage extends ConsumerWidget {
     cartStore.setCustomerId(sessionStore.user!.id);
     cartStore.setCustomerNickname(sessionStore.user!.nickname);
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: PaymentPageAppBar(cartStore.storeName),
       body: PaymentBody(),
       bottomNavigationBar: PaymentBottomAppBar(),

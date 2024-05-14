@@ -17,6 +17,7 @@ class PaymentBottomAppBar extends ConsumerWidget {
     print('${cartStore.orderMenuList}');
 
     return BottomAppBar(
+      elevation: 0,
       height: 90,
       color: Colors.transparent, // 투명하게 해도 색이 안변하는거 같음
       child: Container(

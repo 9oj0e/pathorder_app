@@ -11,6 +11,7 @@ class CustomBackAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      scrolledUnderElevation: 0,
       backgroundColor: Colors.white,
       leading: IconButton(
         onPressed: () {
@@ -23,7 +24,7 @@ class CustomBackAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       title: Text(
         title,
-        style: TextStyle(fontSize: 16),
+        style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
       ),
       centerTitle: true,
     );
