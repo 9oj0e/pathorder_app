@@ -6,6 +6,7 @@ import 'package:pathorder_app/data/store/cart_store.dart';
 import 'payment_menu_count.dart';
 
 class PaymentProductInfo extends ConsumerWidget {
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     CartStore cartStore = ref.watch(cartProvider);
@@ -69,14 +70,9 @@ class PaymentProductInfo extends ConsumerWidget {
                 );
               },
             ),
-            SizedBox(height: 20),
-            Container(
-              color: Colors.grey[400],
-              height: 0.5,
-            )
-          ],
+        ]
+          ),
         ),
-      ),
-    );
+      );
   }
 }

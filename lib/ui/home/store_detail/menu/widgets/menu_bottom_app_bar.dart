@@ -9,6 +9,7 @@ class MenuBottomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
+      elevation: 0,
       height: 90,
       color: Colors.white,
       child: Container(

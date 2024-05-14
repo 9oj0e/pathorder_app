@@ -38,7 +38,7 @@ class PaymentViewModel extends StateNotifier<PaymentModel?> {
         MaterialPageRoute(
             builder: (context) =>
                 OrderDetailPage(responseDTO.response.paymentHeader.id)),
-        (route) => false,
+            (route) => false,
       );
     } else {
       ScaffoldMessenger.of(mContext!).showSnackBar(

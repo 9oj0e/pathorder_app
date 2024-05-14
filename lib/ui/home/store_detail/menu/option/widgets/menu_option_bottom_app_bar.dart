@@ -16,6 +16,7 @@ class MenuOptionBottomAppBar extends ConsumerWidget {
     print(sessionStore.menuOptionList);
     return BottomAppBar(
       // TODO : widgets
+      elevation: 0,
       height: 90,
       color: Colors.white,
       child: Container(
