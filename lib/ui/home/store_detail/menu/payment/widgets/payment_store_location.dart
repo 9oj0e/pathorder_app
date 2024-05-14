@@ -52,6 +52,7 @@ class PaymentStoreLocation extends ConsumerWidget {
                 Icon(
                   CupertinoIcons.placemark_fill,
                   color: Colors.grey,
+                  size: 15,
                 ),
                 SizedBox(width: 5),
                 Expanded(
