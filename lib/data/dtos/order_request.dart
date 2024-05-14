@@ -72,7 +72,7 @@ class OrderMenuList {
 
 class OrderMenuOptionList {
   final name;
-  final price;
+  int price;
   final required;
 
   OrderMenuOptionList({

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pathorder_app/_core/utils/format_util.dart';
 import 'package:pathorder_app/data/store/cart_store.dart';
 
 import 'payment_menu_count.dart';
@@ -26,24 +27,28 @@ class PaymentProductInfo extends ConsumerWidget {
               physics: NeverScrollableScrollPhysics(), //내부 리스트뷰 스크롤 동작 비활성화
               itemCount: cartStore.orderMenuList.length,
               itemBuilder: (context, index) {
+                // 각 주문 항목의 옵션 가격 총합을 계산
+                int optionTotalPrice = cartStore
+                    .orderMenuList[index].orderMenuOptionList
+                    .fold(0, (sum, option) => sum + option.price);
+                String totalPrice = formatCurrency(
+                    (cartStore.orderMenuList[index].price + optionTotalPrice) *
+                        cartStore.orderMenuList[index].qty);
+
+                // 각 주문 항목의 옵션 이름 / 로 나열
                 List<dynamic> optionNamesList = cartStore
                     .orderMenuList[index].orderMenuOptionList
                     .map((option) => option.name)
                     .toList();
                 print(cartStore.orderMenuList);
 
-                String optionNames = cartStore
-                    .orderMenuList[index].orderMenuOptionList
-                    .map((option) => option.name)
-                    .join('/');
                 return Column(
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text('${cartStore.orderMenuList[index].name}'),
-                        Text(
-                            '${(cartStore.orderMenuList[index].price) * cartStore.orderMenuList[index].qty}원')
+                        Text('${totalPrice}원')
                       ],
                     ),
                     SizedBox(height: 10),

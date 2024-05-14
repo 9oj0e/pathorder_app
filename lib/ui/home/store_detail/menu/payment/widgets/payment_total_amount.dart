@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pathorder_app/_core/utils/format_util.dart';
 import 'package:pathorder_app/data/store/cart_store.dart';
 
 class PaymentTotalAmount extends ConsumerWidget {
@@ -8,6 +9,7 @@ class PaymentTotalAmount extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     CartStore cartStore = ref.read(cartProvider);
+    String totalPrice = formatCurrency(cartStore.getTotalPrice());
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Column(
@@ -25,7 +27,7 @@ class PaymentTotalAmount extends ConsumerWidget {
                 style: TextStyle(fontSize: 14, color: Colors.grey),
               ),
               Spacer(),
-              Text('${cartStore.getTotalPrice()}원'),
+              Text('${totalPrice}원'),
             ],
           ),
           SizedBox(height: 3),
@@ -40,7 +42,7 @@ class PaymentTotalAmount extends ConsumerWidget {
               Text('최종 결제 금액'),
               Spacer(),
               Text(
-                '${cartStore.getTotalPrice()}원',
+                '${totalPrice}원',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ],
