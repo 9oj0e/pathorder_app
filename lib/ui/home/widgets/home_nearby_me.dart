@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pathorder_app/data/store/session_store.dart';
 import 'package:pathorder_app/ui/home/home_page_view_model.dart';
 
 import 'home_nearby_me_store.dart';
@@ -16,6 +17,7 @@ class HomeNearbyMe extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     HomePageModel? model = ref.watch(homePageProvider);
+    SessionUser sessionUser = ref.read(sessionProvider);
 
     if (model == null) {
       return Center(child: CircularProgressIndicator());
@@ -25,7 +27,7 @@ class HomeNearbyMe extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            HomeNearbyMeText(),
+            HomeNearbyMeText(name: sessionUser.user!.nickname),
             SizedBox(
               height: 10,
             ),

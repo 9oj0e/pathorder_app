@@ -76,6 +76,17 @@ class SessionStore extends SessionUser {
 //   }
 // }
 //
+
+  Future<void> logout() async {
+    super.user = null;
+    super.accessToken = null;
+    super.isLogin = false;
+
+    await secureStorage.delete(key: "accessToken");
+    Navigator.popAndPushNamed(mContext!, Move.loginMethod);
+  }
+
+
   Future<void> join(JoinReqDTO joinReqDTO) async {
     ResponseDTO responseDTO = await UserRepository().fetchJoin(joinReqDTO);
     // 비지니스 로직

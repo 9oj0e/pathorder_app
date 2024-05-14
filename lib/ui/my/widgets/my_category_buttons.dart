@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pathorder_app/_core/constants/move.dart';
+import 'package:pathorder_app/data/store/session_store.dart';
 
 import '../../../models/icon_menu.dart';
 
-class MyCategoryButtons extends StatelessWidget {
+class MyCategoryButtons extends ConsumerWidget {
   final List<IconMenu> iconMenuList;
   final String mainTitle;
 
   MyCategoryButtons({required this.iconMenuList, required this.mainTitle});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Card(
       elevation: 0.0,
       margin: EdgeInsets.zero,
@@ -37,6 +39,7 @@ class MyCategoryButtons extends StatelessWidget {
                   index,
                   mainTitle,
                   context,
+                  ref
                 ),
               ),
             ),
@@ -47,7 +50,7 @@ class MyCategoryButtons extends StatelessWidget {
   }
 
   Widget _buildRowIconItem(String title, IconData iconData, int index,
-      String mainTitle, BuildContext context) {
+      String mainTitle, BuildContext context, WidgetRef ref) {
     return Container(
       height: 50,
       child: InkWell(
@@ -66,7 +69,10 @@ class MyCategoryButtons extends StatelessWidget {
           } else if (mainTitle == '기타') {
             if (index == 4) {
               print('로그아웃');
+              print(SessionStore().accessToken);
+              ref.read(sessionProvider).logout();
               Navigator.pushNamed(context, Move.loginMethod);
+              print(SessionStore().accessToken);
             }
           }
         },

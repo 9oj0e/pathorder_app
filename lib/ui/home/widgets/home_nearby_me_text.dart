@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:pathorder_app/_core/constants/move.dart';
 
 class HomeNearbyMeText extends StatelessWidget {
+  final name;
+
   const HomeNearbyMeText({
-    super.key,
+    required this.name
   });
 
   @override
@@ -22,7 +24,7 @@ class HomeNearbyMeText extends StatelessWidget {
               ),
               children: [
                 TextSpan(
-                  text: 'ooo님과\n',
+                  text: '${name}님과\n',
                 ),
                 TextSpan(
                   text: '가까이 있는 매장',
