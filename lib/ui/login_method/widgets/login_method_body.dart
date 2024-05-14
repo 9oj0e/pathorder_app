@@ -28,7 +28,7 @@ class LoginMethodBody extends StatelessWidget {
           height: double.infinity,
         ),
         LoginMethodButtons(),
-        LoginMethodPopButton(),
+        // LoginMethodPopButton(),
       ],
     );
   }
