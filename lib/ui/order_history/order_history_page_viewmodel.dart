@@ -39,7 +39,7 @@ class OrderHistoryViewModel extends StateNotifier<OrderHistoryModel?> {
 }
 
 // 창고 관리자
-final OrderHistoryProvider =
-    StateNotifierProvider<OrderHistoryViewModel, OrderHistoryModel?>((ref) {
+final OrderHistoryProvider = StateNotifierProvider.autoDispose<
+    OrderHistoryViewModel, OrderHistoryModel?>((ref) {
   return OrderHistoryViewModel(null, ref)..notifyInit();
 });
