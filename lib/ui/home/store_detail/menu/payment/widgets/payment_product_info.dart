@@ -5,12 +5,10 @@ import 'package:pathorder_app/data/store/cart_store.dart';
 import 'payment_menu_count.dart';
 
 class PaymentProductInfo extends ConsumerWidget {
-  final options;
-  const PaymentProductInfo({this.options});
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     CartStore cartStore = ref.watch(cartProvider);
+
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Container(
@@ -28,6 +26,16 @@ class PaymentProductInfo extends ConsumerWidget {
               physics: NeverScrollableScrollPhysics(), //내부 리스트뷰 스크롤 동작 비활성화
               itemCount: cartStore.orderMenuList.length,
               itemBuilder: (context, index) {
+                List<dynamic> optionNamesList = cartStore
+                    .orderMenuList[index].orderMenuOptionList
+                    .map((option) => option.name)
+                    .toList();
+                print(cartStore.orderMenuList);
+
+                String optionNames = cartStore
+                    .orderMenuList[index].orderMenuOptionList
+                    .map((option) => option.name)
+                    .join('/');
                 return Column(
                   children: [
                     Row(
@@ -39,28 +47,18 @@ class PaymentProductInfo extends ConsumerWidget {
                       ],
                     ),
                     SizedBox(height: 10),
-                    ListView.builder(
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      itemCount: 1,
-                      itemBuilder: (context, optionIndex) {
-                        var option = cartStore.orderMenuList[index]
-                            .orderMenuOptionList[optionIndex];
-                        return Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              options.join('/'),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                  fontSize: 12, color: Colors.grey[400]),
-                            ),
-                            PaymentMenuCount(
-                                cartStore.orderMenuList[index].qty),
-                          ],
-                        );
-                      },
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          optionNamesList.join('/'),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style:
+                              TextStyle(fontSize: 12, color: Colors.grey[400]),
+                        ),
+                        PaymentMenuCount(cartStore.orderMenuList[index].qty),
+                      ],
                     ),
                   ],
                 );

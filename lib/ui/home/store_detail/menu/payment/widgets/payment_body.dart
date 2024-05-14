@@ -29,7 +29,7 @@ class PaymentBody extends ConsumerWidget {
         PaymentStoreLocation(),
         Column(
           children: [
-            PaymentProductInfo(options: cartStore.orderMenuList[0].orderMenuOptionList.map((option) => option.name).toList(),),
+            PaymentProductInfo(),
             PaymentAddMenuButton(),
             PaymentPickUpTime(),
             PaymentOrderQuest(),

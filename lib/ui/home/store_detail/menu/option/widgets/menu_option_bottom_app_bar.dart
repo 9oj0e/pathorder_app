@@ -31,7 +31,8 @@ class MenuOptionBottomAppBar extends ConsumerWidget {
                 name: sessionStore.name!,
                 price: sessionStore.price!,
                 qty: sessionStore.qty!,
-                orderMenuOptionList: sessionStore.menuOptionList));
+                orderMenuOptionList: List.from(sessionStore.menuOptionList)));
+            // 수량 초기화
             sessionStore.qty = 1;
             Navigator.pop(context);
           },
