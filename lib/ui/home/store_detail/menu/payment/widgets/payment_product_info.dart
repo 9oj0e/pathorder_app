@@ -5,7 +5,8 @@ import 'package:pathorder_app/data/store/cart_store.dart';
 import 'payment_menu_count.dart';
 
 class PaymentProductInfo extends ConsumerWidget {
-  const PaymentProductInfo({super.key});
+  final options;
+  const PaymentProductInfo({this.options});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -41,8 +42,7 @@ class PaymentProductInfo extends ConsumerWidget {
                     ListView.builder(
                       shrinkWrap: true,
                       physics: NeverScrollableScrollPhysics(),
-                      itemCount: cartStore
-                          .orderMenuList[index].orderMenuOptionList.length,
+                      itemCount: 1,
                       itemBuilder: (context, optionIndex) {
                         var option = cartStore.orderMenuList[index]
                             .orderMenuOptionList[optionIndex];
@@ -50,7 +50,9 @@ class PaymentProductInfo extends ConsumerWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              option.name,
+                              options.join('/'),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                   fontSize: 12, color: Colors.grey[400]),
                             ),
