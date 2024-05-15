@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pathorder_app/ui/home/store_detail/store_detail_view_model.dart';
 import 'package:pathorder_app/ui/home/store_detail/widgets/store_detail_app_bar.dart';
-import 'package:pathorder_app/ui/home/store_detail/widgets/store_detail_bottom_button.dart';
 import 'package:pathorder_app/ui/home/store_detail/widgets/store_detail_tab_bar.dart';
 import 'package:pathorder_app/ui/home/store_detail/widgets/store_detail_tab_bar_view.dart';
 import 'package:pathorder_app/ui/home/store_detail/widgets/store_detail_title.dart';
@@ -46,7 +45,6 @@ class StoreDetailBody extends ConsumerWidget {
               ],
             ),
           ),
-          StoreDetailBottomButton(model.store.id),
         ],
       );
     }
