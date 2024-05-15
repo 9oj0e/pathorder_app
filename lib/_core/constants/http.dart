@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-final baseUrl = "http://192.168.0.133:8080";
+final baseUrl = "http://172.30.1.87:8080";
 
 // mac : ipconfig getifaddr en0
 final dio = Dio(
