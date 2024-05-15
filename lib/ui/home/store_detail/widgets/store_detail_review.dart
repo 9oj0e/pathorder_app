@@ -56,7 +56,7 @@ class StoreDetailReview extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(15),
                 child: Image.network(
-                  "${baseUrl}/upload/default/avatar.png",
+                  "${baseUrl}/upload/default/americano.png",
                   fit: BoxFit.cover,
                 ),
               ),
@@ -112,7 +112,7 @@ class StoreDetailReview extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(15),
                 child: Image.network(
-                  "${baseUrl}/upload/default/avatar.png",
+                  "${baseUrl}/upload/default/americano.png",
                   fit: BoxFit.cover,
                 ),
               ),

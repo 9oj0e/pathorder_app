@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pathorder_app/_core/constants/move.dart';
 import 'package:pathorder_app/data/store/session_store.dart';
+import 'package:pathorder_app/ui/my/Review/review_page.dart';
 
 import '../../../models/icon_menu.dart';
 
@@ -34,13 +35,12 @@ class MyCategoryButtons extends ConsumerWidget {
               children: List.generate(
                 iconMenuList.length,
                 (index) => _buildRowIconItem(
-                  iconMenuList[index].title,
-                  iconMenuList[index].iconData,
-                  index,
-                  mainTitle,
-                  context,
-                  ref
-                ),
+                    iconMenuList[index].title,
+                    iconMenuList[index].iconData,
+                    index,
+                    mainTitle,
+                    context,
+                    ref),
               ),
             ),
           ],
@@ -58,6 +58,12 @@ class MyCategoryButtons extends ConsumerWidget {
           if (mainTitle == '마이 페이지') {
             if (index == 0) {
               print('내 리뷰 페이지 이동');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ReviewPage(),
+                ),
+              );
             }
             if (index == 1) {
               print('내 포인트 페이지 이동');
