@@ -1,6 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:validators/validators.dart';
 
+Function validateReview() {
+  return (String? value) {
+    if (value!.isEmpty) {
+      return "리뷰를 작성해 주세요!";
+    } else if (value.length < 5) {
+      return "리뷰는 5글자 이상부터 작성 가능합니다.";
+    } else {
+      return null;
+    }
+  };
+}
+
 Function validateUserId() {
   return (String? value) {
     if (value!.isEmpty) {

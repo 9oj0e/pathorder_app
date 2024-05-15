@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/ui/order_history/detail/detail_page.dart';
+import 'package:pathorder_app/ui/order_history/review/review_page.dart';
 
 class OrderHistoryListButton extends StatelessWidget {
   int id;
@@ -29,7 +29,7 @@ class OrderHistoryListButton extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => DetailPage(id),
+            builder: (context) => ReviewPage(),
           ),
         );
       },
