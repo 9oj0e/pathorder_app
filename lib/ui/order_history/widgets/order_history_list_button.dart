@@ -19,7 +19,7 @@ class OrderHistoryListButton extends StatelessWidget {
             Size(MediaQuery.of(context).size.width * 1, 55), // 버튼의 너비와 높이 설정
       ),
       child: Text(
-        "주문내역 보기",
+        "리뷰 작성하기",
         style: TextStyle(
             color: Colors.white, // 버튼 텍스트 색상
             fontSize: 23, // 버튼 텍스트 크기
