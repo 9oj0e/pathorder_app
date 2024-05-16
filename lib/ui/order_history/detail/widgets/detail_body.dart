@@ -14,14 +14,17 @@ class DetailBody extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     DetailPageModel? model = ref.watch(detailPageProvider(ids));
+
     if (model == null) {
       return Center(child: CircularProgressIndicator());
     } else {
+      print('모델모델모델${model}');
       return ListView(
         children: [
-          DetailTitle(model.orderDetail),
-          DetailInfo(model.orderDetailList, model.orderDetail.request),
-          DetailAmount(model.orderDetail.totalPrice),
+          DetailTitle(model.orderDetailData),
+          DetailInfo(model.orderDetailData.orderMenuList,
+              model.orderDetailData.request),
+          DetailAmount(model.orderDetailData.totalPrice),
         ],
       );
     }

@@ -1,7 +1,5 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:flutter_naver_map/flutter_naver_map.dart';
 
 class HomeMapTabBarView extends StatefulWidget {
   const HomeMapTabBarView({super.key});
@@ -11,33 +9,27 @@ class HomeMapTabBarView extends StatefulWidget {
 }
 
 class _MapOrderPageState extends State<HomeMapTabBarView> {
-  Completer<GoogleMapController> _controller = Completer();
-  static final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(35.1595990016, 129.060227846),
-    zoom: 14.4746,
-  );
-
-  static final CameraPosition _kLake = CameraPosition(
-      bearing: 192.8334901395799,
-      target: LatLng(37.43296265331129, -122.08832357078792),
-      tilt: 59.440717697143555,
-      zoom: 19.151926040649414);
+  String? selectedMarkerInfo;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GoogleMap(
-        mapType: MapType.normal,
-        initialCameraPosition: _kGooglePlex,
-        onMapCreated: (GoogleMapController controller) {
-          _controller.complete(controller);
+      body: NaverMap(
+        options: const NaverMapViewOptions(
+            locationButtonEnable: true,
+            initialCameraPosition: NCameraPosition(
+                target: NLatLng(35.1595990016, 129.060227846), zoom: 15)),
+        onMapReady: (controller) {
+          final marker = NMarker(
+              id: 'test', position: NLatLng(35.1595990016, 129.060227846));
+          controller.addOverlayAll({marker});
+
+          final onMarkerInfoWindow =
+              NInfoWindow.onMarker(id: marker.info.id, text: "멋쟁이 사자처럼");
+          marker.openInfoWindow(onMarkerInfoWindow);
+          print("네이버 맵 로딩됨!");
         },
       ),
-      // floatingActionButton: FloatingActionButton.extended(
-      //   onPressed: _goToTheLake,
-      //   label: Text('To the lake!'),
-      //   icon: Icon(Icons.directions_boat),
-      // ),
     );
   }
 }
