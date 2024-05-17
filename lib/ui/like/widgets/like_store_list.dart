@@ -16,6 +16,9 @@ class LikeStoreList extends ConsumerWidget {
     } else {
       return GridView.count(
         primary: false,
+        physics: NeverScrollableScrollPhysics(),
+        //내부 리스트뷰 스크롤 동작 비활성화
+
         padding: const EdgeInsets.all(10),
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
@@ -40,7 +43,7 @@ class LikeStoreList extends ConsumerWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (_) => StoreDetailPage(likePageData.storeid)));
+                builder: (_) => StoreDetailPage(likePageData.storeId)));
       },
       child: Container(
         padding: const EdgeInsets.all(0),
@@ -95,8 +98,7 @@ class LikeStoreList extends ConsumerWidget {
                       ),
                       SizedBox(width: 5),
                       Text(
-                        // likePageData.likeCount.toString(),
-                        '155',
+                        likePageData.likeCount.toString(),
                         style: TextStyle(fontSize: 12),
                       ),
                       SizedBox(width: 10),
@@ -106,8 +108,7 @@ class LikeStoreList extends ConsumerWidget {
                       ),
                       SizedBox(width: 5),
                       Text(
-                        // TODO: commentCount 백엔드에서 받아야함
-                        '155',
+                        likePageData.reviewCount.toString(),
                         style: TextStyle(fontSize: 12),
                       ),
                     ],
