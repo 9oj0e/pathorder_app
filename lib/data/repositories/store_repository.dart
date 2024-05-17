@@ -8,6 +8,8 @@ import 'package:pathorder_app/ui/home/home_page_view_model.dart';
 import 'package:pathorder_app/ui/home/near_me_store/store_list_view_model.dart';
 import 'package:pathorder_app/ui/home/store_detail/business_info/data/business_info_data.dart';
 import 'package:pathorder_app/ui/home/store_detail/data/store_detail_data.dart';
+import 'package:pathorder_app/ui/like/data/like_page_data.dart';
+import 'package:pathorder_app/ui/like/like_page_view_model.dart';
 
 class StoreRepository {
   Future<ResponseDTO> fetchBusinessInfo(String accessToken, int storeId) async {
@@ -38,6 +40,26 @@ class StoreRepository {
       responseDTO.response = Store.fromJson(responseDTO.response);
     }
 
+    return responseDTO;
+  }
+
+  Future<ResponseDTO> fetchStoreLikeList(String accessToken, int userId) async {
+    final response = await dio.get(
+      "/api/users/${userId}/likes",
+      options: Options(headers: {"Authorization": "${accessToken}"}),
+    );
+
+    ResponseDTO responseDTO = ResponseDTO.fromJson(response.data);
+    Logger().d(response.data);
+    if (responseDTO.status == 200) {
+      List<dynamic> temp = responseDTO.response;
+      List<LikePageData> likePageData =
+          temp.map((e) => LikePageData.fromJson(e)).toList();
+
+      LikePageModel likePageModel = LikePageModel(likePageData);
+      responseDTO.response = likePageModel;
+    }
+    Logger().d(responseDTO.response);
     return responseDTO;
   }
 

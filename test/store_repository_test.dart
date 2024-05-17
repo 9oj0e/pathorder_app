@@ -1,7 +1,14 @@
 import 'package:pathorder_app/data/repositories/store_repository.dart';
 
 void main() async {
-  await fetchBusinessInfo_test();
+  await fetchStoreLikeList_test();
+}
+
+Future<void> fetchStoreLikeList_test() async {
+  int userId = 1;
+  await StoreRepository().fetchStoreLikeList(
+      'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwYXRob3JkZXIiLCJuaWNrbmFtZSI6Iuygle2YhCIsImlkIjoyLCJleHAiOjE3MTY1NDE0NzksInVzZXJuYW1lIjoidXNlcjIifQ.lKsTW9WlHreEV3Ovyik-72hoI162ssnV8V8W5uVd8u4MZN2vceUzhW-FgixHaFlWCMhV7y17kNPE6xaUyRebCw',
+      userId);
 }
 
 Future<void> fetchBusinessInfo_test() async {

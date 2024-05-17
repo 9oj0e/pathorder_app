@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pathorder_app/ui/like/widgets/like_store_list.dart';
 
 class LikeBody extends StatelessWidget {
   const LikeBody({super.key});
@@ -39,7 +40,7 @@ class LikeBody extends StatelessWidget {
         ];
       },
       // body: NearMeStoreBody(),
-      body: Center(child: Text('비어있음')),
+      body: LikeStoreList(),
     );
   }
 }
