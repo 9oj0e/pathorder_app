@@ -27,7 +27,7 @@ class StoreDetailTabBarView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: TabBarView(
         children: [
           StoreDetailInfo(
@@ -41,7 +41,7 @@ class StoreDetailTabBarView extends StatelessWidget {
             latitude: latitude,
             longitude: longitude,
           ),
-          StoreDetailReview(),
+          StoreDetailReview(storeId),
         ],
       ),
     );

@@ -1,125 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/_core/constants/http.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pathorder_app/ui/home/store_detail/store_detail_review_view_model.dart';
+import 'package:pathorder_app/ui/home/store_detail/widgets/store_detail_review_item.dart';
+import 'package:pathorder_app/ui/widgets/custom_divider.dart';
 
-class StoreDetailReview extends StatelessWidget {
-  const StoreDetailReview({
-    super.key,
-  });
+class StoreDetailReview extends ConsumerWidget {
+  int storeId;
+
+  StoreDetailReview(this.storeId);
 
   @override
-  Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: 50,
-                  height: 50,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(90),
-                    child: Image.network(
-                      "${baseUrl}/upload/default/avatar.png",
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                SizedBox(width: 10),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '성재',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                    ),
-                    Text(
-                      '2023.05.12',
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            SizedBox(height: 15),
-            Text(
-              '가득이었습니다',
-              style: TextStyle(fontSize: 16),
-            ),
-            SizedBox(height: 15),
-            SizedBox(
-              height: 300,
-              width: double.infinity,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: Image.network(
-                  "${baseUrl}/upload/default/americano.png",
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            SizedBox(height: 20),
-          ],
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: 50,
-                  height: 50,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(90),
-                    child: Image.network(
-                      "${baseUrl}/upload/default/avatar.png",
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '성재',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                    ),
-                    Text(
-                      '2023.05.12',
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            SizedBox(height: 15),
-            Text(
-              '가득이었습니다',
-              style: TextStyle(fontSize: 16),
-            ),
-            SizedBox(height: 15),
-            SizedBox(
-              height: 300,
-              width: double.infinity,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: Image.network(
-                  "${baseUrl}/upload/default/americano.png",
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ],
-        )
-      ],
-    );
+  Widget build(BuildContext context, WidgetRef ref) {
+    StoreDetailReviewModel? model =
+        ref.watch(storeDetailReviewProvider(storeId));
+    if (model == null) {
+      return Center(
+        child: CircularProgressIndicator(),
+      );
+    } else {
+      return ListView.separated(
+        separatorBuilder: (context, index) => CustomDivider(),
+        itemCount: model.reviewList.length,
+        itemBuilder: (context, index) {
+          return StoreDetailReviewItem(
+            reviewList: model.reviewList[index],
+          );
+        },
+      );
+    }
   }
 }
