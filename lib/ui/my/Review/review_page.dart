@@ -8,7 +8,7 @@ class ReviewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomBackAppBar(title: '내 스토리'),
+      appBar: CustomBackAppBar(title: '내 리뷰'),
       body: ReviewBody(),
     );
   }

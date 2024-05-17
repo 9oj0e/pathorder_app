@@ -33,18 +33,22 @@ class OrderHistoryList extends StatelessWidget {
             children: [
               OrderHistoryListDate(datetime: orderList.createdAt),
               SizedBox(height: 10),
+
               OderHistoryListCafe(cafeName: orderList.storeName),
+
               OrderHistoryListDivider(),
+
               OrderHistoryListMenu(
                 orderMenu:
                     orderList.orderMenuList.map((menu) => menu.name).toList(),
                 id: orderList.id,
               ),
+
               SizedBox(height: 10),
               OrderHistoryListPay(
                   price: orderList.totalPrice, paymentMethod: "카카오페이"),
               OrderHistoryListDivider(),
-              OrderHistoryListButton(orderList.id),
+              OrderHistoryListButton(orderList.storeId),
             ],
           ),
         ),

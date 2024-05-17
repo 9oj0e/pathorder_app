@@ -5,14 +5,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:pathorder_app/_core/constants/http.dart';
 import 'package:pathorder_app/data/dtos/user_request.dart';
+import 'package:pathorder_app/data/store/review_store.dart';
 
 class ReviewPic extends ConsumerWidget {
   ReviewPic({this.selectedImage});
+
   File? selectedImage;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ReviewStore reviewStore = ref.watch(ReviewStoreProvider);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -47,6 +52,7 @@ class ReviewPic extends ConsumerWidget {
                             await selectedImage!.readAsBytes();
                         // 바이트를 base64로 인코딩
                         String base64Image = base64Encode(imageBytes);
+                        reviewStore.setImgFilename(base64Image);
                         // 인코딩된 이미지를 사용하여 RegisterImgReqDTO를 생성
                         // RegisterImgReqDTO reqDTO = RegisterImgReqDTO(
                         //     username: model.user.id, encodedImg: base64Image);
@@ -76,9 +82,10 @@ class ReviewPic extends ConsumerWidget {
 
                         // 선택한 파일을 바이트로 읽어옴
                         List<int> imageBytes =
-                        await selectedImage.readAsBytes();
+                            await selectedImage.readAsBytes();
                         // 바이트를 base64로 인코딩
                         String base64Image = base64Encode(imageBytes);
+                        reviewStore.setImgFilename(base64Image);
                         // 인코딩된 이미지를 사용하여 RegisterImgReqDTO를 생성
                         // RegisterImgReqDTO reqDTO = RegisterImgReqDTO(
                         //     username: model.user.id,
@@ -117,8 +124,8 @@ class ReviewPic extends ConsumerWidget {
             width: 80,
             height: 80,
             child: selectedImage != null
-                ? Image.file(
-                    selectedImage!,
+                ? Image.memory(
+                    base64Decode(reviewStore.encodedData!), // TODO : 리뷰 사진
                     fit: BoxFit.cover,
                     width: double.infinity,
                     height: double.infinity,

@@ -2,13 +2,13 @@ class Review {
   final int userId;
   final int storeId;
   final String content;
-  final String imgFilename;
+  final String usersImgFilePath;
 
   Review(
       {required this.userId,
         required this.storeId,
         required this.content,
-        required this.imgFilename,
+        required this.usersImgFilePath,
         });
 
   factory Review.fromJson(Map<String, dynamic> json) {
@@ -16,7 +16,7 @@ class Review {
       userId: json["userId"] ?? null,
       storeId: json["storeId"] ?? null,
       content: json["content"] ?? "",
-      imgFilename: json["imgFilename"] ?? "",
+      usersImgFilePath: json["imgFilename"] ?? "",
     );
   }
 //

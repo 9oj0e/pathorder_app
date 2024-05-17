@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pathorder_app/data/store/review_store.dart';
 import 'package:pathorder_app/ui/order_history/review/review_page.dart';
 
-class OrderHistoryListButton extends StatelessWidget {
-  int id;
+class OrderHistoryListButton extends ConsumerWidget {
+  int storeId;
 
-  OrderHistoryListButton(this.id);
+  OrderHistoryListButton(this.storeId);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    ReviewStore reviewStore = ref.watch(ReviewStoreProvider);
+
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.deepOrangeAccent, // 버튼의 배경색
@@ -26,6 +30,8 @@ class OrderHistoryListButton extends StatelessWidget {
             fontWeight: FontWeight.bold),
       ),
       onPressed: () {
+        reviewStore.setStoreId(storeId);
+        print("매장 ID : ${storeId}");
         Navigator.push(
           context,
           MaterialPageRoute(

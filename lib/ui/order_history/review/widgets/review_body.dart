@@ -12,8 +12,6 @@ import 'review_story.dart';
 class ReviewBody extends StatelessWidget {
   final storeName;
   final storeAddress;
-  final _formKey = GlobalKey<FormState>();
-  final _review = TextEditingController();
 
   ReviewBody({required this.storeName, required this.storeAddress});
 
@@ -36,7 +34,7 @@ class ReviewBody extends StatelessWidget {
                 SizedBox(
                   height: 30,
                 ),
-                ReviewPic(),
+                ReviewPic(), // 리뷰 사진
                 SizedBox(
                   height: 30,
                 ),
@@ -66,14 +64,10 @@ class ReviewBody extends StatelessWidget {
                   ),
                   width: double.infinity,
                   height: 150,
-                  child: Form(
-                    key: _formKey,
                     child: ReviewTextFormField(
                       // 리뷰입력창
-                      controller: _review,
                       validator: validateReview(),
                     ),
-                  ),
                 ),
                 SizedBox(
                   height: 25,

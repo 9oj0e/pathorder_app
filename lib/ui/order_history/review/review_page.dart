@@ -8,12 +8,12 @@ import '../../widgets/custom_back_app_bar.dart';
 import 'widgets/review_body.dart';
 import 'widgets/review_write_button.dart';
 
-class ReviewPage extends ConsumerWidget {
+class ReviewPage extends StatelessWidget {
   const ReviewPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    SessionStore sessionStore = ref.read(sessionProvider);
+  Widget build(BuildContext context) {
+    // SessionStore sessionStore = ref.read(sessionProvider);
     // final ReviewModel? model = ref.read(ReviewProvider);
     // final OrderHistoryModel?
 
