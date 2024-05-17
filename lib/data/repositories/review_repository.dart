@@ -5,9 +5,9 @@ import 'package:pathorder_app/data/dtos/review_request.dart';
 import 'package:pathorder_app/ui/order_history/review/widgets/data/review.dart';
 
 class ReviewRepository{
-  Future<ResponseDTO> saveReview(int storeId,
+  Future<ResponseDTO> saveReview(int userId,
       ReviewReqDTO reviewReqDTO, String accessToken, ) async {
-    final response = await dio.post("/api/stores/${storeId}/reviews",
+    final response = await dio.post("/api/users/${userId}/reviews",
         options: Options(headers: {"Authorization": "${accessToken}"}),
         data: reviewReqDTO.toJson());
 
