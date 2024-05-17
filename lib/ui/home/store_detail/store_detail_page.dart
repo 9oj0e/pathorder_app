@@ -14,7 +14,6 @@ class StoreDetailPage extends StatefulWidget {
 class _StoreDetailPageState extends State<StoreDetailPage> {
   @override
   Widget build(BuildContext context) {
-    print(widget.storeId);
     return DefaultTabController(
       length: 2, // TabBar에 표시할 탭 수
       child: Scaffold(

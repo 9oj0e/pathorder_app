@@ -1,12 +1,15 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pathorder_app/_core/constants/http.dart';
+import 'package:pathorder_app/ui/widgets/custom_like_button.dart';
 
 class StoreDetailAppBar extends StatelessWidget {
-  StoreDetailAppBar(this.screenHeight, this.imgFilename);
+  StoreDetailAppBar(
+      this.screenHeight, this.imgFilename, this.liked, this.storeId);
 
   final double screenHeight;
   final String imgFilename;
+  final bool liked;
+  final storeId;
 
   @override
   Widget build(BuildContext context) {
@@ -17,16 +20,10 @@ class StoreDetailAppBar extends StatelessWidget {
           Navigator.pop(context);
         },
         icon: Icon(Icons.arrow_back_ios, size: 18),
-        color: Colors.black54,
+        color: Colors.white,
       ),
       actions: [
-        IconButton(
-          onPressed: () {
-            // TODO : 하트 기능
-          },
-          icon: Icon(CupertinoIcons.heart),
-          color: Colors.black54,
-        ),
+        CustomLikeButton(storeId),
         SizedBox(width: 10),
       ],
       expandedHeight: screenHeight * 0.3,

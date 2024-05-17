@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_naver_map/flutter_naver_map.dart';
 import 'package:pathorder_app/ui/home/store_detail/business_info/business_info_page.dart';
 
 class StoreDetailInfo extends StatelessWidget {
@@ -11,6 +12,8 @@ class StoreDetailInfo extends StatelessWidget {
     required this.closedDay,
     required this.address,
     required this.storeId,
+    required this.latitude,
+    required this.longitude,
   });
 
   final intro;
@@ -20,6 +23,8 @@ class StoreDetailInfo extends StatelessWidget {
   final closedDay;
   final address;
   final storeId;
+  final latitude;
+  final longitude;
 
   @override
   Widget build(BuildContext context) {
@@ -72,8 +77,10 @@ class StoreDetailInfo extends StatelessWidget {
             children: [
               Text('주소'),
               SizedBox(width: 40),
-              Text(
-                '${address}',
+              Expanded(
+                child: Text(
+                  '${address}',
+                ),
               ),
             ],
           ),
@@ -111,7 +118,28 @@ class StoreDetailInfo extends StatelessWidget {
               Spacer(),
             ],
           ),
-          // TODO: 지도 적용해야함
+          Container(
+            height: 300,
+            width: double.infinity,
+            child: NaverMap(
+              options: NaverMapViewOptions(
+                initialCameraPosition: NCameraPosition(
+                  target: NLatLng(latitude, longitude),
+                  zoom: 16,
+                ),
+              ),
+              onMapReady: (controller) {
+                final marker = NMarker(
+                  id: 'marker',
+                  position: NLatLng(latitude, longitude),
+                );
+                controller.addOverlay(marker);
+                final onMarkerInfoWindow =
+                    NInfoWindow.onMarker(id: marker.info.id, text: "${name}");
+                marker.openInfoWindow(onMarkerInfoWindow);
+              },
+            ),
+          )
         ],
       ),
     ]);

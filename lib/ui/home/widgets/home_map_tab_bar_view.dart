@@ -49,7 +49,11 @@ class _MapOrderPageState extends State<HomeMapTabBarView> {
                   });
                 });
                 controller.addOverlay(marker);
+                final onMarkerInfoWindow = NInfoWindow.onMarker(
+                    id: marker.info.id, text: "${store.name}");
+                marker.openInfoWindow(onMarkerInfoWindow);
               });
+
               print("네이버 맵 로딩됨!");
             },
           ),
