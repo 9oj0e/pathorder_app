@@ -2,10 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_naver_map/flutter_naver_map.dart';
 import 'package:pathorder_app/_core/constants/http.dart';
+import 'package:pathorder_app/ui/home/home_page_view_model.dart';
 import 'package:pathorder_app/ui/home/store_detail/store_detail_page.dart';
 
 class HomeMapTabBarView extends StatefulWidget {
-  const HomeMapTabBarView({super.key});
+  HomePageModel model;
+
+  HomeMapTabBarView(this.model);
 
   @override
   State<HomeMapTabBarView> createState() => _MapOrderPageState();
@@ -13,6 +16,7 @@ class HomeMapTabBarView extends StatefulWidget {
 
 class _MapOrderPageState extends State<HomeMapTabBarView> {
   String? selectedMarkerInfo;
+  int? selectedStoreIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -23,29 +27,33 @@ class _MapOrderPageState extends State<HomeMapTabBarView> {
             onMapTapped: (point, latLng) {
               setState(() {
                 selectedMarkerInfo = null;
+                selectedStoreIndex = null;
               });
             },
             options: const NaverMapViewOptions(
               initialCameraPosition: NCameraPosition(
-                target: NLatLng(35.1595990016, 129.060227846),
-                zoom: 15,
+                target: NLatLng(35.15743361724729, 129.0604337191542),
+                zoom: 14,
               ),
             ),
             onMapReady: (controller) {
-              final marker = NMarker(
-                id: 'test',
-                position: NLatLng(35.1595990016, 129.060227846),
-              );
-              marker.setOnTapListener((overlay) {
-                setState(() {
-                  selectedMarkerInfo = "멋쟁이 사자처럼";
+              widget.model.stores.asMap().forEach((index, store) {
+                final marker = NMarker(
+                  id: 'marker_$index',
+                  position: NLatLng(store.latitude, store.longitude),
+                );
+                marker.setOnTapListener((overlay) {
+                  setState(() {
+                    selectedMarkerInfo = store.name;
+                    selectedStoreIndex = index;
+                  });
                 });
+                controller.addOverlay(marker);
               });
-              controller.addOverlay(marker);
               print("네이버 맵 로딩됨!");
             },
           ),
-          if (selectedMarkerInfo != null)
+          if (selectedMarkerInfo != null && selectedStoreIndex != null)
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
@@ -55,7 +63,8 @@ class _MapOrderPageState extends State<HomeMapTabBarView> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => StoreDetailPage(1),
+                        builder: (context) => StoreDetailPage(
+                            widget.model.stores[selectedStoreIndex!].id),
                       ),
                     );
                   },
@@ -76,7 +85,7 @@ class _MapOrderPageState extends State<HomeMapTabBarView> {
                               bottomLeft: Radius.circular(10),
                             ),
                             child: Image.network(
-                              '${baseUrl}/upload/default/cafe1.png',
+                              '${baseUrl}/upload/${widget.model.stores[selectedStoreIndex!].imgFilename}',
                               height: double.infinity,
                               fit: BoxFit.cover,
                             ),
@@ -88,7 +97,7 @@ class _MapOrderPageState extends State<HomeMapTabBarView> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                '텐퍼센트커피 서면 서전로점',
+                                '${widget.model.stores[selectedStoreIndex!].name}',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold, fontSize: 16),
                               ),
@@ -122,7 +131,10 @@ class _MapOrderPageState extends State<HomeMapTabBarView> {
                                       ),
                                     ],
                                   ),
-                                  Text('162.4m'),
+                                  Text(
+                                    '${widget.model.stores[selectedStoreIndex!].distance}m',
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
                                 ],
                               ),
                               SizedBox(height: 5),
@@ -134,7 +146,7 @@ class _MapOrderPageState extends State<HomeMapTabBarView> {
                                     size: 17,
                                   ),
                                   Text(
-                                    ' 1147',
+                                    ' ${widget.model.stores[selectedStoreIndex!].likeCount}',
                                     style: TextStyle(
                                         color: Colors.deepOrangeAccent),
                                   ),
@@ -144,7 +156,8 @@ class _MapOrderPageState extends State<HomeMapTabBarView> {
                                     color: Color(0xFF020235),
                                     size: 17,
                                   ),
-                                  Text(' 1258'),
+                                  Text(
+                                      ' ${widget.model.stores[selectedStoreIndex!].reviewCount}'),
                                 ],
                               )
                             ],
