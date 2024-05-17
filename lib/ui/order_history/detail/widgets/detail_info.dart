@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/ui/order_history/detail/data/order_detail_list_data.dart';
 import 'package:pathorder_app/ui/widgets/custom_dotted_line.dart';
 
+import '../data/order_detail_data.dart';
+
 class DetailInfo extends StatelessWidget {
-  List<OrderDetailList> orderDetailList;
+  List<OrderMenuList> orderDetailList;
   final request;
 
   DetailInfo(this.orderDetailList, this.request);
@@ -54,7 +55,7 @@ class DetailInfo extends StatelessWidget {
               ),
               DataCell(
                 Text(
-                  menu.totalPrice,
+                  '${menu.totalPrice}',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 ),
               ),

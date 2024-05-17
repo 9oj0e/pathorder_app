@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pathorder_app/data/dtos/response_dto.dart';
-import 'package:pathorder_app/data/models/store.dart';
 import 'package:pathorder_app/data/repositories/store_repository.dart';
 import 'package:pathorder_app/data/store/session_store.dart';
 import 'package:pathorder_app/main.dart';
+import 'package:pathorder_app/ui/home/data/home_store_data.dart';
 
 // 창고 데이터
 class HomePageModel {
-  List<Store> stores;
+  List<HomeStoreData> stores;
 
   HomePageModel(this.stores);
 }

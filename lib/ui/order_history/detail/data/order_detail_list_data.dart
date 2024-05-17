@@ -3,7 +3,7 @@ import 'package:pathorder_app/data/dtos/order_request.dart';
 class OrderDetailList {
   int id;
   String name;
-  String price;
+  final price;
   List<OrderMenuOptionList> orderMenuOptionList;
   int qty;
   String totalPrice;

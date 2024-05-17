@@ -11,8 +11,11 @@
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBlNxqco48ES-jGenZ0qC6hJ-pB2qp94-k" />
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="enkfxy6hnb" />
+        <!--            android:name="com.google.android.geo.API_KEY"-->
+        <!--            android:value="AIzaSyBlNxqco48ES-jGenZ0qC6hJ-pB2qp94-k" />-->
+
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -46,13 +46,16 @@ class HomeNearbyMeStore extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        // TODO: 오버플로우 해결해야함
-                        Text.rich(TextSpan(children: [
-                          TextSpan(
-                              text: cafeName,
-                              style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.w600)),
-                        ])),
+                        Expanded(
+                          child: Text(
+                            cafeName,
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w600),
+                            overflow: TextOverflow.ellipsis,
+                            // 길어질 경우 생략 부호(...)를 표시합니다.
+                            maxLines: 1,
+                          ),
+                        ),
                         SizedBox(
                           width: 5,
                         ),

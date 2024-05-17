@@ -25,7 +25,8 @@ class StoreDetailBody extends ConsumerWidget {
           NestedScrollView(
             headerSliverBuilder: (context, _) {
               return [
-                StoreDetailAppBar(screenHeight, model.store.imgFilename),
+                StoreDetailAppBar(screenHeight, model.store.imgFilename,
+                    model.store.liked, storeId),
                 StoreDetailTitle(model.store.name),
               ];
             },
@@ -41,6 +42,8 @@ class StoreDetailBody extends ConsumerWidget {
                   model.store.intro,
                   model.store.address,
                   storeId,
+                  model.store.latitude,
+                  model.store.longitude,
                 ))
               ],
             ),

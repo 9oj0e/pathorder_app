@@ -7,7 +7,6 @@ import 'package:pathorder_app/ui/home/store_detail/menu/payment/data/payment_lis
 import 'package:pathorder_app/ui/home/store_detail/menu/payment/payment_page_view_model.dart';
 import 'package:pathorder_app/ui/order_history/data/order_list.dart';
 import 'package:pathorder_app/ui/order_history/detail/data/order_detail_data.dart';
-import 'package:pathorder_app/ui/order_history/detail/data/order_detail_list_data.dart';
 import 'package:pathorder_app/ui/order_history/detail/detail_page_view_model.dart';
 import 'package:pathorder_app/ui/order_history/order_history_page_viewmodel.dart';
 
@@ -38,13 +37,16 @@ class OrderRepository {
         options: Options(headers: {"Authorization": "${accessToken}"}));
     ResponseDTO responseDTO = ResponseDTO.fromJson(response.data);
     if (responseDTO.status == 200) {
-      List<dynamic> temp = responseDTO.response["orderMenuList"];
-      List<OrderDetailList> orderDetailList =
-          temp.map((e) => OrderDetailList.fromJson(e)).toList();
-      OrderDetail orderDetail = OrderDetail.fromJson(responseDTO.response);
+      // List<dynamic> temp = responseDTO.response["orderMenuList"];
+      // List<OrderDetailList> orderDetailList =
+      //     temp.map((e) => OrderDetailList.fromJson(e)).toList();
+      // OrderDetail orderDetail = OrderDetail.fromJson(responseDTO.response);
+      OrderDetailData orderDetailData =
+          OrderDetailData.fromJson(responseDTO.response);
+      print('파싱을 하나 이말이야');
 
-      DetailPageModel detailPageModel = DetailPageModel(
-          orderDetail: orderDetail, orderDetailList: orderDetailList);
+      DetailPageModel detailPageModel =
+          DetailPageModel(orderDetailData: orderDetailData);
       responseDTO.response = detailPageModel;
     }
 

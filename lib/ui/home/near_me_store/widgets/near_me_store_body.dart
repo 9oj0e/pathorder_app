@@ -2,14 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pathorder_app/_core/constants/http.dart';
-import 'package:pathorder_app/data/models/store.dart';
-import 'package:pathorder_app/ui/home/near_me_store/store_list_view_model.dart';
+import 'package:pathorder_app/ui/home/home_page_view_model.dart';
 import 'package:pathorder_app/ui/home/store_detail/store_detail_page.dart';
 
 class NearMeStoreBody extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    StoreListModel? model = ref.watch(storeListProvider);
+    HomePageModel? model = ref.watch(homePageProvider);
 
     if (model == null) {
       return Center(child: CircularProgressIndicator());
@@ -32,7 +31,7 @@ class NearMeStoreBody extends ConsumerWidget {
     }
   }
 
-  _buildNearMeStoreMenuItem(Store store, BuildContext context) {
+  _buildNearMeStoreMenuItem(final store, BuildContext context) {
     return InkWell(
       onTap: () {
         Navigator.push(context,
@@ -46,7 +45,8 @@ class NearMeStoreBody extends ConsumerWidget {
             children: [
               Expanded(
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(5), // 테두리의 모든 모서리를 10 픽셀의 원형으로 만듭니다.
+                  borderRadius: BorderRadius.circular(5),
+                  // 테두리의 모든 모서리를 10 픽셀의 원형으로 만듭니다.
                   child: Image.network(
                     '${baseUrl}/upload/${store.imgFilename}',
                     width: 200,

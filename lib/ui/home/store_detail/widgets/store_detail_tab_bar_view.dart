@@ -10,9 +10,19 @@ class StoreDetailTabBarView extends StatelessWidget {
   final intro;
   final address;
   final storeId;
+  final latitude;
+  final longitude;
 
-  StoreDetailTabBarView(this.name, this.openingTime, this.closingTime,
-      this.closedDay, this.intro, this.address, this.storeId);
+  StoreDetailTabBarView(
+      this.name,
+      this.openingTime,
+      this.closingTime,
+      this.closedDay,
+      this.intro,
+      this.address,
+      this.storeId,
+      this.latitude,
+      this.longitude);
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +31,16 @@ class StoreDetailTabBarView extends StatelessWidget {
       child: TabBarView(
         children: [
           StoreDetailInfo(
-              intro: intro,
-              name: name,
-              openingTime: openingTime,
-              closingTime: closingTime,
-              closedDay: closedDay,
-              address: address,
-              storeId: storeId),
+            intro: intro,
+            name: name,
+            openingTime: openingTime,
+            closingTime: closingTime,
+            closedDay: closedDay,
+            address: address,
+            storeId: storeId,
+            latitude: latitude,
+            longitude: longitude,
+          ),
           StoreDetailReview(),
         ],
       ),

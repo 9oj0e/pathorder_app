@@ -9,10 +9,9 @@ import 'package:pathorder_app/ui/order_history/detail/data/order_detail_list_dat
 
 // 창고 데이터
 class DetailPageModel {
-  OrderDetail orderDetail;
-  List<OrderDetailList> orderDetailList;
+  OrderDetailData orderDetailData;
 
-  DetailPageModel({required this.orderDetail, required this.orderDetailList});
+  DetailPageModel({required this.orderDetailData});
 }
 
 // 창고
@@ -27,6 +26,7 @@ class DetailPageViewModel extends StateNotifier<DetailPageModel?> {
     String jwt = sessionStore.accessToken!;
     ResponseDTO responseDTO =
         await OrderRepository().fetchDetailOrder(jwt, ids[0], ids[1]);
+    print('아 진짜 짜증나네');
     if (responseDTO.status == 200) {
       state = responseDTO.response;
     } else {
