@@ -4,6 +4,8 @@ class LikePageData {
   String storeImgFilename;
   String storeName;
   int distance;
+  int likeCount;
+  int reviewCount;
   double latitude;
   double longitude;
   bool like;
@@ -14,6 +16,8 @@ class LikePageData {
     required this.storeImgFilename,
     required this.storeName,
     required this.distance,
+    required this.likeCount,
+    required this.reviewCount,
     required this.latitude,
     required this.longitude,
     required this.like,
@@ -25,6 +29,8 @@ class LikePageData {
         storeImgFilename: json["storeImgFilename"],
         storeName: json["storeName"],
         distance: json["distance"],
+        likeCount: json["likeCount"],
+        reviewCount: json["reviewCount"],
         latitude: json["latitude"]?.toDouble(),
         longitude: json["longitude"]?.toDouble(),
         like: json["like"],
@@ -36,6 +42,8 @@ class LikePageData {
         "storeImgFilename": storeImgFilename,
         "storeName": storeName,
         "distance": distance,
+        "likeCount": likeCount,
+        "reviewCount": reviewCount,
         "latitude": latitude,
         "longitude": longitude,
         "like": like,
