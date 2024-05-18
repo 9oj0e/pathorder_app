@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pathorder_app/data/dtos/review_request.dart';
-import 'package:pathorder_app/data/repositories/order_repository.dart';
 import 'package:pathorder_app/data/repositories/review_repository.dart';
 import 'package:pathorder_app/ui/my/Review/review_page.dart';
-import 'package:pathorder_app/ui/order_history/data/order_list.dart';
 
 import '../../../data/dtos/response_dto.dart';
 import '../../../data/store/session_store.dart';
@@ -31,7 +29,7 @@ class ReviewViewModel extends StateNotifier<ReviewModel?> {
     String jwt = sessionStore.accessToken!;
 
     ResponseDTO responseDTO =
-    await ReviewRepository().saveReview(storeId, reqDTO, jwt);
+        await ReviewRepository().saveReview(storeId, reqDTO, jwt);
 
     print("매장 아이디 : ${storeId}");
     print("리뷰 뷰모델 : ${responseDTO.status}");
@@ -42,9 +40,8 @@ class ReviewViewModel extends StateNotifier<ReviewModel?> {
           builder: (context) => ReviewPage(),
           fullscreenDialog: true,
         ),
-            (route) => true,
+        (route) => true,
       );
-
     } else {
       ScaffoldMessenger.of(mContext!).showSnackBar(
           SnackBar(content: Text("리뷰 등록 실패 : ${responseDTO.errorMessage}")));
@@ -54,6 +51,6 @@ class ReviewViewModel extends StateNotifier<ReviewModel?> {
 
 // 창고 관리자
 final ReviewProvider =
-StateNotifierProvider<ReviewViewModel, ReviewModel?>((ref) {
+    StateNotifierProvider.autoDispose<ReviewViewModel, ReviewModel?>((ref) {
   return ReviewViewModel(null, ref);
 });

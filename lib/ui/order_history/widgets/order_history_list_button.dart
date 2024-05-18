@@ -5,8 +5,9 @@ import 'package:pathorder_app/ui/order_history/review/review_page.dart';
 
 class OrderHistoryListButton extends ConsumerWidget {
   int storeId;
+  String storeName;
 
-  OrderHistoryListButton(this.storeId);
+  OrderHistoryListButton({required this.storeId, required this.storeName});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -31,6 +32,7 @@ class OrderHistoryListButton extends ConsumerWidget {
       ),
       onPressed: () {
         reviewStore.setStoreId(storeId);
+        reviewStore.setStoreName(storeName);
         print("매장 ID : ${storeId}");
         Navigator.push(
           context,

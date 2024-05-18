@@ -6,9 +6,13 @@ class SessionReview {
   int? storeId;
   String? content;
   String? encodedData;
+  String? storeName;
 
   SessionReview();
 
+  void setStoreName(value) {
+    storeName = value;
+  }
 
   void setStoreId(value) {
     storeId = value;
@@ -21,7 +25,6 @@ class SessionReview {
   void setImgFilename(value) {
     encodedData = value;
   }
-
 }
 
 class ReviewStore extends SessionReview {}
