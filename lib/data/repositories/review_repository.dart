@@ -5,6 +5,15 @@ import 'package:pathorder_app/data/dtos/response_dto.dart';
 import 'package:pathorder_app/data/dtos/review_request.dart';
 
 class ReviewRepository {
+  Future<ResponseDTO> myReviewList(String accessToken, int userId) async {
+    final response = await dio.get("/api/users/${userId}/reviews",
+        options: Options(headers: {"Authorization": "${accessToken}"}));
+
+    ResponseDTO responseDTO = ResponseDTO.fromJson(response.data);
+    Logger().d(responseDTO);
+    return responseDTO;
+  }
+
   Future<ResponseDTO> storeReviewList(String accessToken, int storeId) async {
     final response = await dio.get("/api/stores/${storeId}/reviews",
         options: Options(headers: {"Authorization": "${accessToken}"}));

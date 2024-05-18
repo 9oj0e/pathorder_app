@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pathorder_app/_core/utils/validator_util.dart';
 import 'package:pathorder_app/ui/order_history/review/widgets/review_pic.dart';
@@ -11,9 +10,8 @@ import 'review_story.dart';
 
 class ReviewBody extends StatelessWidget {
   final storeName;
-  final storeAddress;
 
-  ReviewBody({required this.storeName, required this.storeAddress});
+  ReviewBody({required this.storeName});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +24,7 @@ class ReviewBody extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ReviewStoreName(storeName: storeName, storeAddress: storeAddress),
+                ReviewStoreName(storeName: storeName),
                 SizedBox(
                   height: 8,
                 ),
@@ -64,10 +62,10 @@ class ReviewBody extends StatelessWidget {
                   ),
                   width: double.infinity,
                   height: 150,
-                    child: ReviewTextFormField(
-                      // 리뷰입력창
-                      validator: validateReview(),
-                    ),
+                  child: ReviewTextFormField(
+                    // 리뷰입력창
+                    validator: validateReview(),
+                  ),
                 ),
                 SizedBox(
                   height: 25,
@@ -85,8 +83,3 @@ class ReviewBody extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
