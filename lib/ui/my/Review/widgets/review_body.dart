@@ -1,126 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:pathorder_app/_core/constants/http.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pathorder_app/data/store/session_store.dart';
+import 'package:pathorder_app/ui/my/Review/my_detail_review%20_view_model.dart';
+import 'package:pathorder_app/ui/my/Review/widgets/my_detail_review_item.dart';
+import 'package:pathorder_app/ui/widgets/custom_divider.dart';
 
-class ReviewBody extends StatelessWidget {
+class ReviewBody extends ConsumerWidget {
   const ReviewBody({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: ListView(
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(90),
-                      child: Image.network(
-                        "${baseUrl}/upload/default/avatar.png",
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 10),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        '성재',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16),
-                      ),
-                      Text(
-                        '2023.05.12',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              SizedBox(height: 15),
-              Text(
-                '가득이었습니다',
-                style: TextStyle(fontSize: 16),
-              ),
-              SizedBox(height: 15),
-              SizedBox(
-                height: 300,
-                width: double.infinity,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: Image.network(
-                    "${baseUrl}/upload/default/americano.png",
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              SizedBox(height: 20),
-            ],
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(90),
-                      child: Image.network(
-                        "${baseUrl}/upload/default/avatar.png",
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        '성재',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16),
-                      ),
-                      Text(
-                        '2023.05.12',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              SizedBox(height: 15),
-              Text(
-                '가득이었습니다',
-                style: TextStyle(fontSize: 16),
-              ),
-              SizedBox(height: 15),
-              SizedBox(
-                height: 300,
-                width: double.infinity,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: Image.network(
-                    "${baseUrl}/upload/default/americano.png",
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-            ],
-          )
-        ],
-      ),
-    );
+  Widget build(BuildContext context, WidgetRef ref) {
+    SessionStore sessionStore = ref.read(sessionProvider);
+    MyDetailReviewModel? model =
+        ref.watch(MyDetailReviewProvider(sessionStore.user!.id));
+
+    if (model == null) {
+      return Center(
+        child: CircularProgressIndicator(),
+      );
+    } else {
+      return Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView.separated(
+          separatorBuilder: (context, index) => CustomDivider(),
+          itemCount: model.reviewList.length,
+          itemBuilder: (context, index) {
+            return MyDetailReviewItem(
+              reviewList: model.reviewList[index],
+            );
+          },
+        ),
+      );
+    }
   }
 }
