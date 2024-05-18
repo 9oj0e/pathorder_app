@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pathorder_app/_core/constants/http.dart';
+import 'package:pathorder_app/data/dtos/order_request.dart';
 import 'package:pathorder_app/data/store/session_store.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/option/option_page_view_model.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/option/widgets/menu_option_check.dart';
@@ -19,13 +20,15 @@ class MenuOptionBody extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     MenuOptionModel? model = ref.watch(menuOptionProvider(ids));
     SessionStore sessionStore = ref.read(sessionProvider);
+    sessionStore.menuOptionList.clear();
+    sessionStore.addMenuOptionList(
+        OrderMenuOptionList(name: '아이스', price: 0, required: true));
     if (model == null) {
       return Center(child: CircularProgressIndicator());
     } else {
       sessionStore.name = model.option.menuName;
       sessionStore.price = model.option.menuPrice;
       sessionStore.qty = 1;
-      sessionStore.menuOptionList.clear();
       return ListView(
         children: [
           Center(

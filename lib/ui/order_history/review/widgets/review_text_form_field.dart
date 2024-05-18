@@ -17,7 +17,7 @@ class ReviewTextFormField extends ConsumerWidget {
     int i = 0;
     Timer? timer;
     ReviewStore reviewStore = ref.read(ReviewStoreProvider);
-    final OrderHistoryModel? model = ref.watch(OrderHistoryProvider);
+    final OrderHistoryModel? model = ref.watch(orderHistoryProvider);
 
     return Expanded(
       child: Padding(

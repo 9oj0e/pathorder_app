@@ -13,10 +13,10 @@ class OrderHistoryBody extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final OrderHistoryModel? model = ref.watch(OrderHistoryProvider);
+    final OrderHistoryModel? model = ref.watch(orderHistoryProvider);
     return RefreshIndicator(
       onRefresh: () async {
-        await ref.read(OrderHistoryProvider.notifier).notifyInit();
+        await ref.read(orderHistoryProvider.notifier).notifyInit();
       },
       child: SingleChildScrollView(
         child: Column(
@@ -43,9 +43,10 @@ class OrderHistoryBody extends ConsumerWidget {
                     width: double.infinity,
                     height: 330,
                     child: Center(
-                      child: Text("주문내역이 없습니다.", style: TextStyle(
-                        fontSize: 15
-                      ),),
+                      child: Text(
+                        "주문내역이 없습니다.",
+                        style: TextStyle(fontSize: 15),
+                      ),
                     ),
                   )
                 : ListView.builder(

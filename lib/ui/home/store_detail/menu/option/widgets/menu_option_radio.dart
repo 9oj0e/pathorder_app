@@ -14,7 +14,7 @@ class MenuOptionRadio extends StatefulWidget {
 }
 
 class _MenuOptionRadioState extends State<MenuOptionRadio> {
-  var _groupValue = '선택';
+  var _groupValue = '아이스';
 
   @override
   Widget build(BuildContext context) {

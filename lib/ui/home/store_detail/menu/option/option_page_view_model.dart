@@ -35,7 +35,7 @@ class MenuOptionViewModel extends StateNotifier<MenuOptionModel?> {
   }
 }
 
-final menuOptionProvider = StateNotifierProvider.family<MenuOptionViewModel,
-    MenuOptionModel?, List<int>>((ref, ids) {
+final menuOptionProvider = StateNotifierProvider.autoDispose
+    .family<MenuOptionViewModel, MenuOptionModel?, List<int>>((ref, ids) {
   return MenuOptionViewModel(null, ref)..notifyInit(ids);
 });
