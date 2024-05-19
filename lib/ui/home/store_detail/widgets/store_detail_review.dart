@@ -18,15 +18,24 @@ class StoreDetailReview extends ConsumerWidget {
         child: CircularProgressIndicator(),
       );
     } else {
-      return ListView.separated(
-        separatorBuilder: (context, index) => CustomDivider(),
-        itemCount: model.reviewList.length,
-        itemBuilder: (context, index) {
-          return StoreDetailReviewItem(
-            reviewList: model.reviewList[index],
-          );
-        },
-      );
+      if (model.reviewList.length == 0) {
+        return Center(
+          child: Text(
+            '매장의 첫 리뷰를 작성해주세요!',
+            style: TextStyle(color: Colors.grey),
+          ),
+        );
+      } else {
+        return ListView.separated(
+          separatorBuilder: (context, index) => CustomDivider(),
+          itemCount: model.reviewList.length,
+          itemBuilder: (context, index) {
+            return StoreDetailReviewItem(
+              reviewList: model.reviewList[index],
+            );
+          },
+        );
+      }
     }
   }
 }

@@ -82,7 +82,7 @@ class LikeStoreList extends ConsumerWidget {
                         color: Colors.grey[400],
                       ),
                       Text(
-                        likePageData.distance.toString(),
+                        '${likePageData.distance}m',
                         style: TextStyle(color: Colors.grey),
                       ),
                     ],

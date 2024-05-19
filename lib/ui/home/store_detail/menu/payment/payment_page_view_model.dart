@@ -27,6 +27,11 @@ class PaymentViewModel extends StateNotifier<PaymentModel?> {
     // 통신하기
     SessionUser sessionUser = ref.read(sessionProvider);
     CartStore cartStore = ref.read(cartProvider);
+    if (reqDTO.orderMenuList.length == 0) {
+      ScaffoldMessenger.of(mContext!)
+          .showSnackBar(SnackBar(content: Text("장바구니가 비어있습니다.")));
+      return;
+    }
     ResponseDTO responseDTO = await OrderRepository()
         .fetchSaveOrder(sessionUser.accessToken!, reqDTO, sessionUser.user!.id);
     // 상태값 갱신
@@ -38,7 +43,7 @@ class PaymentViewModel extends StateNotifier<PaymentModel?> {
         MaterialPageRoute(
             builder: (context) =>
                 OrderDetailPage(responseDTO.response.paymentHeader.id)),
-            (route) => false,
+        (route) => false,
       );
     } else {
       ScaffoldMessenger.of(mContext!).showSnackBar(

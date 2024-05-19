@@ -7,6 +7,7 @@ import 'package:pathorder_app/data/repositories/store_repository.dart';
 import 'package:pathorder_app/data/store/session_store.dart';
 import 'package:pathorder_app/main.dart';
 import 'package:pathorder_app/ui/home/store_detail/data/store_detail_data.dart';
+import 'package:pathorder_app/ui/like/like_page_view_model.dart';
 
 class StoreDetailModel {
   StoreDetailData store;
@@ -41,6 +42,7 @@ class StoreDetailViewModel extends StateNotifier<StoreDetailModel?> {
       // 상태 변경
       state!.store.liked = false;
       state = StoreDetailModel(state!.store);
+      ref.read(likePageProvider.notifier).notifyInit();
     } else {
       ScaffoldMessenger.of(mContext!).showSnackBar(
         SnackBar(content: Text("하트 취소 실패 : ${responseDTO.errorMessage}")),
@@ -58,6 +60,7 @@ class StoreDetailViewModel extends StateNotifier<StoreDetailModel?> {
       // 상태 변경
       state!.store.liked = true;
       state = StoreDetailModel(state!.store);
+      ref.read(likePageProvider.notifier).notifyInit();
     } else {
       ScaffoldMessenger.of(mContext!).showSnackBar(
         SnackBar(content: Text("좋아요 실패 : ${responseDTO.errorMessage}")),
