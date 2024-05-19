@@ -74,7 +74,6 @@ class StoreDetailInfo extends StatelessWidget {
             ),
             SizedBox(height: 10),
             Row(
-              // TODO : 오버플로우 해결
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('주소'),

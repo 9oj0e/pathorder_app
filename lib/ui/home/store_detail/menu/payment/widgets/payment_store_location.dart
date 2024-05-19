@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_naver_map/flutter_naver_map.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:pathorder_app/data/store/cart_store.dart';
@@ -28,20 +29,24 @@ class PaymentStoreLocation extends ConsumerWidget {
               width: double.infinity,
               height: 150,
               color: Colors.green,
-              child: GoogleMap(
-                mapType: MapType.normal,
-                initialCameraPosition: CameraPosition(
-                  target: LatLng(35.1595990016, 129.060227846),
-                  zoom: 20,
+              child: NaverMap(
+                options: NaverMapViewOptions(
+                  initialCameraPosition: NCameraPosition(
+                    target: NLatLng(
+                        model.store.latitude + 0.00035, model.store.longitude),
+                    zoom: 16,
+                  ),
                 ),
-                markers: {
-                  Marker(
-                    markerId: MarkerId('${model.store.name}'),
-                    position: LatLng(35.1595990016, 129.060227846),
-                  )
-                },
-                onMapCreated: (GoogleMapController controller) {
-                  _controller.complete(controller);
+                onMapReady: (controller) {
+                  final marker = NMarker(
+                    id: 'marker',
+                    position:
+                        NLatLng(model.store.latitude, model.store.longitude),
+                  );
+                  controller.addOverlay(marker);
+                  final onMarkerInfoWindow = NInfoWindow.onMarker(
+                      id: marker.info.id, text: "${model.store.name}");
+                  marker.openInfoWindow(onMarkerInfoWindow);
                 },
               ),
             ),

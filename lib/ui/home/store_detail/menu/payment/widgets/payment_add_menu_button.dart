@@ -16,6 +16,7 @@ class PaymentAddMenuButton extends StatelessWidget {
             InkWell(
               onTap: () {
                 // TODO : 메뉴 더 담기 클릭
+                Navigator.pop(context);
               },
               child: Row(
                 children: [
@@ -32,7 +33,6 @@ class PaymentAddMenuButton extends StatelessWidget {
               ),
             ),
             Spacer(),
-
           ],
         ),
         SizedBox(height: 15),
@@ -42,9 +42,7 @@ class PaymentAddMenuButton extends StatelessWidget {
             color: Colors.grey[100],
           ),
         ),
-
       ],
-
     );
   }
 }
