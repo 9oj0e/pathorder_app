@@ -6,32 +6,31 @@ import 'package:pathorder_app/ui/home/store_detail/store_detail_page.dart';
 import 'package:pathorder_app/ui/like/like_page_view_model.dart';
 
 class LikeStoreList extends ConsumerWidget {
-  const LikeStoreList({super.key});
+  LikeStoreList({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     LikePageModel? model = ref.watch(likePageProvider);
     if (model == null) {
-      return const Center(child: CircularProgressIndicator());
+      return const SliverToBoxAdapter(
+        child: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
     } else {
-      return GridView.count(
-        primary: false,
-        physics: NeverScrollableScrollPhysics(),
-        //내부 리스트뷰 스크롤 동작 비활성화
-
-        padding: const EdgeInsets.all(10),
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-        crossAxisCount: 2,
-        // 몇개마다 줄바꿈 할 껀지
-        childAspectRatio: 2 / 3,
-        // child의 비율
-        children: List.generate(
-          model.likePageData.length,
-          (index) => _buildLikeStoreList(
+      return SliverGrid(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: 2 / 3,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+        ),
+        delegate: SliverChildBuilderDelegate(
+          (context, index) => _buildLikeStoreList(
             model.likePageData[index],
             context,
           ),
+          childCount: model.likePageData.length,
         ),
       );
     }
