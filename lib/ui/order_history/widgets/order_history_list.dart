@@ -47,6 +47,7 @@ class OrderHistoryList extends StatelessWidget {
               OrderHistoryListButton(
                 storeId: orderList.storeId,
                 storeName: orderList.storeName,
+                orderId: orderList.id
               ),
             ],
           ),
