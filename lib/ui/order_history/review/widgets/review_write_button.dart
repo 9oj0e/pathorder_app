@@ -34,7 +34,7 @@ class ReviewWriteButton extends ConsumerWidget {
                 .notifyInitAdd(reqDTO, reviewStore.storeId!);
             print('작성하기 버튼이 눌렸습니다.');
 
-            orderReviewNotifier.setIsPosted(true);
+            // orderReviewNotifier.setIsPosted(true);
           },
           child: Center(
             child: Text(

@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pathorder_app/data/dtos/review_request.dart';
 import 'package:pathorder_app/data/repositories/review_repository.dart';
+import 'package:pathorder_app/data/store/review_store.dart';
 import 'package:pathorder_app/ui/my/Review/review_page.dart';
 
 import '../../../data/dtos/response_dto.dart';
 import '../../../data/store/session_store.dart';
 import '../../../main.dart';
+import 'order_review_state.dart';
 import 'widgets/data/review.dart';
 
 // 창고 데이터
@@ -25,6 +27,8 @@ class ReviewViewModel extends StateNotifier<ReviewModel?> {
   ReviewViewModel(super.state, this.ref);
 
   Future<void> notifyInitAdd(ReviewReqDTO reqDTO, int storeId) async {
+    ReviewStore reviewStore = ref.watch(ReviewStoreProvider);
+    final orderReviewNotifier = ref.watch(orderReviewProviderFamily(reviewStore.orderId!).notifier);
     SessionStore sessionStore = ref.read(sessionProvider);
     String jwt = sessionStore.accessToken!;
 
@@ -34,6 +38,7 @@ class ReviewViewModel extends StateNotifier<ReviewModel?> {
     print("매장 아이디 : ${storeId}");
     print("리뷰 뷰모델 : ${responseDTO.status}");
     if (responseDTO.status == 200) {
+      orderReviewNotifier.setIsPosted(true);
       Navigator.pushReplacement(
         mContext!,
         MaterialPageRoute(
