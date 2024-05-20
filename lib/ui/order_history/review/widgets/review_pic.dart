@@ -8,6 +8,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:pathorder_app/_core/constants/http.dart';
 import 'package:pathorder_app/data/dtos/user_request.dart';
 import 'package:pathorder_app/data/store/review_store.dart';
+import 'package:pathorder_app/ui/order_history/review/review_page_view_model.dart';
 
 class ReviewPic extends ConsumerWidget {
   ReviewPic({this.selectedImage});
@@ -17,6 +18,7 @@ class ReviewPic extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ReviewStore reviewStore = ref.watch(ReviewStoreProvider);
+    // ReviewModel? model = ref.watch(ReviewProvider);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,13 +55,8 @@ class ReviewPic extends ConsumerWidget {
                         // 바이트를 base64로 인코딩
                         String base64Image = base64Encode(imageBytes);
                         reviewStore.setImgFilename(base64Image);
-                        // 인코딩된 이미지를 사용하여 RegisterImgReqDTO를 생성
-                        // RegisterImgReqDTO reqDTO = RegisterImgReqDTO(
-                        //     username: model.user.id, encodedImg: base64Image);
-                        // // 업로드된 이미지를 서버에 전송하는 로직
-                        // ref
-                        //     .watch(ProfileDetailProvider.notifier)
-                        //     .notifyAddImage(reqDTO);
+
+
                       }
 
                       Navigator.pop(context);
@@ -86,17 +83,8 @@ class ReviewPic extends ConsumerWidget {
                         // 바이트를 base64로 인코딩
                         String base64Image = base64Encode(imageBytes);
                         reviewStore.setImgFilename(base64Image);
-                        // 인코딩된 이미지를 사용하여 RegisterImgReqDTO를 생성
-                        // RegisterImgReqDTO reqDTO = RegisterImgReqDTO(
-                        //     username: model.user.id,
-                        //     encodedImg: base64Image);
-                        // // 업로드된 이미지를 서버에 전송하는 로직
-                        // ref
-                        //     .watch(ProfileDetailProvider.notifier)
-                        //     .notifyAddImage(reqDTO);
-
-                        Navigator.pop(context); // 액션 시트 닫기
                       }
+                      Navigator.pop(context); // 액션 시트 닫기
                     },
                     child: const Text('사진 촬영하기',
                         style: TextStyle(color: Colors.blue)),

@@ -51,6 +51,6 @@ class ReviewViewModel extends StateNotifier<ReviewModel?> {
 
 // 창고 관리자
 final ReviewProvider =
-    StateNotifierProvider.autoDispose<ReviewViewModel, ReviewModel?>((ref) {
+    StateNotifierProvider<ReviewViewModel, ReviewModel?>((ref) {
   return ReviewViewModel(null, ref);
 });

@@ -4,11 +4,16 @@ import 'package:pathorder_app/data/dtos/order_request.dart';
 class SessionReview {
   int? userId;
   int? storeId;
+  int? orderId;
   String? content;
   String? encodedData;
   String? storeName;
 
   SessionReview();
+
+  void setOrderId(value) {
+    orderId = value;
+  }
 
   void setStoreName(value) {
     storeName = value;
