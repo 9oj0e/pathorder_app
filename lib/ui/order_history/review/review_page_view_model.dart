@@ -34,13 +34,12 @@ class ReviewViewModel extends StateNotifier<ReviewModel?> {
     print("매장 아이디 : ${storeId}");
     print("리뷰 뷰모델 : ${responseDTO.status}");
     if (responseDTO.status == 200) {
-      Navigator.pushAndRemoveUntil(
+      Navigator.pushReplacement(
         mContext!,
         MaterialPageRoute(
           builder: (context) => ReviewPage(),
           fullscreenDialog: true,
         ),
-        (route) => true,
       );
     } else {
       ScaffoldMessenger.of(mContext!).showSnackBar(
