@@ -8,12 +8,16 @@ class HomeNearbyMeStore extends StatelessWidget {
   final int distance;
   final String imageUrl;
   final int id;
+  final int likeCount;
+  final int reviewCount;
 
   const HomeNearbyMeStore({
     required this.cafeName,
     required this.distance,
     required this.imageUrl,
     required this.id,
+    required this.likeCount,
+    required this.reviewCount,
   });
 
   @override
@@ -113,9 +117,9 @@ class HomeNearbyMeStore extends StatelessWidget {
         ),
         Positioned(
           top: 178,
-          right: 80,
           child: Row(
             children: [
+              SizedBox(width: 5),
               Icon(
                 CupertinoIcons.heart_fill,
                 size: 13,
@@ -123,7 +127,7 @@ class HomeNearbyMeStore extends StatelessWidget {
               ),
               SizedBox(width: 3),
               Text(
-                "13",
+                "${likeCount}",
                 style: TextStyle(
                   fontSize: 13,
                   color: Colors.white,
@@ -137,7 +141,7 @@ class HomeNearbyMeStore extends StatelessWidget {
               ),
               SizedBox(width: 3),
               Text(
-                "214",
+                "${reviewCount}",
                 style: TextStyle(
                   fontSize: 13,
                   color: Colors.white,

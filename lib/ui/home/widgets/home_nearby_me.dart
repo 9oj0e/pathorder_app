@@ -1,6 +1,5 @@
 import 'dart:math';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pathorder_app/data/store/session_store.dart';
@@ -34,18 +33,20 @@ class HomeNearbyMe extends ConsumerWidget {
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: model.stores.sublist(0, min(model.stores.length, 4)).map((store) => HomeNearbyMeStore(
-                  cafeName: store.name,
-                  distance: store.distance,
-                  imageUrl: store.imgFilename,
-                  id: store.id,
-                )).toList(),
+                children: model.stores.sublist(0, min(model.stores.length, 4))
+                    .map((store) =>
+                    HomeNearbyMeStore(
+                      cafeName: store.name,
+                      distance: store.distance,
+                      imageUrl: store.imgFilename,
+                      id: store.id,
+                      likeCount: store.likeCount,
+                      reviewCount: store.reviewCount,
+                    )).toList(),
               ),),
           ],
         ),
       );
-
     }
-
   }
 }
