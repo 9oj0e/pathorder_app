@@ -25,6 +25,14 @@ class _MenuSearchState extends ConsumerState<MenuSearch> {
           border: OutlineInputBorder(),
           prefixIcon: Icon(Icons.search),
           contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+          focusedBorder: OutlineInputBorder(
+            // 손가락 터치시 TextFormField 디자인
+            borderSide: BorderSide(
+              width: 1,
+              color: Colors.black54,
+            ),
+            borderRadius: BorderRadius.circular(5),
+          ),
         ),
         onChanged: _onSearchChanged,
       ),

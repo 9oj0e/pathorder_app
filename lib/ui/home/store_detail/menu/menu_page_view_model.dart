@@ -25,16 +25,16 @@ class MenuViewModel extends StateNotifier<MenuModel?> {
     state = MenuModel(responseDTO.response);
   }
 
-  Future<void> notifySearch(
-      int storeId, Map<String, dynamic> queryParams) async {
-    // 통신하기
-    SessionStore sessionStore = ref.read(sessionProvider);
-    ResponseDTO responseDTO = await StoreRepository().fetchStoreSearchMenuList(
-        sessionStore.accessToken!, storeId, queryParams);
-
-    // 상태값 갱신 (새로 new해서 넣어줘야 한다)
-    state = MenuModel(responseDTO.response);
-  }
+// Future<void> notifySearch(
+//     int storeId, Map<String, dynamic> queryParams) async {
+//   // 통신하기
+//   SessionStore sessionStore = ref.read(sessionProvider);
+//   ResponseDTO responseDTO = await StoreRepository().fetchStoreSearchMenuList(
+//       sessionStore.accessToken!, storeId, queryParams);
+//
+//   // 상태값 갱신 (새로 new해서 넣어줘야 한다)
+//   state = MenuModel(responseDTO.response);
+// }
 }
 
 // 화면이 stack 에서 제거될때, 창고도 함께 제거되게 하기 (autoDispose)
