@@ -57,7 +57,7 @@ class MyCategoryButtons extends ConsumerWidget {
         onTap: () {
           if (mainTitle == '마이 페이지') {
             if (index == 0) {
-              print('내 리뷰 페이지 이동');
+              // print('내 리뷰 페이지 이동');
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -66,19 +66,19 @@ class MyCategoryButtons extends ConsumerWidget {
               );
             }
             if (index == 1) {
-              print('내 포인트 페이지 이동');
+              // print('내 포인트 페이지 이동');
             }
             if (index == 2) {
-              print('내 카드 페이지 이동');
+              // print('내 카드 페이지 이동');
               Navigator.pushNamed(context, Move.myCard);
             }
           } else if (mainTitle == '기타') {
             if (index == 4) {
-              print('로그아웃');
-              print(SessionStore().accessToken);
+              // print('로그아웃');
+              // print(SessionStore().accessToken);
               ref.read(sessionProvider).logout();
               Navigator.pushNamed(context, Move.loginMethod);
-              print(SessionStore().accessToken);
+              // print(SessionStore().accessToken);
             }
           }
         },

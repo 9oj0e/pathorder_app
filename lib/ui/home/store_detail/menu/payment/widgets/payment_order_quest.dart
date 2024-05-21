@@ -38,7 +38,6 @@ class PaymentOrderQuest extends ConsumerWidget {
                 timer?.cancel();
                 timer = Timer(Duration(seconds: 1), () {
                   i++;
-                  print('이벤트 발생 : ${i}');
                   cartStore.setRequest(value);
                 });
               },

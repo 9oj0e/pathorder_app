@@ -9,12 +9,12 @@ class PaymentBottomAppBar extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     CartStore cartStore = ref.watch(cartProvider);
     cartStore.setRequestNull();
-    print('${cartStore.storeId}');
-    print('${cartStore.storeName}');
-    print('${cartStore.customerId}');
-    print('${cartStore.customerNickname}');
-    print('${cartStore.request}');
-    print('${cartStore.orderMenuList}');
+    // print('${cartStore.storeId}');
+    // print('${cartStore.storeName}');
+    // print('${cartStore.customerId}');
+    // print('${cartStore.customerNickname}');
+    // print('${cartStore.request}');
+    // print('${cartStore.orderMenuList}');
 
     return BottomAppBar(
       elevation: 0,
@@ -39,7 +39,7 @@ class PaymentBottomAppBar extends ConsumerWidget {
             );
 
             ref.watch(paymentProvider.notifier).notifyOrderAdd(reqDTO);
-            print('결제 버튼이 눌렸습니다.');
+            // print('결제 버튼이 눌렸습니다.');
           },
           child: Center(
             child: Text(

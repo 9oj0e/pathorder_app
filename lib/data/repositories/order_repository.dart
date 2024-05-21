@@ -26,7 +26,7 @@ class OrderRepository {
 
       OrderHistoryModel orderHistoryModel = OrderHistoryModel(orderList);
       responseDTO.response = orderHistoryModel;
-      print("orderList : ${orderList[0].totalPrice}");
+      // print("orderList : ${orderList[0].totalPrice}");
     }
     return responseDTO;
   }
@@ -43,7 +43,6 @@ class OrderRepository {
       // OrderDetail orderDetail = OrderDetail.fromJson(responseDTO.response);
       OrderDetailData orderDetailData =
           OrderDetailData.fromJson(responseDTO.response);
-      print('파싱을 하나 이말이야');
 
       DetailPageModel detailPageModel =
           DetailPageModel(orderDetailData: orderDetailData);

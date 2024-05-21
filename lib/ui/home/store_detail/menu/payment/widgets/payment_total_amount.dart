@@ -27,7 +27,7 @@ class PaymentTotalAmount extends ConsumerWidget {
                 style: TextStyle(fontSize: 14, color: Colors.grey),
               ),
               Spacer(),
-              Text('${totalPrice}원'),
+              Text('${totalPrice}'),
             ],
           ),
           SizedBox(height: 3),
@@ -42,7 +42,7 @@ class PaymentTotalAmount extends ConsumerWidget {
               Text('최종 결제 금액'),
               Spacer(),
               Text(
-                '${totalPrice}원',
+                '${totalPrice}',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ],

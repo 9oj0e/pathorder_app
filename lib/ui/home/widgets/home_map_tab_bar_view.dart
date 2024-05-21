@@ -54,7 +54,7 @@ class _MapOrderPageState extends State<HomeMapTabBarView> {
                 marker.openInfoWindow(onMarkerInfoWindow);
               });
 
-              print("네이버 맵 로딩됨!");
+              // print("네이버 맵 로딩됨!");
             },
           ),
           if (selectedMarkerInfo != null && selectedStoreIndex != null)

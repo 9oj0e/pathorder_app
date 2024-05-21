@@ -60,10 +60,10 @@ class SessionStore extends SessionUser {
         // 선택된 옵션이 없으면 추가합니다.
         menuOptionList.add(orderMenuOptionList);
       }
-      print('alreadySelected: ${alreadySelected}');
+      // print('alreadySelected: ${alreadySelected}');
     }
 
-    print(menuOptionList);
+    // print(menuOptionList);
   }
 
   final mContext = navigatorKey.currentContext;
@@ -86,13 +86,12 @@ class SessionStore extends SessionUser {
     Navigator.popAndPushNamed(mContext!, Move.loginMethod);
   }
 
-
   Future<void> join(JoinReqDTO joinReqDTO) async {
     ResponseDTO responseDTO = await UserRepository().fetchJoin(joinReqDTO);
     // 비지니스 로직
     if (responseDTO.status == 200) {
       Navigator.pushNamed(mContext!, Move.loginId);
-      print('회원가입 성공');
+      // print('회원가입 성공');
     } else {
       ScaffoldMessenger.of(mContext!).showSnackBar(
         SnackBar(content: Text("회원가입 실패 : ${responseDTO.errorMessage}")),

@@ -10,14 +10,15 @@ class OrderHistoryListButton extends ConsumerWidget {
   String storeName;
   int orderId;
 
-  OrderHistoryListButton({required this.storeId, required this.storeName, required this.orderId});
+  OrderHistoryListButton(
+      {required this.storeId, required this.storeName, required this.orderId});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ReviewStore reviewStore = ref.watch(ReviewStoreProvider);
     final orderReviewState = ref.watch(orderReviewProviderFamily(orderId));
 
-    if (!orderReviewState.isPosted){
+    if (!orderReviewState.isPosted) {
       return ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.deepOrangeAccent, // 버튼의 배경색
@@ -26,7 +27,7 @@ class OrderHistoryListButton extends ConsumerWidget {
             borderRadius: BorderRadius.circular(10), // 원하는 모양으로 변경 가능
           ),
           fixedSize:
-          Size(MediaQuery.of(context).size.width * 1, 55), // 버튼의 너비와 높이 설정
+              Size(MediaQuery.of(context).size.width * 1, 55), // 버튼의 너비와 높이 설정
         ),
         child: Text(
           "리뷰 작성하기",
@@ -39,7 +40,7 @@ class OrderHistoryListButton extends ConsumerWidget {
           reviewStore.setStoreId(storeId);
           reviewStore.setStoreName(storeName);
           reviewStore.setOrderId(orderId);
-          print("매장 ID : ${storeId}");
+          // print("매장 ID : ${storeId}");
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -48,7 +49,6 @@ class OrderHistoryListButton extends ConsumerWidget {
           );
         },
       );
-
     } else {
       return ElevatedButton(
         style: ElevatedButton.styleFrom(
@@ -58,7 +58,7 @@ class OrderHistoryListButton extends ConsumerWidget {
             borderRadius: BorderRadius.circular(10), // 원하는 모양으로 변경 가능
           ),
           fixedSize:
-          Size(MediaQuery.of(context).size.width * 1, 55), // 버튼의 너비와 높이 설정
+              Size(MediaQuery.of(context).size.width * 1, 55), // 버튼의 너비와 높이 설정
         ),
         child: Text(
           "리뷰 작성 완료",
@@ -68,10 +68,9 @@ class OrderHistoryListButton extends ConsumerWidget {
               fontWeight: FontWeight.bold),
         ),
         onPressed: () {
-          print("리뷰 작성 완료한 주문");
+          // print("리뷰 작성 완료한 주문");
         },
       );
     }
-
   }
 }

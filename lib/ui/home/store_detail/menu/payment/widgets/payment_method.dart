@@ -45,7 +45,7 @@ class PaymentMethodItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        print('결제수단 버튼 클릭');
+        // print('결제수단 버튼 클릭');
       },
       child: Container(
         alignment: Alignment.center,

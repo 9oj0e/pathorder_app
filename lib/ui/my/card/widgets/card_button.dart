@@ -20,7 +20,7 @@ class CardButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(10.0),
           onTap: () {
             // TODO: 카드 추가 클릭
-            print('카드 추가 버튼이 눌렸습니다.');
+            // print('카드 추가 버튼이 눌렸습니다.');
           },
           child: Center(
             child: Text(

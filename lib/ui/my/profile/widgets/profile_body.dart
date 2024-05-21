@@ -73,7 +73,7 @@ class ProfileBody extends ConsumerWidget {
                                   .pickImage(source: ImageSource.gallery);
                               if (pickedImage != null) {
                                 _selectedImage = File(pickedImage.path);
-                                print("경로 : ${pickedImage.path}");
+                                // print("경로 : ${pickedImage.path}");
 
                                 // 선택한 파일을 바이트로 읽어옴
                                 List<int> imageBytes =
@@ -107,7 +107,7 @@ class ProfileBody extends ConsumerWidget {
                               if (pickedImage != null) {
                                 // 촬영한 이미지 파일을 File 객체로 가져옴
                                 File _selectedImage = File(pickedImage.path);
-                                print("저장경로 : ${pickedImage.path}");
+                                // print("저장경로 : ${pickedImage.path}");
 
                                 // 선택한 파일을 바이트로 읽어옴
                                 List<int> imageBytes =

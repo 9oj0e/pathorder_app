@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pathorder_app/data/store/cart_store.dart';
 import 'package:pathorder_app/data/store/session_store.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/payment/widgets/payment_add_menu_button.dart';
-import 'package:pathorder_app/ui/home/store_detail/menu/payment/widgets/payment_method.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/payment/widgets/payment_pick_up_time.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/payment/widgets/payment_point.dart';
 import 'package:pathorder_app/ui/home/store_detail/menu/payment/widgets/payment_product_info.dart';
@@ -35,7 +34,7 @@ class PaymentBody extends ConsumerWidget {
             PaymentOrderQuest(),
             PaymentPoint(),
             PaymentTotalAmount(),
-            PaymentMethod(),
+            // PaymentMethod(),
           ],
         )
       ],

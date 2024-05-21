@@ -18,7 +18,6 @@ class DetailBody extends ConsumerWidget {
     if (model == null) {
       return Center(child: CircularProgressIndicator());
     } else {
-      print('모델모델모델${model}');
       return ListView(
         children: [
           DetailTitle(model.orderDetailData),

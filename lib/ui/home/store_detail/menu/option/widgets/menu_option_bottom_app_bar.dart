@@ -13,7 +13,7 @@ class MenuOptionBottomAppBar extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     CartStore cartStore = ref.read(cartProvider);
     SessionStore sessionStore = ref.watch(sessionProvider);
-    print(sessionStore.menuOptionList);
+    // print(sessionStore.menuOptionList);
     return BottomAppBar(
       // TODO : widgets
       elevation: 0,

@@ -62,9 +62,9 @@ class _MainHolderState extends State<MainHolder> {
         if (!pages.contains(value)) {
           // 아직 열리지 않았다면!!
           pages.add(value);
-          print(pages);
+          // print(pages);
         }
-        
+
         pages = loadPages;
         setState(() {
           _index = value;

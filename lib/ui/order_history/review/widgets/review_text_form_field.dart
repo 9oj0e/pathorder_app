@@ -38,7 +38,7 @@ class ReviewTextFormField extends ConsumerWidget {
             timer?.cancel();
             timer = Timer(Duration(seconds: 1), () {
               i++;
-              print('이벤트 발생 : ${i}');
+              // print('이벤트 발생 : ${i}');
               reviewStore.setContent(value);
             });
           },

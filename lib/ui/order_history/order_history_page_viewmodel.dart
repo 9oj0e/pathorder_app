@@ -28,7 +28,7 @@ class OrderHistoryViewModel extends StateNotifier<OrderHistoryModel?> {
     ResponseDTO responseDTO =
         await OrderRepository().fetchOrderHistory(sessionStore.user!.id, jwt);
 
-    print("주문내역 뷰모델 : ${responseDTO.status}");
+    // print("주문내역 뷰모델 : ${responseDTO.status}");
     if (responseDTO.status == 200) {
       state = responseDTO.response;
     } else {

@@ -71,7 +71,7 @@ class MenuItem extends StatelessWidget {
         ),
       ),
       onTap: () {
-        print("메뉴");
+        // print("메뉴");
         // TODO: MenuOption| 메뉴에 해당하는 메뉴 옵션으로 이동
         Navigator.push(
             context,

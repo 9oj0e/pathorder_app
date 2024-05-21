@@ -5,7 +5,6 @@ import 'package:pathorder_app/data/repositories/order_repository.dart';
 import 'package:pathorder_app/data/store/session_store.dart';
 import 'package:pathorder_app/main.dart';
 import 'package:pathorder_app/ui/order_history/detail/data/order_detail_data.dart';
-import 'package:pathorder_app/ui/order_history/detail/data/order_detail_list_data.dart';
 
 // 창고 데이터
 class DetailPageModel {
@@ -26,7 +25,7 @@ class DetailPageViewModel extends StateNotifier<DetailPageModel?> {
     String jwt = sessionStore.accessToken!;
     ResponseDTO responseDTO =
         await OrderRepository().fetchDetailOrder(jwt, ids[0], ids[1]);
-    print('아 진짜 짜증나네');
+
     if (responseDTO.status == 200) {
       state = responseDTO.response;
     } else {

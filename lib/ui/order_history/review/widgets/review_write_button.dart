@@ -10,7 +10,8 @@ class ReviewWriteButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ReviewStore reviewStore = ref.watch(ReviewStoreProvider);
-    final orderReviewNotifier = ref.watch(orderReviewProviderFamily(reviewStore.orderId!).notifier);
+    final orderReviewNotifier =
+        ref.watch(orderReviewProviderFamily(reviewStore.orderId!).notifier);
     // SessionStore sessionStore = ref.read(sessionProvider);
 
     return BottomAppBar(
@@ -32,7 +33,6 @@ class ReviewWriteButton extends ConsumerWidget {
             ref
                 .watch(ReviewProvider.notifier)
                 .notifyInitAdd(reqDTO, reviewStore.storeId!);
-            print('작성하기 버튼이 눌렸습니다.');
 
             // orderReviewNotifier.setIsPosted(true);
           },

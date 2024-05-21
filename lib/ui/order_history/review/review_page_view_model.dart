@@ -28,15 +28,14 @@ class ReviewViewModel extends StateNotifier<ReviewModel?> {
 
   Future<void> notifyInitAdd(ReviewReqDTO reqDTO, int storeId) async {
     ReviewStore reviewStore = ref.watch(ReviewStoreProvider);
-    final orderReviewNotifier = ref.watch(orderReviewProviderFamily(reviewStore.orderId!).notifier);
+    final orderReviewNotifier =
+        ref.watch(orderReviewProviderFamily(reviewStore.orderId!).notifier);
     SessionStore sessionStore = ref.read(sessionProvider);
     String jwt = sessionStore.accessToken!;
 
     ResponseDTO responseDTO =
         await ReviewRepository().saveReview(storeId, reqDTO, jwt);
 
-    print("매장 아이디 : ${storeId}");
-    print("리뷰 뷰모델 : ${responseDTO.status}");
     if (responseDTO.status == 200) {
       orderReviewNotifier.setIsPosted(true);
       Navigator.pushReplacement(
