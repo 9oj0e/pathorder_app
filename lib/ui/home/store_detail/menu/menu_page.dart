@@ -8,20 +8,27 @@ import 'package:pathorder_app/ui/home/store_detail/menu/widgets/menu_search.dart
 import 'widgets/menu_bottom_app_bar.dart';
 
 class MenuPage extends ConsumerWidget {
-  int storeId;
+  final int storeId;
 
   MenuPage(this.storeId);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    MenuModel? model = ref.watch(menuProvider(storeId));
-    CartStore cartStore = ref.read(cartProvider);
+    final model = ref.watch(menuProvider(storeId));
+    final cartStore = ref.read(cartProvider);
+    final searchQuery = ref.watch(menuSearchProvider);
 
     if (model == null) {
       return Center(child: CircularProgressIndicator());
     } else {
       cartStore.setStoreName(model.store.storeName);
       cartStore.setStoreId(model.store.storeId);
+      final filteredMenu = model.store.menu.where((menu) {
+        final menuName = menu.name.toLowerCase();
+        final query = searchQuery.toLowerCase();
+        return menuName.contains(query);
+      }).toList();
+
       return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -46,17 +53,18 @@ class MenuPage extends ConsumerWidget {
             SliverList(
               delegate: SliverChildBuilderDelegate(
                 (BuildContext context, int index) {
+                  final menu = filteredMenu[index];
                   return MenuItem(
-                    menuNameKor: model.store.menu[index].name,
-                    menuNameEng: model.store.menu[index].name,
-                    price: model.store.menu[index].price,
-                    imgUrl: model.store.menu[index].imgFilename,
+                    menuNameKor: menu.name,
+                    menuNameEng: menu.name,
+                    price: menu.price,
+                    imgUrl: menu.imgFilename,
                     storeId: storeId,
-                    menuId: model.store.menu[index].id,
+                    menuId: menu.id,
                     storeName: model.store.storeName,
                   );
                 },
-                childCount: model.store.menu.length,
+                childCount: filteredMenu.length,
               ),
             ),
           ],

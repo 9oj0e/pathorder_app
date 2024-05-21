@@ -1,7 +1,17 @@
 import 'package:pathorder_app/data/repositories/store_repository.dart';
 
 void main() async {
-  await fetchStoreLikeList_test();
+  await fetchStoreSearchMenuList_test();
+}
+
+Future<void> fetchStoreSearchMenuList_test() async {
+  int storeId = 6;
+  Map<String, String> queryParam = {'keyword': "초콜릿"};
+  await StoreRepository().fetchStoreSearchMenuList(
+    'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwYXRob3JkZXIiLCJuaWNrbmFtZSI6Iuygle2YhCIsImlkIjoyLCJleHAiOjE3MTY4NjMzNDEsInVzZXJuYW1lIjoidXNlcjIifQ.RxL1B76639pUgMqqXd2my4m9uB6QnlBWN-Z5VG-eZ9eAuWS2qQ9XJtPrfoZHawFwO6xAPMC5fEDKFGV3i2jpAw',
+    storeId,
+    queryParam,
+  );
 }
 
 Future<void> fetchStoreLikeList_test() async {

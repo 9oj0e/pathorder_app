@@ -17,7 +17,7 @@ class SessionUser {
   String? accessToken;
   bool isLogin = false;
 
-  // 주문 할 메뉴 name, price, ㅂ쇼
+  // 주문 할 메뉴 name, price, qty
   String? name;
   int? price;
   int? qty;

@@ -10,7 +10,9 @@ class SessionCart {
   List<OrderMenuList> orderMenuList = [];
 
   SessionCart();
+}
 
+class CartStore extends SessionCart {
   void addToCart(OrderMenuList cartItem) {
     orderMenuList.add(cartItem);
   }
@@ -59,8 +61,6 @@ class SessionCart {
     return totalPrice;
   }
 }
-
-class CartStore extends SessionCart {}
 
 final cartProvider = StateProvider<CartStore>((ref) {
   return CartStore();

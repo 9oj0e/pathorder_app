@@ -27,6 +27,23 @@ class StoreRepository {
     return responseDTO;
   }
 
+  Future<ResponseDTO> fetchStoreSearchMenuList(
+      String accessToken, int storeId, Map<String, dynamic> queryParams) async {
+    final response = await dio.get(
+      "/api/stores/${storeId}/menus/search",
+      options: Options(headers: {"Authorization": "${accessToken}"}),
+      queryParameters: queryParams,
+    );
+
+    ResponseDTO responseDTO = ResponseDTO.fromJson(response.data);
+    Logger().d(response);
+    if (responseDTO.status == 200) {
+      responseDTO.response = Store.fromJson(responseDTO.response);
+    }
+
+    return responseDTO;
+  }
+
   Future<ResponseDTO> fetchStoreMenuList(
       String accessToken, int storeId) async {
     final response = await dio.get(
