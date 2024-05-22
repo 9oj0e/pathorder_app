@@ -30,17 +30,23 @@ kdit4-green Final Project Team 3
 ## 사용기술
 ### Front-End
 <img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white"> <img src="https://img.shields.io/badge/RiverPod-02569B?style=for-the-badge&logo=flutter&logoColor=white">
-+++ 기술 적기
+
 ### Back-End
-<img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"> <img src="https://img.shields.io/badge/gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white"> <img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
-+++ 기술 적기
+<img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"> <img src="https://img.shields.io/badge/gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white">
+
 ## 협업 툴
 <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white"> <img src="https://img.shields.io/badge/Notioin-000000?style=for-the-badge&logo=notion&logoColor=white"> <img src="https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white">
 ## ERD
 ### One
 ![66nRBpTgKcAaMdHiq](https://github.com/9oj0e/pathorder_app/assets/129649095/617089f0-a2b4-44a3-ae25-228c0ab848b7)
 # 전략
-++
+- 플러터에서 통신을 하면서 앱이 느려지는 경우가 발생을 해서 최대한 통신을 줄이기 위한 전략 적용.
+- 플러터에서 주문 하기 페이지로 이동 시 모든 메뉴를 불러오는 통신을 하기 때문에 따로 검색 통신을 한번 더 하는 것은 비효율 적이라고 생각하여 통신한 데이터들을 필터링하는 방식 사용.
+- 장바구니에 음료를 담을 때 통신을 하지 않고 플러터 쪽에서 주문하기에 필요한 주문 데이터를 저장하는 'SessionCart' 클래스를 생성하여 장바구니 관리함.
+- 지도 카메라 위치 변경 이벤트는 초당 수십번의 통신 요청을 함 -> 이것을 효율적으로 처리하기 위해 Timer를 이용해서 간단하게 디바운싱코드를 구현하여 적용.
+
+=> 이러한 전략들을 구현함으로써 저희는 애플리케이션이 불필요한 네트워크 통신을 줄이고 그로인한 사용자 경험을 향상시킬 수 있도록 노력함.
+
 # 시나리오
 ## 회원가입
 ![image_720](https://github.com/9oj0e/pathorder_app/assets/129649095/2d1d63ea-d0db-4b04-afff-fe5d392ca4eb)
