@@ -7,7 +7,7 @@ kdit4-green Final Project Team 3
 커피 구매 앱으로 자신과 가까운 거리에 있는 카페들을 조회하고 구매, 결제까지 할 수 있는 커피 구매 앱
 # 시연영상
 <a></a>
-[![Video Label](http://img.youtube.com/vi/mCFHlX2jFnk/0.jpg)](https://www.youtube.com/watch?v=1SRf4YaUzlU)
+[![Video Label](https://github.com/9oj0e/pathorder_app/assets/153582126/543f2a78-aafc-477a-90c7-4ec85b71d8e6)](https://www.youtube.com/watch?v=1SRf4YaUzlU)
 # 발표자료
 
 # 프로젝트 기간
